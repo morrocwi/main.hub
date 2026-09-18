@@ -10,6 +10,7 @@ GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
 - **Pinned:** `d46a9aab6c22` on `main`, 147 commits after tag `v1.8.0`
 - **Concept DOI:** 10.5281/zenodo.22537318
 - **Gates:** TG-RFG-01
+- **Surfaces:** mcp [Toledo MCP server](https://github.com/morrocwi/toledo/blob/d46a9aab6c22be391fc8b2486d9b101443ae158e/mcp/README.md); static-api [Toledo static read API](https://github.com/morrocwi/toledo/blob/d46a9aab6c22be391fc8b2486d9b101443ae158e/mcp/docs/STATIC_API.md); cli [toledo CLI](https://github.com/morrocwi/toledo/blob/d46a9aab6c22be391fc8b2486d9b101443ae158e/scripts/toledo) (see `SURFACES.md`)
 
 ## Read in this order
 

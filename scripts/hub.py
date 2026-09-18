@@ -33,25 +33,102 @@ ID_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
 SHA_RE = re.compile(r"[0-9a-f]{40}")
 MIN_MATCH = 12
 PATH_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._/-]*")
+DOT_PATHS = {".mcp.json", ".claude-plugin/marketplace.json"}      # the only dot-paths a graph file may name
+SURFACE_KINDS = {"plugin", "skill", "mcp", "api", "cli", "package", "static-api", "prompt"}
+BAD_TEXT = ("\n", "\r", "|", "<", ">", "](", "://", "`", "<!--")
+
+
+def ok_path(p):
+    return isinstance(p, str) and (p in DOT_PATHS or (PATH_RE.fullmatch(p) and ".." not in p.split("/")))
+
+
+def ok_text(t, cap=400):
+    """Free text that is rendered into agent-facing Markdown: one line, no markup, no links."""
+    return isinstance(t, str) and 0 < len(t) <= cap and t.isprintable() and not any(b in t for b in BAD_TEXT)
 OWNER, HOST = "morrocwi", "https://github.com"     # allow-list: never taken from a pull request
 
 
 def safe_graph(d):
-    """graph/*.yaml is pull-request data: validate ids, owner and paths before ANY command uses them."""
-    n = d["nodes"]
-    if n.get("owner") != OWNER or n.get("host") != HOST:
-        sys.exit(f"nodes.yaml: owner/host must be {OWNER} / {HOST}")
+    """graph/*.yaml is pull-request data: validate shape, ids, paths and every rendered text before ANY command uses them."""
+    def need(cond, msg):
+        if not cond:
+            sys.exit(f"graph: {msg}")
+    n, routes = d["nodes"], d["routes"]
+    need(isinstance(n, dict) and n.get("owner") == OWNER and n.get("host") == HOST, f"nodes.yaml owner/host must be {OWNER} / {HOST}")
+    for key in ("axes", "repos", "gates", "artifacts"):
+        need(isinstance(n.get(key), list) and all(isinstance(x, dict) for x in n[key]), f"nodes.yaml {key} must be a list of mappings")
+    need(isinstance(routes, dict) and isinstance(routes.get("routes"), list) and all(isinstance(x, dict) for x in routes["routes"]),
+         "routes.yaml routes must be a list of mappings")
+    lens = n.get("lens")
+    need(isinstance(lens, dict), "nodes.yaml lens must be a mapping (Step 0)")
+    need(isinstance(lens.get("facets"), list) and lens["facets"] and all(isinstance(x, dict) for x in lens["facets"]), "lens.facets must be a non-empty list of mappings")
+    need(isinstance(lens.get("sources"), list) and lens["sources"] and all(isinstance(x, dict) for x in lens["sources"]), "lens.sources must be a non-empty list of mappings")
     every = ([("repository", r.get("id")) for r in n["repos"]] + [("axis", a.get("id")) for a in n["axes"]]
              + [("gate", g.get("id")) for g in n["gates"]] + [("artifact", a.get("id")) for a in n["artifacts"]]
-             + [("route", r.get("id")) for r in d["routes"]["routes"]])
+             + [("route", r.get("id")) for r in routes["routes"]] + [("lens", lens.get("id"))]
+             + [("lens facet", f.get("id")) for f in lens["facets"]])
     for kind, i in every:
-        if not isinstance(i, str) or not ID_RE.fullmatch(i) or ".." in i:
-            sys.exit(f"unsafe {kind} id {i!r}")
+        need(isinstance(i, str) and ID_RE.fullmatch(i) and ".." not in i, f"unsafe {kind} id {i!r}")
+    for kind in ("repository", "route", "lens facet", "gate", "axis", "artifact"):
+        ids_k = [i for k, i in every if k == kind]
+        need(len(ids_k) == len(set(ids_k)), f"duplicate {kind} id")
+    need(not any(i.lower() in ("step-0", "gates") for k, i in every if k == "route"), "route ids step-0 and gates are reserved headings")
+    ids = {r["id"] for r in n["repos"]}
+    axis_ids = {a["id"] for a in n["axes"]}
+    for r in n["repos"]:
+        need(r.get("class") in CLASSES, f"{r['id']}: class must be one of {sorted(CLASSES)}")
+        need(r.get("axis") is None or r["axis"] in axis_ids, f"{r['id']}: unknown axis {r.get('axis')!r}")
+        need(isinstance(r.get("gates", []), list) and all(isinstance(g, str) and ID_RE.fullmatch(g) for g in r.get("gates", [])), f"{r['id']}: gates malformed")
+    ed = d["edges"]
+    need(isinstance(ed, dict) and isinstance(ed.get("types"), dict) and isinstance(ed.get("edges"), list), "edges.yaml needs types and edges")
+    for k, v in ed["types"].items():
+        need(isinstance(k, str) and ID_RE.fullmatch(k), f"edge type name {k!r} malformed")
+        need(ok_text(v), f"edge type {k} description: must be one line of plain text")
+    node_ref = re.compile(r"(axis:|gate:|hub:)?[A-Za-z0-9][A-Za-z0-9._-]*")
+    for e in ed["edges"]:
+        for key in ("from", "to"):
+            need(isinstance(e.get(key), str) and node_ref.fullmatch(e[key]), f"edge endpoint {e.get(key)!r} malformed")
+        need(e.get("type") in ed["types"], f"edge type {e.get('type')!r} is not declared")
+    facet_ids = {f["id"] for f in lens["facets"]}
+    # every text that is rendered into Markdown an agent will read
+    texts = [("lens.name", lens.get("name")), ("lens.instruction", lens.get("instruction")), ("lens.then", lens.get("then"))]
+    texts += [(f"lens facet {f['id']} label", f.get("label")) for f in lens["facets"]]
+    texts += [(f"axis {a['id']} question", a.get("question")) for a in n["axes"]]
+    for g in n["gates"]:
+        texts += [(f"gate {g['id']} name", g.get("name")), (f"gate {g['id']} summary", g.get("summary"))]
+    for a in n["artifacts"]:
+        texts += [(f"artifact {a['id']} name", a.get("name"))]
+    for r in n["repos"]:
+        texts.append((f"{r['id']} role", r.get("role")))
+        if r.get("surface_note") is not None:
+            texts.append((f"{r['id']} surface_note", r["surface_note"]))
+        for key in ("is", "is_not"):
+            need(isinstance(r.get(key), list), f"{r['id']} {key} must be a list")
+            texts += [(f"{r['id']} {key}", t) for t in r[key]]
+        need(isinstance(r.get("enter"), list) and r["enter"], f"{r['id']} enter must be a non-empty list")
+        need(r.get("doi") is None or (isinstance(r["doi"], str) and re.fullmatch(r"10\.\d{4,9}/[A-Za-z0-9._-]+", r["doi"])), f"{r['id']} doi malformed")
+        for sf in r.get("surfaces", []) or []:
+            need(isinstance(sf, dict) and sf.get("kind") in SURFACE_KINDS, f"{r['id']} surface kind must be one of {sorted(SURFACE_KINDS)}")
+            texts += [(f"{r['id']} surface name", sf.get("name")), (f"{r['id']} surface use", sf.get("use"))]
+            for key in ("marketplace", "plugin", "config"):
+                need(sf.get(key) is None or (key == "config" and ok_path(sf[key])) or (key != "config" and isinstance(sf[key], str) and ID_RE.fullmatch(sf[key])),
+                     f"{r['id']} surface {key} malformed")
+            need(sf.get("url") is None or (isinstance(sf["url"], str) and re.fullmatch(rf"https://{OWNER}\.github\.io/{re.escape(r['id'])}/", sf["url"])),
+                 f"{r['id']} surface url must be the repository's own pages site")
+            need((sf["kind"] == "plugin") == bool(sf.get("marketplace") and sf.get("plugin")), f"{r['id']} plugin surfaces need marketplace and plugin names")
+    for r in routes["routes"]:
+        need(isinstance(r.get("steps"), list) and r["steps"] and isinstance(r.get("gates"), list), f"route {r['id']} needs steps and gates")
+        texts += [(f"route {r['id']} when", r.get("when")), (f"route {r['id']} then", r.get("then"))]
+        texts += [(f"route {r['id']} why", st.get("why")) for st in r["steps"] if isinstance(st, dict)]
+    for where, t in texts:
+        need(ok_text(t), f"{where}: must be one line of plain text (no markup, links, pipes or backticks; at most 400 characters)")
+    for s_ in lens["sources"]:
+        need(s_.get("facet") in facet_ids, f"lens source {s_.get('repo')}:{s_.get('path')}: unknown facet {s_.get('facet')!r}")
+        need(s_.get("read") in ("first", "also"), f"lens source {s_.get('repo')}:{s_.get('path')}: read must be first or also")
     for repo, path, match, label in references(d):
-        if not isinstance(repo, str) or not isinstance(path, str) or not PATH_RE.fullmatch(path) or ".." in path.split("/"):
-            sys.exit(f"{label}: unsafe repository or path {path!r}")
-        if match is not None and not isinstance(match, str):
-            sys.exit(f"{label}: evidence text must be a string")
+        need(repo in ids, f"{label}: unknown repository {repo!r}")
+        need(ok_path(path), f"{label}: unsafe path {path!r}")
+        need(match is None or (isinstance(match, str) and match.isprintable()), f"{label}: evidence text must be a single-line printable string")
 
 
 def safe_lock(d):
@@ -71,7 +148,7 @@ def safe_lock(d):
         if not ok:
             sys.exit(f"lock.yaml: unsafe or malformed entry for {rid!r}")
         for p, blob in L["paths"].items():
-            if not isinstance(p, str) or not PATH_RE.fullmatch(p) or ".." in p.split("/") or not SHA_RE.fullmatch(str(blob)):
+            if not ok_path(p) or not SHA_RE.fullmatch(str(blob)):
                 sys.exit(f"lock.yaml: unsafe path or blob {p!r} in {rid}")
 
 
@@ -126,6 +203,13 @@ def references(d):
         out.append((ev.get("in", e["from"]), ev["path"], ev["match"], f"edge {e['from']} {e['type']} {e['to']}"))
     for r in d["routes"]["routes"]:
         out += [(s["repo"], s["path"], None, f"route {r['id']}") for s in r["steps"]]
+    lens = nodes.get("lens") or {}
+    out += [(s.get("repo"), s.get("path"), s.get("match"), f"lens source {s.get('repo')}:{s.get('path')}") for s in lens.get("sources", [])]
+    for r in nodes["repos"]:
+        for sf in r.get("surfaces", []) or []:
+            out.append((r["id"], sf.get("path"), sf.get("match"), f"surface {r['id']} {sf.get('kind')} {sf.get('name')}"))
+            if sf.get("config"):
+                out.append((r["id"], sf["config"], None, f"surface {r['id']} config"))
     return out
 
 
@@ -198,7 +282,22 @@ def render(d):
     out, gates = {}, {g["id"]: g for g in nodes["gates"]}
 
     # --- ROUTES.md and the AGENTS.md block
-    table = ["| If you are about to... | Go to | Gates |", "|---|---|---|"]
+    lens = nodes["lens"]
+    facet_name = {f["id"]: f["label"] for f in lens["facets"]}
+    table = ["| If you are about to... | Go to | Gates |", "|---|---|---|",
+             f"| **Anything at all - before you commit to a classification or a route** | [Step 0: {lens['name']}](ROUTES.md#step-0) | - |",
+             "| You need a tool rather than a text: a skill to load, an MCP server, an API, a CLI or a package | [SURFACES.md](SURFACES.md) | - |"]
+    step0 = ["## Step 0", "", f"**{lens['name']} - mandatory, before any route below.** {lens['instruction']}", "",
+             "What the lens says is defined only in the files below. Each line names a file and quotes a phrase that is",
+             "checked to occur exactly once in the pinned file; the label before the quote is this hub's paraphrase and is",
+             "not machine-verified. Applying the lens before every route is this hub's ordering rule.", ""]
+    for title, tag in (("Read first", "first"), ("Also stated in (read the passage around the quoted phrase)", "also")):
+        step0 += [f"**{title}**", ""]
+        for i, s in enumerate([x for x in lens["sources"] if x["read"] == tag], 1):
+            step0.append(f"{i}. `{s['repo']}` / [`{s['path']}`]({blob_url(d, s['repo'], s['path'])}) - {facet_name[s['facet']]}: \"{s['match']}\"  ")
+            step0.append(f"   raw: <{raw_url(d, s['repo'], s['path'])}>")
+        step0.append("")
+    step0 += [f"**Then:** {lens['then']}", ""]
     body = []
     for r in routes:
         first = r["steps"][0]
@@ -217,7 +316,7 @@ def render(d):
         ["# Routes", "", "GENERATED from `graph/routes.yaml` by `python scripts/hub.py build` - do not hand-edit.",
          f"Every link is pinned to the public commit recorded in `graph/lock.yaml` ({lock['generated_on']}).",
          "A pin is a readout of one moment: compare it with the live default branch before relying on it.",
-         "", *table, "", *body, *gate_lines, ""])
+         "", *table, "", *step0, *body, *gate_lines, ""])
     out["__routes_block__"] = "\n".join(table)
 
     # --- node cards
@@ -236,6 +335,11 @@ def render(d):
             c.append(f"- **Concept DOI:** {r['doi']}")
         if r.get("gates"):
             c.append(f"- **Gates:** {', '.join(r['gates'])}")
+        mine_lens = [s for s in lens["sources"] if s["repo"] == r["id"]]
+        if r.get("surfaces"):
+            c.append("- **Surfaces:** " + "; ".join(f"{sf['kind']} [{sf['name']}]({blob_url(d, r['id'], sf['path'])})" for sf in r["surfaces"]) + " (see `SURFACES.md`)")
+        if mine_lens:
+            c.append("- **Lens source (Step 0):** " + "; ".join(f"[`{s['path']}`]({blob_url(d, s['repo'], s['path'])})" for s in mine_lens))
         c += ["", "## Read in this order", ""]
         c += [f"{i}. [`{p}`]({blob_url(d, r['id'], p)})" for i, p in enumerate(r["enter"], 1)]
         c += ["", "## Verified edges", ""]
@@ -252,16 +356,49 @@ def render(d):
             c += ["", "## Neighbour cards", "", " · ".join(f"[[{x}]]" for x in near)]
         out[f"nodes/{r['id']}.md"] = "\n".join(c) + "\n"
 
+    # --- SURFACES.md: skills, plugins, MCP servers, APIs, CLIs, packages
+    order = ["plugin", "skill", "prompt", "mcp", "api", "static-api", "cli", "package"]
+    title = {"plugin": "Installable plugins (skill bundles)", "skill": "Skill files (plain Markdown, any agent can read them)",
+             "prompt": "Vendor-neutral prompt packets", "mcp": "MCP servers", "api": "Library and service APIs",
+             "static-api": "Static read APIs (no MCP client needed)", "cli": "Command-line tools", "package": "Installable packages"}
+    sv = ["# Surfaces", "", "GENERATED from `graph/nodes.yaml` by `python scripts/hub.py build` - do not hand-edit.",
+          "Callable and loadable things the public repositories already ship. Every entry is a pinned file in its",
+          "repository; plugin and marketplace names are checked against the pinned marketplace manifest. The hub ships",
+          "none of these itself: install and run them from their own repository, under that repository's licence and rules.",
+          "Apply Step 0 (`ROUTES.md`) and the gates of your route before using any of them.", ""]
+    for k in order:
+        rows = [(r, sf) for r in nodes["repos"] for sf in (r.get("surfaces") or []) if sf["kind"] == k]
+        if not rows:
+            continue
+        sv += [f"## {title[k]}", ""]
+        for r, sf in rows:
+            line = f"- **{sf['name']}** (`{r['id']}`) - {sf['use']} File: [`{sf['path']}`]({blob_url(d, r['id'], sf['path'])})"
+            if sf.get("config"):
+                line += f", client config: [`{sf['config']}`]({blob_url(d, r['id'], sf['config'])})"
+            if sf.get("url"):
+                line += f", endpoint: <{sf['url']}>"
+            if r.get("gates"):
+                line += f". Gates: {', '.join(r['gates'])}"
+            if r.get("surface_note"):
+                line += f". Note: {r['surface_note']}"
+            sv.append(line)
+            if k == "plugin":
+                sv.append(f"  install: `/plugin marketplace add {OWNER}/{r['id']}` then `/plugin install {sf['plugin']}@{sf['marketplace']}` (or as that repository's README states; a plugin installs from the ref its manifest names, which can differ from the file pinned here)")
+        sv.append("")
+    out["SURFACES.md"] = "\n".join(sv)
+
     # --- llms.txt
     t = ["# main.hub", "",
          "> One entry point for an AI agent: which public repository of the readout programme answers which",
          "> question, which file to read first, and which gate applies. Pointers and edges only, no content.", "",
-         "## Start", "- AGENTS.md : the protocol and the route table", "- ROUTES.md : every route with commit-pinned raw URLs",
+         "## Start", "- ROUTES.md#step-0 : read first - the lens every route is preceded by", "- AGENTS.md : the protocol and the route table",
+         "- SURFACES.md : skills, plugins, MCP servers, APIs, CLIs and packages the repositories ship", "- ROUTES.md : every route with commit-pinned raw URLs",
          "- graph/hub.json : the whole graph, machine-readable", "- graph/lock.yaml : commit and blob pins", "", "## Repositories"]
     t += [f"- {r['id']} ({r['class']}) : {r['role']} {repo_url(nodes, r['id'])}" for r in nodes["repos"]]
     out["llms.txt"] = "\n".join(t) + "\n"
 
     # --- hub.json / hub.graphml
+    ge_surface = []
     gn = [{"id": "hub:main.hub", "kind": "HUB"}]
     gn += [{"id": f"axis:{a['id']}", "kind": "AXIS", "question": a["question"]} for a in nodes["axes"]]
     gn += [{"id": r["id"], "kind": "REPO", "class": r["class"], "axis": r.get("axis"), "role": r["role"],
@@ -269,14 +406,25 @@ def render(d):
             "tag": lock["repos"][r["id"]]["tag"], "enter": r["enter"]} for r in nodes["repos"]]
     gn += [{"id": f"gate:{g['id']}", "kind": "GATE", "name": g["name"]} for g in nodes["gates"]]
     gn += [{"id": f"artifact:{a['id']}", "kind": "ARTIFACT", "name": a["name"]} for a in nodes["artifacts"]]
+    gn.append({"id": f"lens:{lens['id']}", "kind": "LENS", "name": lens["name"]})
+    for r in nodes["repos"]:
+        for sf in r.get("surfaces") or []:
+            sid = f"surface:{r['id']}:{sf['kind']}:{sf['path']}"
+            gn.append({"id": sid, "kind": "SURFACE", "surface": sf["kind"], "name": sf["name"], "path": sf["path"],
+                       "marketplace": sf.get("marketplace"), "plugin": sf.get("plugin"), "url": sf.get("url")})
+            ge_surface.append({"source": sid, "target": r["id"], "type": "provided-by"})
     ge = [{"source": e["from"], "target": e["to"], "type": e["type"],
            "evidence": {"repo": e["evidence"].get("in", e["from"]), "path": e["evidence"]["path"],
                         "match": e["evidence"]["match"]}} for e in edges]
+    ge += ge_surface
     for a in nodes["artifacts"]:
         ge.append({"source": f"artifact:{a['id']}", "target": a["source_of_truth"]["repo"], "type": "source-of-truth-in"})
         ge += [{"source": f"artifact:{a['id']}", "target": m["repo"], "type": "mirrored-in"} for m in a.get("mirrors", [])]
+    ge += [{"source": f"lens:{lens['id']}", "target": s["repo"], "type": "stated-in", "facet": s["facet"],
+            "evidence": {"repo": s["repo"], "path": s["path"], "match": s["match"]}} for s in lens["sources"]]
     for r in d["routes"]["routes"]:
         gn.append({"id": f"route:{r['id']}", "kind": "ROUTE", "when": r["when"]})
+        ge.append({"source": f"route:{r['id']}", "target": f"lens:{lens['id']}", "type": "preceded-by"})
         ge += [{"source": f"route:{r['id']}", "target": s["repo"], "type": "reads", "order": i, "path": s["path"]}
                for i, s in enumerate(r["steps"], 1)]
         ge += [{"source": f"route:{r['id']}", "target": f"gate:{g}", "type": "passes"} for g in r["gates"]]
@@ -303,6 +451,10 @@ def cmd_build(_args):
     d = load()
     if not d["lock"]:
         sys.exit("build: run `lock` first")
+    problems = []
+    check_structure(d, problems.append)
+    if problems:
+        sys.exit("build: refusing to render an invalid graph:\n  " + "\n  ".join(problems))
     files = render(d)
     block = files.pop("__routes_block__")
     files["AGENTS.md"] = agents_with_block(block)
@@ -382,11 +534,25 @@ def check_structure(d, err):
     for rid in ids:
         if not ID_RE.match(rid):
             err(f"repository id not safe as a directory name: {rid}")
+    lens = nodes.get("lens") or {}
+    facets = {f["id"] for f in lens.get("facets", [])}
+    srcs = lens.get("sources", [])
+    if not facets or not srcs:
+        err("lens: nodes.yaml must define lens.facets and lens.sources (Step 0)")
+    for s in srcs:
+        if s.get("facet") not in facets:
+            err(f"lens source {s.get('repo')}:{s.get('path')}: unknown facet {s.get('facet')}")
+        if not s.get("match"):
+            err(f"lens source {s.get('repo')}:{s.get('path')}: no evidence text")
+    for f in facets - {s.get("facet") for s in srcs}:
+        err(f"lens facet {f} is stated by no source - the hub may not assert a facet on its own")
+    if len({s.get("repo") for s in srcs}) < 2:
+        err("lens: sources must come from at least two repositories")
 
 
 def check_pins(d, err, warn, workspace, remote, heads):
     lock = d["lock"]["repos"]
-    trees = {}
+    trees, raws = {}, {}
     for repo, L in lock.items():       # a commit served by the URL may live in a fork: require the default branch
         if workspace:
             rdir = Path(workspace).resolve() / repo
@@ -426,7 +592,9 @@ def check_pins(d, err, warn, workspace, remote, heads):
                 blob = c["sha"] if isinstance(c, dict) else None   # a directory cannot be verified this way: fail
             else:
                 blob = trees[repo].get(path)
-            text = http(raw_url(d, repo, path), raw=True) if match else None
+            if match and (repo, path) not in raws:
+                raws[(repo, path)] = http(raw_url(d, repo, path), raw=True)
+            text = raws.get((repo, path)) if match else None
           except Exception as e:                                     # noqa: BLE001
             if trees.get(repo, 0) != "failed":
                 err(f"{repo}: cannot read from GitHub ({e}) - set GITHUB_TOKEN if this is a rate limit")
@@ -461,6 +629,24 @@ def check_modes(err):
     for p in ROOT.rglob("*"):
         if ".git" not in p.parts and p.is_symlink():
             err(f"{p.relative_to(ROOT)}: symbolic links are not allowed in this repository")
+
+
+def check_plugins(d, err, workspace, remote):
+    """A plugin surface names a marketplace and a plugin: both must be what the pinned manifest says."""
+    for r in d["nodes"]["repos"]:
+        for sf in r.get("surfaces") or []:
+            if sf["kind"] != "plugin" or not (workspace or remote):
+                continue
+            L = d["lock"]["repos"][r["id"]]
+            try:
+                raw = (git(Path(workspace).resolve() / r["id"], "show", f"{L['commit']}:{sf['path']}", check=False) if workspace
+                       else http(raw_url(d, r["id"], sf["path"]), raw=True))
+                m = json.loads(raw or "")
+                names = [p.get("name") for p in m.get("plugins", []) if isinstance(p, dict)]
+                if m.get("name") != sf["marketplace"] or sf["plugin"] not in names:
+                    err(f"surface {r['id']} plugin: manifest says marketplace {m.get('name')!r} plugins {names}, graph says {sf['marketplace']!r} / {sf['plugin']!r}")
+            except Exception as e:                                   # noqa: BLE001
+                err(f"surface {r['id']} plugin: cannot read the pinned manifest ({e})")
 
 
 def check_generated(d, err):
@@ -507,7 +693,8 @@ def check_leaks(err):
             for p in pats:
                 if "@" in p and "@" not in line:
                     continue
-                if re.search(p, line[:20000]):
+                probe = re.sub(r"\.claude-plugin/(marketplace|plugin)\.json", "", line[:20000]) if "claude" in p else line[:20000]
+                if re.search(p, probe):   # the manifest path is a standard file name, not a credit
                     err(f"leak scan: {rel}:{n} matches /{p}/")
     body = git(ROOT, "log", "--format=%B", check=False) or ""
     for p in [q for q in LEAKS if "@" not in q]:
@@ -526,6 +713,7 @@ def cmd_check(args):
     safe_lock(d)
     check_structure(d, errors.append)
     check_pins(d, errors.append, warnings.append, args.workspace, args.remote, args.heads)
+    check_plugins(d, errors.append, args.workspace, args.remote)
     check_generated(d, errors.append)
     check_modes(errors.append)
     n_local = check_leaks(errors.append)

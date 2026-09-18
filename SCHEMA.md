@@ -8,7 +8,7 @@
 | `graph/edges.yaml` | hand | edge types and edges, each with evidence |
 | `graph/routes.yaml` | hand | intent -> ordered reads -> gates |
 | `graph/lock.yaml` | `hub.py lock` | per repository: url, branch, commit, nearest tag, blob of every referenced path |
-| `ROUTES.md`, `llms.txt`, `nodes/*.md`, `graph/hub.json`, `graph/hub.graphml`, route table in `AGENTS.md` | `hub.py build` | renderings; never hand-edited |
+| `ROUTES.md`, `SURFACES.md`, `llms.txt`, `nodes/*.md`, `graph/hub.json`, `graph/hub.graphml`, route table in `AGENTS.md` | `hub.py build` | renderings; never hand-edited |
 
 One fact has one home. If a fact appears in a generated file and is wrong, fix the YAML.
 
@@ -22,6 +22,8 @@ One fact has one home. If a fact appears in a generated file and is wrong, fix t
 | `GATE` | `gate:<id>` | a rule defined in some repository that work must pass. `TG-RFG-01` is the target's own id; the other gate ids are labels coined by this hub for a rule the target defines |
 | `ARTIFACT` | `artifact:<id>` | one thing with more than one public copy; names its source of truth |
 | `ROUTE` | `route:<id>` | an intent and the reading path that serves it |
+| `LENS` | `lens:<id>` | Step 0: the reading every route is preceded by. Each facet must be stated by a source file with a checked quotation; the facet label is the hub's paraphrase of that sentence and is not machine-verified. The ordering itself is the hub's own rule |
+| `SURFACE` | `surface:<repo>:<kind>:<path>` | a skill, plugin, prompt packet, MCP server, API, CLI or package a repository ships, as a pinned file; plugin and marketplace names are verified against the pinned manifest |
 
 ## Admission rule for a repository
 
@@ -64,10 +66,14 @@ card says so. `check --heads` warns when a default branch has moved past its pin
 2. pins - every referenced path is pinned, its blob still matches, and the pinned commit is on the
    repository's public default branch, not merely served by its URL (`--workspace` or `--remote`);
 3. evidence - every `match` text occurs exactly once in its pinned blob;
-4. generated - every generated file equals a fresh render;
-5. leak scan - no local path, private address, internal ticket or session id, mail address,
+4. lens and surfaces - every lens facet is stated by a source, sources span at least two repositories,
+   and each plugin surface's marketplace and plugin names equal the pinned manifest (`--workspace` or `--remote`);
+5. generated - every generated file equals a fresh render;
+6. leak scan - no local path, private address, internal ticket or session id, mail address,
    credential-shaped string, or tool / vendor attribution in any tracked file. Organisation-specific
    forbidden names go in the untracked `.leakpatterns.local`, one regular expression per line.
 
-Without `--workspace` or `--remote`, checks 2 and 3 verify only that pins exist, and the summary
-line says so.
+Without `--workspace` or `--remote` (the mode the pre-commit hook runs), pins, evidence and plugin
+manifests are NOT re-verified, and the summary line says so. Free-text fields are validated as one
+printable line without markup or links, but what they say is reviewed by hand: a plain-prose
+instruction would pass the validator.

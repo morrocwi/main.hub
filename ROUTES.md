@@ -6,6 +6,8 @@ A pin is a readout of one moment: compare it with the live default branch before
 
 | If you are about to... | Go to | Gates |
 |---|---|---|
+| **Anything at all - before you commit to a classification or a route** | [Step 0: Lens first - an ordering rule](ROUTES.md#step-0) | - |
+| You need a tool rather than a text: a skill to load, an MCP server, an API, a CLI or a package | [SURFACES.md](SURFACES.md) | - |
 | You are about to write, derive, cite or reuse ANY equation, definition or theorem. | [`toledo`](ROUTES.md#equation) | TG-RFG-01 |
 | You need to say what an object IS, which domain it belongs to, or how two domains relate. | [`readout_genesis`](ROUTES.md#ontology) | TG-RFG-01 |
 | You are about to call something proven, verified, settled, open or hard. | [`readout_universe`](ROUTES.md#claim-strength) | TIER-TAGGING |
@@ -16,6 +18,36 @@ A pin is a readout of one moment: compare it with the live default branch before
 | You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.) | [`birca`](ROUTES.md#health) | BIRCA-SAFETY-GATE |
 | The task touches the Navier-Stokes readout problem or the finite-bridge programme. | [`readout-problem-navier-stokes`](ROUTES.md#navier-stokes) | TG-RFG-01, TIER-TAGGING |
 | You are analysing an incident, complaint, conflict, anomaly or decision. | [`skillme`](ROUTES.md#issue-analysis) | - |
+
+## Step 0
+
+**Lens first - an ordering rule - mandatory, before any route below.** Before you commit to a classification, a decomposition, a hypothesis, a route or a solution, read the files under Read first. Then write a short lens note on the raw input, answering what those files ask for, and keep it with your work.
+
+What the lens says is defined only in the files below. Each line names a file and quotes a phrase that is
+checked to occur exactly once in the pinned file; the label before the quote is this hub's paraphrase and is
+not machine-verified. Applying the lens before every route is this hub's ordering rule.
+
+**Read first**
+
+1. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md) - there is no truth-behind-the-claim to read off directly; what you have, when you assert something, is a finite readout (stated there as a stance, tier Dr): "There is no truth-behind-the-claim waiting to be read off directly"  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md>
+2. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md) - name which kind of readout you have, and never let the label creep stronger than its evidence: "name which kind of readout you have"  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md>
+3. `glosa` / [`methodology/P00_lens.md`](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/methodology/P00_lens.md) - before touching evidence for any claim, translate the problem into the readout vocabulary, analyse there, then translate back (a rule that file marks tier Dr): "never analyse a problem directly in world-language and call the result rigorous"  
+   raw: <https://raw.githubusercontent.com/morrocwi/glosa/106acb3ee985f91511a61f31840e046fb1e76034/methodology/P00_lens.md>
+4. `skillme` / [`plugins/skillme/skills/skillme/SKILL.md`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/plugins/skillme/skills/skillme/SKILL.md) - separate what difference is retained, from what state, under what context/query/resolution: "what difference is retained, from what state"  
+   raw: <https://raw.githubusercontent.com/morrocwi/skillme/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/plugins/skillme/skills/skillme/SKILL.md>
+
+**Also stated in (read the passage around the quoted phrase)**
+
+1. `information-discrete-math` / [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/e4932afee144484759f0f3275e69fc923b80d091/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md) - everything an agency reads is a finite retained difference - a readout (stated there as a stance, tier Dr): "Everything an agency ever reads is a finite retained difference"  
+   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/e4932afee144484759f0f3275e69fc923b80d091/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md>
+2. `readout_genesis` / [`README.md`](https://github.com/morrocwi/readout_genesis/blob/1ca99bacc77624f75dd4c5752cbe20a0c9907618/README.md) - readout-not-truth - verified structure is not physical truth, and every claim carries a tier: "Verified structure is not physical truth"  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/1ca99bacc77624f75dd4c5752cbe20a0c9907618/README.md>
+3. `glosa` / [`plugins/glosa/skills/glosa-blackbox-note/SKILL.md`](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/plugins/glosa/skills/glosa-blackbox-note/SKILL.md) - every hypothesis statement carries a signature line naming the lens its lens_ref points at: "Every hypothesis statement carries a signature line naming the lens `lens_ref` points at"  
+   raw: <https://raw.githubusercontent.com/morrocwi/glosa/106acb3ee985f91511a61f31840e046fb1e76034/plugins/glosa/skills/glosa-blackbox-note/SKILL.md>
+
+**Then:** Record the problem type after the lens note, not before, and only then pick a route. If a later step contradicts the note, revise the note in the open.
 
 ## equation
 

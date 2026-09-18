@@ -26,6 +26,30 @@
 <node id="gate:GLOSA-PUBLISH-GATE"><data key="kind">GATE</data></node>
 <node id="gate:BIRCA-SAFETY-GATE"><data key="kind">GATE</data></node>
 <node id="artifact:universe-step-by-step"><data key="kind">ARTIFACT</data></node>
+<node id="lens:READOUT-LENS"><data key="kind">LENS</data></node>
+<node id="surface:toledo:mcp:mcp/README.md"><data key="kind">SURFACE</data></node>
+<node id="surface:toledo:static-api:mcp/docs/STATIC_API.md"><data key="kind">SURFACE</data></node>
+<node id="surface:toledo:cli:scripts/toledo"><data key="kind">SURFACE</data></node>
+<node id="surface:information-discrete-math:plugin:.claude-plugin/marketplace.json"><data key="kind">SURFACE</data></node>
+<node id="surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md"><data key="kind">SURFACE</data></node>
+<node id="surface:information-discrete-math:api:API.md"><data key="kind">SURFACE</data></node>
+<node id="surface:information-discrete-math:api:capabilities.json"><data key="kind">SURFACE</data></node>
+<node id="surface:readout_universe:plugin:.claude-plugin/marketplace.json"><data key="kind">SURFACE</data></node>
+<node id="surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md"><data key="kind">SURFACE</data></node>
+<node id="surface:glosa:plugin:.claude-plugin/marketplace.json"><data key="kind">SURFACE</data></node>
+<node id="surface:glosa:skill:plugins/glosa/skills/glosa/SKILL.md"><data key="kind">SURFACE</data></node>
+<node id="surface:glosa:prompt:plugins/glosa/PROMPT_PACKET.md"><data key="kind">SURFACE</data></node>
+<node id="surface:glosa:mcp:mcp/README.md"><data key="kind">SURFACE</data></node>
+<node id="surface:glosa:cli:cli/README.md"><data key="kind">SURFACE</data></node>
+<node id="surface:birca:skill:SKILL.md"><data key="kind">SURFACE</data></node>
+<node id="surface:birca:prompt:SYSTEM_PROMPT.md"><data key="kind">SURFACE</data></node>
+<node id="surface:birca:mcp:mcp_server/README.md"><data key="kind">SURFACE</data></node>
+<node id="surface:skillme:plugin:.claude-plugin/marketplace.json"><data key="kind">SURFACE</data></node>
+<node id="surface:skillme:skill:plugins/skillme/skills/skillme/SKILL.md"><data key="kind">SURFACE</data></node>
+<node id="surface:skillme:cli:skillme_protocol_kernel.py"><data key="kind">SURFACE</data></node>
+<node id="surface:finite-readout-acceleration:package:pyproject.toml"><data key="kind">SURFACE</data></node>
+<node id="surface:seth-skill:plugin:.claude-plugin/marketplace.json"><data key="kind">SURFACE</data></node>
+<node id="surface:seth-skill:skill:plugins/seth/skills/seth/SKILL.md"><data key="kind">SURFACE</data></node>
 <node id="route:equation"><data key="kind">ROUTE</data></node>
 <node id="route:ontology"><data key="kind">ROUTE</data></node>
 <node id="route:claim-strength"><data key="kind">ROUTE</data></node>
@@ -62,8 +86,39 @@
 <edge source="readout-problem-navier-stokes" target="readout_genesis"><data key="type">checks-ontology-against</data></edge>
 <edge source="birca" target="readout_genesis"><data key="type">declares-lineage-from</data></edge>
 <edge source="readout_universe" target="readout_genesis"><data key="type">holds-synced-copy-from</data></edge>
+<edge source="surface:toledo:mcp:mcp/README.md" target="toledo"><data key="type">provided-by</data></edge>
+<edge source="surface:toledo:static-api:mcp/docs/STATIC_API.md" target="toledo"><data key="type">provided-by</data></edge>
+<edge source="surface:toledo:cli:scripts/toledo" target="toledo"><data key="type">provided-by</data></edge>
+<edge source="surface:information-discrete-math:plugin:.claude-plugin/marketplace.json" target="information-discrete-math"><data key="type">provided-by</data></edge>
+<edge source="surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md" target="information-discrete-math"><data key="type">provided-by</data></edge>
+<edge source="surface:information-discrete-math:api:API.md" target="information-discrete-math"><data key="type">provided-by</data></edge>
+<edge source="surface:information-discrete-math:api:capabilities.json" target="information-discrete-math"><data key="type">provided-by</data></edge>
+<edge source="surface:readout_universe:plugin:.claude-plugin/marketplace.json" target="readout_universe"><data key="type">provided-by</data></edge>
+<edge source="surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md" target="readout_universe"><data key="type">provided-by</data></edge>
+<edge source="surface:glosa:plugin:.claude-plugin/marketplace.json" target="glosa"><data key="type">provided-by</data></edge>
+<edge source="surface:glosa:skill:plugins/glosa/skills/glosa/SKILL.md" target="glosa"><data key="type">provided-by</data></edge>
+<edge source="surface:glosa:prompt:plugins/glosa/PROMPT_PACKET.md" target="glosa"><data key="type">provided-by</data></edge>
+<edge source="surface:glosa:mcp:mcp/README.md" target="glosa"><data key="type">provided-by</data></edge>
+<edge source="surface:glosa:cli:cli/README.md" target="glosa"><data key="type">provided-by</data></edge>
+<edge source="surface:birca:skill:SKILL.md" target="birca"><data key="type">provided-by</data></edge>
+<edge source="surface:birca:prompt:SYSTEM_PROMPT.md" target="birca"><data key="type">provided-by</data></edge>
+<edge source="surface:birca:mcp:mcp_server/README.md" target="birca"><data key="type">provided-by</data></edge>
+<edge source="surface:skillme:plugin:.claude-plugin/marketplace.json" target="skillme"><data key="type">provided-by</data></edge>
+<edge source="surface:skillme:skill:plugins/skillme/skills/skillme/SKILL.md" target="skillme"><data key="type">provided-by</data></edge>
+<edge source="surface:skillme:cli:skillme_protocol_kernel.py" target="skillme"><data key="type">provided-by</data></edge>
+<edge source="surface:finite-readout-acceleration:package:pyproject.toml" target="finite-readout-acceleration"><data key="type">provided-by</data></edge>
+<edge source="surface:seth-skill:plugin:.claude-plugin/marketplace.json" target="seth-skill"><data key="type">provided-by</data></edge>
+<edge source="surface:seth-skill:skill:plugins/seth/skills/seth/SKILL.md" target="seth-skill"><data key="type">provided-by</data></edge>
 <edge source="artifact:universe-step-by-step" target="readout_genesis"><data key="type">source-of-truth-in</data></edge>
 <edge source="artifact:universe-step-by-step" target="readout_universe"><data key="type">mirrored-in</data></edge>
+<edge source="lens:READOUT-LENS" target="readout_universe"><data key="type">stated-in</data></edge>
+<edge source="lens:READOUT-LENS" target="readout_universe"><data key="type">stated-in</data></edge>
+<edge source="lens:READOUT-LENS" target="glosa"><data key="type">stated-in</data></edge>
+<edge source="lens:READOUT-LENS" target="skillme"><data key="type">stated-in</data></edge>
+<edge source="lens:READOUT-LENS" target="information-discrete-math"><data key="type">stated-in</data></edge>
+<edge source="lens:READOUT-LENS" target="readout_genesis"><data key="type">stated-in</data></edge>
+<edge source="lens:READOUT-LENS" target="glosa"><data key="type">stated-in</data></edge>
+<edge source="route:equation" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
 <edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
 <edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
@@ -71,37 +126,45 @@
 <edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
 <edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
 <edge source="route:equation" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:ontology" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:ontology" target="readout_genesis"><data key="type">reads</data></edge>
 <edge source="route:ontology" target="readout_genesis"><data key="type">reads</data></edge>
 <edge source="route:ontology" target="readout_genesis"><data key="type">reads</data></edge>
 <edge source="route:ontology" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:claim-strength" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
 <edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
 <edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
 <edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
 <edge source="route:claim-strength" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:discrete-math" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
 <edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
 <edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
 <edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
 <edge source="route:discrete-math" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:write-and-release" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
 <edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
 <edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
 <edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
 <edge source="route:write-and-release" target="gate:GLOSA-PUBLISH-GATE"><data key="type">passes</data></edge>
 <edge source="route:write-and-release" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:universe-step-by-step" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:universe-step-by-step" target="readout_genesis"><data key="type">reads</data></edge>
 <edge source="route:universe-step-by-step" target="toledo"><data key="type">reads</data></edge>
 <edge source="route:universe-step-by-step" target="readout_universe"><data key="type">reads</data></edge>
 <edge source="route:universe-step-by-step" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
 <edge source="route:universe-step-by-step" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:map-of-the-programme" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:map-of-the-programme" target="glosa"><data key="type">reads</data></edge>
+<edge source="route:health" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:health" target="birca"><data key="type">reads</data></edge>
 <edge source="route:health" target="birca"><data key="type">reads</data></edge>
 <edge source="route:health" target="birca"><data key="type">reads</data></edge>
 <edge source="route:health" target="birca"><data key="type">reads</data></edge>
 <edge source="route:health" target="gate:BIRCA-SAFETY-GATE"><data key="type">passes</data></edge>
+<edge source="route:navier-stokes" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
 <edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
 <edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
@@ -109,6 +172,7 @@
 <edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
 <edge source="route:navier-stokes" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
 <edge source="route:navier-stokes" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:issue-analysis" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:issue-analysis" target="skillme"><data key="type">reads</data></edge>
 <edge source="route:issue-analysis" target="skillme"><data key="type">reads</data></edge>
 </graph>

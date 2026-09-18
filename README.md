@@ -17,6 +17,8 @@ machine-checkable answer to *"I am about to do X - where do I go, and what do I 
 | You get | From |
 |---|---|
 | intent -> repository -> file -> gate | [`AGENTS.md`](AGENTS.md), [`ROUTES.md`](ROUTES.md) |
+| Step 0: the lens every route is preceded by | [`ROUTES.md#step-0`](ROUTES.md#step-0) |
+| skills, plugins, MCP servers, APIs, CLIs and packages the repositories ship | [`SURFACES.md`](SURFACES.md) |
 | one card per repository: role, is / is not, reading order, verified edges | [`nodes/`](nodes/) |
 | the whole graph, machine-readable | [`graph/hub.json`](graph/hub.json), [`graph/hub.graphml`](graph/hub.graphml) |
 | commit + blob pins of every referenced file | [`graph/lock.yaml`](graph/lock.yaml) |
@@ -27,7 +29,8 @@ Every edge in [`graph/edges.yaml`](graph/edges.yaml) names a file in a public re
 literal text that file must contain. `scripts/hub.py check` re-reads the pinned blob and fails if
 the text is gone or no longer unique. Each edge is therefore a quotation of what a repository says
 about itself or about a neighbour. What the hub does author - one-line role strings, route wording,
-gate summaries and gate ids other than `TG-RFG-01` - are paraphrases of each repository's own files
+gate summaries, gate ids other than `TG-RFG-01`, lens facet labels, the Step 0 instruction and the
+one-line descriptions in `SURFACES.md` - are paraphrases of each repository's own files
 and are not machine-verified; if one is wrong, the repository wins. A repository with no such evidence is
 listed as `catalog` and explicitly not claimed to be connected.
 

@@ -9,6 +9,8 @@ GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
 - **Is not:** a source of equations; a certification authority
 - **Pinned:** `106acb3ee985` on `main`, 120 commits after tag `v0.4.1`
 - **Gates:** GLOSA-PUBLISH-GATE
+- **Surfaces:** plugin [glosa plugin](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/.claude-plugin/marketplace.json); skill [glosa master skill](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/plugins/glosa/skills/glosa/SKILL.md); prompt [glosa prompt packet](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/plugins/glosa/PROMPT_PACKET.md); mcp [glosa MCP server](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/mcp/README.md); cli [glosa CLI](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/cli/README.md) (see `SURFACES.md`)
+- **Lens source (Step 0):** [`methodology/P00_lens.md`](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/methodology/P00_lens.md); [`plugins/glosa/skills/glosa-blackbox-note/SKILL.md`](https://github.com/morrocwi/glosa/blob/106acb3ee985f91511a61f31840e046fb1e76034/plugins/glosa/skills/glosa-blackbox-note/SKILL.md)
 
 ## Read in this order
 

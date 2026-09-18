@@ -9,6 +9,8 @@ GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
 - **Is not:** the equation registry; the ontology canon
 - **Pinned:** `68863dfefc32` on `main`, 31 commits after tag `v1.11.0`
 - **Gates:** TIER-TAGGING
+- **Surfaces:** plugin [readout-universe plugin](https://github.com/morrocwi/readout_universe/blob/68863dfefc32cdbc4d97871633e36aec3c8b8018/.claude-plugin/marketplace.json); skill [readout-universe skill](https://github.com/morrocwi/readout_universe/blob/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md) (see `SURFACES.md`)
+- **Lens source (Step 0):** [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md); [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/68863dfefc32cdbc4d97871633e36aec3c8b8018/plugins/readout-universe/skills/readout-universe/SKILL.md)
 
 ## Read in this order
 

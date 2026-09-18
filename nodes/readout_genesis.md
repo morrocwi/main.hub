@@ -9,6 +9,7 @@ GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
 - **Is not:** an independent source of theorem status (Toledo records that); a registry
 - **Pinned:** `1ca99bacc776` on `main`, no release tag
 - **Gates:** TG-RFG-01
+- **Lens source (Step 0):** [`README.md`](https://github.com/morrocwi/readout_genesis/blob/1ca99bacc77624f75dd4c5752cbe20a0c9907618/README.md)
 
 ## Read in this order
 

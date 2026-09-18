@@ -4,7 +4,9 @@
 > question, which file to read first, and which gate applies. Pointers and edges only, no content.
 
 ## Start
+- ROUTES.md#step-0 : read first - the lens every route is preceded by
 - AGENTS.md : the protocol and the route table
+- SURFACES.md : skills, plugins, MCP servers, APIs, CLIs and packages the repositories ship
 - ROUTES.md : every route with commit-pinned raw URLs
 - graph/hub.json : the whole graph, machine-readable
 - graph/lock.yaml : commit and blob pins

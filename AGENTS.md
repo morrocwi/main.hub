@@ -4,9 +4,16 @@ You are an AI agent. This repository is the single entry point to the public rep
 Human-AI Readout Programme (author: Yaoharee Lahtee). It holds **pointers and edges only**. It
 tells you where to go; the repository you arrive at tells you what is true there.
 
-## Protocol (five steps, in order)
+## Protocol (step 0, then five steps, in order)
 
-1. **Pick your intent** in the route table below. Do not browse the repositories first.
+0. **Lens first - an ordering rule.** Before you commit to a classification, decomposition,
+   hypothesis, route or solution, open `ROUTES.md` at **Step 0** and read the files listed under
+   "Read first"; each states, in its own repository's words and for its own scope, how input is to
+   be read. Then write a short lens note on the raw input, answering what those files ask for, and
+   keep it with your work. Naming the problem type ("an equation problem", "a conflict") is recorded
+   after the note, not before. Applying this before every route is this hub's routing decision
+   (`logbook.jsonl`, D10); what the lens says is defined only in those files.
+1. **Pick your intent** in the route table below. Beyond Step 0, do not browse the repositories first.
 2. **Open `ROUTES.md` at that route** and read the listed files in the listed order. Every step
    has a commit-pinned raw URL: fetch the file directly, do not clone a whole repository to read
    three files. Stated exceptions: the `equation` route (lookup needs a clone and a build) and any step
@@ -27,6 +34,8 @@ tells you where to go; the repository you arrive at tells you what is true there
 <!-- BEGIN GENERATED: routes -->
 | If you are about to... | Go to | Gates |
 |---|---|---|
+| **Anything at all - before you commit to a classification or a route** | [Step 0: Lens first - an ordering rule](ROUTES.md#step-0) | - |
+| You need a tool rather than a text: a skill to load, an MCP server, an API, a CLI or a package | [SURFACES.md](SURFACES.md) | - |
 | You are about to write, derive, cite or reuse ANY equation, definition or theorem. | [`toledo`](ROUTES.md#equation) | TG-RFG-01 |
 | You need to say what an object IS, which domain it belongs to, or how two domains relate. | [`readout_genesis`](ROUTES.md#ontology) | TG-RFG-01 |
 | You are about to call something proven, verified, settled, open or hard. | [`readout_universe`](ROUTES.md#claim-strength) | TIER-TAGGING |

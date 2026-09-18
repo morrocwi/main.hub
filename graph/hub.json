@@ -245,6 +245,241 @@
    "name": "Root to Standard-Model equation stream (Appendix C, SM domain equation stream)"
   },
   {
+   "id": "lens:READOUT-LENS",
+   "kind": "LENS",
+   "name": "Lens first - an ordering rule"
+  },
+  {
+   "id": "surface:toledo:mcp:mcp/README.md",
+   "kind": "SURFACE",
+   "surface": "mcp",
+   "name": "Toledo MCP server",
+   "path": "mcp/README.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:toledo:static-api:mcp/docs/STATIC_API.md",
+   "kind": "SURFACE",
+   "surface": "static-api",
+   "name": "Toledo static read API",
+   "path": "mcp/docs/STATIC_API.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": "https://morrocwi.github.io/toledo/"
+  },
+  {
+   "id": "surface:toledo:cli:scripts/toledo",
+   "kind": "SURFACE",
+   "surface": "cli",
+   "name": "toledo CLI",
+   "path": "scripts/toledo",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "information-discrete-math plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-math",
+   "plugin": "information-discrete-math",
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "information-discrete-math skill",
+   "path": "plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:api:API.md",
+   "kind": "SURFACE",
+   "surface": "api",
+   "name": "idm library and REST service",
+   "path": "API.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:api:capabilities.json",
+   "kind": "SURFACE",
+   "surface": "api",
+   "name": "idm capability manifest",
+   "path": "capabilities.json",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:readout_universe:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "readout-universe plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-readout",
+   "plugin": "readout-universe",
+   "url": null
+  },
+  {
+   "id": "surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "readout-universe skill",
+   "path": "plugins/readout-universe/skills/readout-universe/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "glosa plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-glosa",
+   "plugin": "glosa",
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa master skill",
+   "path": "plugins/glosa/skills/glosa/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:prompt:plugins/glosa/PROMPT_PACKET.md",
+   "kind": "SURFACE",
+   "surface": "prompt",
+   "name": "glosa prompt packet",
+   "path": "plugins/glosa/PROMPT_PACKET.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:mcp:mcp/README.md",
+   "kind": "SURFACE",
+   "surface": "mcp",
+   "name": "glosa MCP server",
+   "path": "mcp/README.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:cli:cli/README.md",
+   "kind": "SURFACE",
+   "surface": "cli",
+   "name": "glosa CLI",
+   "path": "cli/README.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:birca:skill:SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "birca skill",
+   "path": "SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:birca:prompt:SYSTEM_PROMPT.md",
+   "kind": "SURFACE",
+   "surface": "prompt",
+   "name": "birca system prompt",
+   "path": "SYSTEM_PROMPT.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:birca:mcp:mcp_server/README.md",
+   "kind": "SURFACE",
+   "surface": "mcp",
+   "name": "birca MCP server",
+   "path": "mcp_server/README.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:skillme:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "skillme plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-skillme",
+   "plugin": "skillme",
+   "url": null
+  },
+  {
+   "id": "surface:skillme:skill:plugins/skillme/skills/skillme/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "skillme skill",
+   "path": "plugins/skillme/skills/skillme/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:skillme:cli:skillme_protocol_kernel.py",
+   "kind": "SURFACE",
+   "surface": "cli",
+   "name": "skillme protocol kernel",
+   "path": "skillme_protocol_kernel.py",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:finite-readout-acceleration:package:pyproject.toml",
+   "kind": "SURFACE",
+   "surface": "package",
+   "name": "fra Python package",
+   "path": "pyproject.toml",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:seth-skill:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "seth plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-seth",
+   "plugin": "seth",
+   "url": null
+  },
+  {
+   "id": "surface:seth-skill:skill:plugins/seth/skills/seth/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "seth skill",
+   "path": "plugins/seth/skills/seth/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
    "id": "route:equation",
    "kind": "ROUTE",
    "when": "You are about to write, derive, cite or reuse ANY equation, definition or theorem."
@@ -557,6 +792,121 @@
    }
   },
   {
+   "source": "surface:toledo:mcp:mcp/README.md",
+   "target": "toledo",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:toledo:static-api:mcp/docs/STATIC_API.md",
+   "target": "toledo",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:toledo:cli:scripts/toledo",
+   "target": "toledo",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:plugin:.claude-plugin/marketplace.json",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:api:API.md",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:api:capabilities.json",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:readout_universe:plugin:.claude-plugin/marketplace.json",
+   "target": "readout_universe",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md",
+   "target": "readout_universe",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:plugin:.claude-plugin/marketplace.json",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:prompt:plugins/glosa/PROMPT_PACKET.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:mcp:mcp/README.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:cli:cli/README.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:birca:skill:SKILL.md",
+   "target": "birca",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:birca:prompt:SYSTEM_PROMPT.md",
+   "target": "birca",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:birca:mcp:mcp_server/README.md",
+   "target": "birca",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:skillme:plugin:.claude-plugin/marketplace.json",
+   "target": "skillme",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:skillme:skill:plugins/skillme/skills/skillme/SKILL.md",
+   "target": "skillme",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:skillme:cli:skillme_protocol_kernel.py",
+   "target": "skillme",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:finite-readout-acceleration:package:pyproject.toml",
+   "target": "finite-readout-acceleration",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:seth-skill:plugin:.claude-plugin/marketplace.json",
+   "target": "seth-skill",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:seth-skill:skill:plugins/seth/skills/seth/SKILL.md",
+   "target": "seth-skill",
+   "type": "provided-by"
+  },
+  {
    "source": "artifact:universe-step-by-step",
    "target": "readout_genesis",
    "type": "source-of-truth-in"
@@ -565,6 +915,88 @@
    "source": "artifact:universe-step-by-step",
    "target": "readout_universe",
    "type": "mirrored-in"
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "readout_universe",
+   "type": "stated-in",
+   "facet": "readout-not-thing",
+   "evidence": {
+    "repo": "readout_universe",
+    "path": "plugins/readout-universe/skills/readout-universe/SKILL.md",
+    "match": "There is no truth-behind-the-claim waiting to be read off directly"
+   }
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "readout_universe",
+   "type": "stated-in",
+   "facet": "strength-matches-evidence",
+   "evidence": {
+    "repo": "readout_universe",
+    "path": "plugins/readout-universe/skills/readout-universe/SKILL.md",
+    "match": "name which kind of readout you have"
+   }
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "glosa",
+   "type": "stated-in",
+   "facet": "lens-in-lens-out",
+   "evidence": {
+    "repo": "glosa",
+    "path": "methodology/P00_lens.md",
+    "match": "never analyse a problem directly in world-language and call the result rigorous"
+   }
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "skillme",
+   "type": "stated-in",
+   "facet": "retained-difference",
+   "evidence": {
+    "repo": "skillme",
+    "path": "plugins/skillme/skills/skillme/SKILL.md",
+    "match": "what difference is retained, from what state"
+   }
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "information-discrete-math",
+   "type": "stated-in",
+   "facet": "finite-retained-difference",
+   "evidence": {
+    "repo": "information-discrete-math",
+    "path": "plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+    "match": "Everything an agency ever reads is a finite retained difference"
+   }
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "readout_genesis",
+   "type": "stated-in",
+   "facet": "readout-not-truth",
+   "evidence": {
+    "repo": "readout_genesis",
+    "path": "README.md",
+    "match": "Verified structure is not physical truth"
+   }
+  },
+  {
+   "source": "lens:READOUT-LENS",
+   "target": "glosa",
+   "type": "stated-in",
+   "facet": "declared-lens",
+   "evidence": {
+    "repo": "glosa",
+    "path": "plugins/glosa/skills/glosa-blackbox-note/SKILL.md",
+    "match": "Every hypothesis statement carries a signature line naming the lens `lens_ref` points at"
+   }
+  },
+  {
+   "source": "route:equation",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
   },
   {
    "source": "route:equation",
@@ -615,6 +1047,11 @@
   },
   {
    "source": "route:ontology",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
+  },
+  {
+   "source": "route:ontology",
    "target": "readout_genesis",
    "type": "reads",
    "order": 1,
@@ -638,6 +1075,11 @@
    "source": "route:ontology",
    "target": "gate:TG-RFG-01",
    "type": "passes"
+  },
+  {
+   "source": "route:claim-strength",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
   },
   {
    "source": "route:claim-strength",
@@ -674,6 +1116,11 @@
   },
   {
    "source": "route:discrete-math",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
+  },
+  {
+   "source": "route:discrete-math",
    "target": "information-discrete-math",
    "type": "reads",
    "order": 1,
@@ -704,6 +1151,11 @@
    "source": "route:discrete-math",
    "target": "gate:TG-RFG-01",
    "type": "passes"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
   },
   {
    "source": "route:write-and-release",
@@ -745,6 +1197,11 @@
   },
   {
    "source": "route:universe-step-by-step",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
+  },
+  {
+   "source": "route:universe-step-by-step",
    "target": "readout_genesis",
    "type": "reads",
    "order": 1,
@@ -776,10 +1233,20 @@
   },
   {
    "source": "route:map-of-the-programme",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
+  },
+  {
+   "source": "route:map-of-the-programme",
    "target": "glosa",
    "type": "reads",
    "order": 1,
    "path": "docs/ECOSYSTEM.md"
+  },
+  {
+   "source": "route:health",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
   },
   {
    "source": "route:health",
@@ -813,6 +1280,11 @@
    "source": "route:health",
    "target": "gate:BIRCA-SAFETY-GATE",
    "type": "passes"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
   },
   {
    "source": "route:navier-stokes",
@@ -858,6 +1330,11 @@
    "source": "route:navier-stokes",
    "target": "gate:TIER-TAGGING",
    "type": "passes"
+  },
+  {
+   "source": "route:issue-analysis",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
   },
   {
    "source": "route:issue-analysis",

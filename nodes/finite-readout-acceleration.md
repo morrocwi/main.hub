@@ -8,6 +8,7 @@ GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
 - **Is:** engineering application leaf (web / cache / database)
 - **Is not:** a research canon
 - **Pinned:** `82bd6f307a34` on `main`, 2 commits after tag `v0.1.0`
+- **Surfaces:** package [fra Python package](https://github.com/morrocwi/finite-readout-acceleration/blob/82bd6f307a34916241190b5fe86d588ed6789dd0/pyproject.toml) (see `SURFACES.md`)
 
 ## Read in this order
 

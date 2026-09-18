@@ -10,6 +10,8 @@ GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
 - **Pinned:** `e4932afee144` on `main`, 118 commits after tag `v1.6.0`
 - **Concept DOI:** 10.5281/zenodo.22644130
 - **Gates:** TG-RFG-01
+- **Surfaces:** plugin [information-discrete-math plugin](https://github.com/morrocwi/information-discrete-math/blob/e4932afee144484759f0f3275e69fc923b80d091/.claude-plugin/marketplace.json); skill [information-discrete-math skill](https://github.com/morrocwi/information-discrete-math/blob/e4932afee144484759f0f3275e69fc923b80d091/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md); api [idm library and REST service](https://github.com/morrocwi/information-discrete-math/blob/e4932afee144484759f0f3275e69fc923b80d091/API.md); api [idm capability manifest](https://github.com/morrocwi/information-discrete-math/blob/e4932afee144484759f0f3275e69fc923b80d091/capabilities.json) (see `SURFACES.md`)
+- **Lens source (Step 0):** [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/e4932afee144484759f0f3275e69fc923b80d091/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md)
 
 ## Read in this order
 

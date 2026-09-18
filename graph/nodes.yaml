@@ -22,6 +22,40 @@ axes:
   - id: method
     question: "How do a human and an AI produce, check and release this piece of knowledge?"
 
+# Step 0. The lens precedes problem decomposition. What the lens SAYS is defined only in the source
+# files: each source quotes a phrase that must occur exactly once in the pinned file. A facet `label`
+# is this hub's close paraphrase of that one sentence, kept to the source's own scope, and is not
+# machine-verified. A facet with no source fails the check. Applying the lens before every route is
+# this hub's ordering rule (logbook D10), not something the sources say about every problem.
+lens:
+  id: READOUT-LENS
+  name: "Lens first - an ordering rule"
+  instruction: "Before you commit to a classification, a decomposition, a hypothesis, a route or a solution, read the files under Read first. Then write a short lens note on the raw input, answering what those files ask for, and keep it with your work."
+  then: "Record the problem type after the lens note, not before, and only then pick a route. If a later step contradicts the note, revise the note in the open."
+  facets:
+    - {id: readout-not-thing, label: "there is no truth-behind-the-claim to read off directly; what you have, when you assert something, is a finite readout (stated there as a stance, tier Dr)"}
+    - {id: strength-matches-evidence, label: "name which kind of readout you have, and never let the label creep stronger than its evidence"}
+    - {id: lens-in-lens-out, label: "before touching evidence for any claim, translate the problem into the readout vocabulary, analyse there, then translate back (a rule that file marks tier Dr)"}
+    - {id: retained-difference, label: "separate what difference is retained, from what state, under what context/query/resolution"}
+    - {id: finite-retained-difference, label: "everything an agency reads is a finite retained difference - a readout (stated there as a stance, tier Dr)"}
+    - {id: readout-not-truth, label: "readout-not-truth - verified structure is not physical truth, and every claim carries a tier"}
+    - {id: declared-lens, label: "every hypothesis statement carries a signature line naming the lens its lens_ref points at"}
+  sources:
+    - {repo: readout_universe, read: first, path: plugins/readout-universe/skills/readout-universe/SKILL.md, facet: readout-not-thing,
+       match: "There is no truth-behind-the-claim waiting to be read off directly"}
+    - {repo: readout_universe, read: first, path: plugins/readout-universe/skills/readout-universe/SKILL.md, facet: strength-matches-evidence,
+       match: "name which kind of readout you have"}
+    - {repo: glosa, read: first, path: methodology/P00_lens.md, facet: lens-in-lens-out,
+       match: "never analyse a problem directly in world-language and call the result rigorous"}
+    - {repo: skillme, read: first, path: plugins/skillme/skills/skillme/SKILL.md, facet: retained-difference,
+       match: "what difference is retained, from what state"}
+    - {repo: information-discrete-math, read: also, path: plugins/information-discrete-math/skills/information-discrete-math/SKILL.md, facet: finite-retained-difference,
+       match: "Everything an agency ever reads is a finite retained difference"}
+    - {repo: readout_genesis, read: also, path: README.md, facet: readout-not-truth,
+       match: "Verified structure is not physical truth"}
+    - {repo: glosa, read: also, path: plugins/glosa/skills/glosa-blackbox-note/SKILL.md, facet: declared-lens,
+       match: "Every hypothesis statement carries a signature line naming the lens `lens_ref` points at"}
+
 repos:
   - id: toledo
     class: axis
@@ -29,6 +63,10 @@ repos:
     role: "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists."
     is: ["equation source of record", "lookup gate (registry JSON, CLI, MCP, static site)"]
     is_not: ["a home for papers, prose or ontology", "a place where a proposal counts as a theorem"]
+    surfaces:
+      - {kind: mcp, name: "Toledo MCP server", path: mcp/README.md, config: .mcp.json, use: "Verdict-aware equation lookup, lineage and status over stdio; the lookup tool the source policy prefers."}
+      - {kind: static-api, name: "Toledo static read API", path: mcp/docs/STATIC_API.md, url: "https://morrocwi.github.io/toledo/", use: "Periodic JSON mirror for callers with no MCP or stdio access; it can lag the registry and is corroboration, never a substitute for a live lookup."}
+      - {kind: cli, name: "toledo CLI", path: scripts/toledo, use: "find, show and ancestry over the built library; run scripts/toledo_build.py first."}
     enter:
       - AGENTS.md
       - EQUATION_SOURCE_POLICY.md
@@ -46,6 +84,11 @@ repos:
     role: "Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor."
     is: ["number ladder and finite-kernel proofs", "installable skill + solver API"]
     is_not: ["the equation registry (codes live in Toledo)", "an ontology"]
+    surfaces:
+      - {kind: plugin, name: "information-discrete-math plugin", path: .claude-plugin/marketplace.json, marketplace: yaoharee-lahtee-math, plugin: information-discrete-math, use: "Installs the discrete-math skill."}
+      - {kind: skill, name: "information-discrete-math skill", path: plugins/information-discrete-math/skills/information-discrete-math/SKILL.md, use: "The operational floor to load before writing mathematics, physics or geometry."}
+      - {kind: api, name: "idm library and REST service", path: API.md, use: "Python library, REST service and CLI entry point; every answer is a tier-tagged finite readout."}
+      - {kind: api, name: "idm capability manifest", path: capabilities.json, use: "Machine-readable list of interfaces and problem kinds."}
     enter:
       - AI_START_HERE.md
       - llms.txt
@@ -75,6 +118,9 @@ repos:
     role: "Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier."
     is: ["epistemology lens", "tier vocabulary, claims register, companion tools and plugin"]
     is_not: ["the equation registry", "the ontology canon"]
+    surfaces:
+      - {kind: plugin, name: "readout-universe plugin", path: .claude-plugin/marketplace.json, marketplace: yaoharee-lahtee-readout, plugin: readout-universe, use: "Installs the evidence-tier tagging skill."}
+      - {kind: skill, name: "readout-universe skill", path: plugins/readout-universe/skills/readout-universe/SKILL.md, use: "Tag every claim with the tier its evidence earns; usable in any domain."}
     enter:
       - README.md
       - claims.md
@@ -89,6 +135,12 @@ repos:
     role: "Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production."
     is: ["method + human-AI collaboration lens", "claim card, blackbox note, independent check, publish gate"]
     is_not: ["a source of equations", "a certification authority"]
+    surfaces:
+      - {kind: plugin, name: "glosa plugin", path: .claude-plugin/marketplace.json, marketplace: yaoharee-lahtee-glosa, plugin: glosa, use: "Installs the glosa method skills."}
+      - {kind: skill, name: "glosa master skill", path: plugins/glosa/skills/glosa/SKILL.md, use: "Entry point to the method skills - claim card, blackbox note, independent check, literature review, publish gate, project advisor."}
+      - {kind: prompt, name: "glosa prompt packet", path: plugins/glosa/PROMPT_PACKET.md, use: "The same method as a vendor-neutral prompt for agents without a plugin system."}
+      - {kind: mcp, name: "glosa MCP server", path: mcp/README.md, use: "One tool per kernel function - validate cards, notes and reports, gate a release; stdlib-only, stdio."}
+      - {kind: cli, name: "glosa CLI", path: cli/README.md, use: "check, self-test and literature-review commands over the same kernel."}
     enter:
       - llms.txt
       - AGENTS.md
@@ -103,6 +155,11 @@ repos:
     is: ["application leaf (health information)", "licensed CC BY-NC-SA 4.0 with a mandatory-preservation condition; LICENSE.md states the licence is in effect (one README table row still calls it pending - LICENSE.md governs)"]
     is_not: ["a medical product", "diagnostic or treatment selection", "clinically safety-audited (its README lists that audit as still open)"]
     gates: [BIRCA-SAFETY-GATE]
+    surface_note: "educational and research use only; not diagnostic, no treatment selection, and not clinically safety-audited"
+    surfaces:
+      - {kind: skill, name: "birca skill", path: SKILL.md, use: "Discovery surface of the health-information skill; the skill names SYSTEM_PROMPT.md as its single source of truth."}
+      - {kind: prompt, name: "birca system prompt", path: SYSTEM_PROMPT.md, use: "The instruction block itself; follow it exactly and in full, with LEGAL_DISCLAIMER.md shipped unmodified."}
+      - {kind: mcp, name: "birca MCP server", path: mcp_server/README.md, use: "Serves the prompt, spec and disclaimer and a deterministic English-only regex check that narrows but does not close the gap; also exposes research-mode compute tools; calls no model itself."}
     enter:
       - README.md
       - LEGAL_DISCLAIMER.md
@@ -127,6 +184,10 @@ repos:
     role: "Philosophy-first protocol for analysing any reported issue without naming a cause before it is found."
     is: ["method-family sibling (issue analysis)"]
     is_not: ["a source of equations"]
+    surfaces:
+      - {kind: plugin, name: "skillme plugin", path: .claude-plugin/marketplace.json, marketplace: yaoharee-lahtee-skillme, plugin: skillme, use: "Installs the issue-analysis skill."}
+      - {kind: skill, name: "skillme skill", path: plugins/skillme/skills/skillme/SKILL.md, use: "The operational protocol - two-question intake gate, moves in order, hard invariants."}
+      - {kind: cli, name: "skillme protocol kernel", path: skillme_protocol_kernel.py, use: "Stdlib-only validator of a run record; VALID means well-formed, not correct."}
     enter:
       - AI_START_HERE.md
       - llms.txt
@@ -146,6 +207,8 @@ repos:
     role: "Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy."
     is: ["engineering application leaf (web / cache / database)"]
     is_not: ["a research canon"]
+    surfaces:
+      - {kind: package, name: "fra Python package", path: pyproject.toml, use: "Stdlib-only library - cost model, break-even guard, cache-safety audit, eviction policy; install from the repository."}
     enter:
       - README.md
       - DESIGN_NOTES.md
@@ -155,6 +218,9 @@ repos:
     role: "AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis."
     is: ["application skill (social enterprise)"]
     is_not: ["wired into the equation / ontology graph by any verified edge"]
+    surfaces:
+      - {kind: plugin, name: "seth plugin", path: .claude-plugin/marketplace.json, marketplace: yaoharee-lahtee-seth, plugin: seth, use: "Installs the social-enterprise analysis skill."}
+      - {kind: skill, name: "seth skill", path: plugins/seth/skills/seth/SKILL.md, use: "Non-negotiable rules, workflow and failure codes of the calculation contract."}
     enter:
       - README.md
 
