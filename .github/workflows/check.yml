@@ -1,0 +1,30 @@
+name: check
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"   # weekly: the log lists pins that a default branch has moved past
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A green run on a pull request that changes scripts/, githooks/ or .github/ proves nothing:
+# that run executes the pull request's own checker. Review those paths by hand.
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262   # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065   # v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml==6.0.2
+      - name: Verify structure, pins on the default branch, evidence, generated files, file modes, leak scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/hub.py check --remote --heads

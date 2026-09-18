@@ -1,0 +1,99 @@
+# main.hub — routes (hand-edited source of truth): intent -> ordered reads -> gates.
+# A route is the shortest reading path that lets an agent act correctly. Each step is a file in
+# a public repository; ROUTES.md renders every step as a commit-pinned raw URL.
+routes:
+  - id: equation
+    when: "You are about to write, derive, cite or reuse ANY equation, definition or theorem."
+    steps:
+      - {repo: toledo, path: EQUATION_SOURCE_POLICY.md, why: "the binding order of work"}
+      - {repo: toledo, path: README.md, why: "the lookup surfaces: MCP server (toledo_check, the verdict-aware tool the policy prefers), CLI (find / show / ancestry), static read API for callers that cannot clone, static site, registry files"}
+      - {repo: toledo, path: scripts/toledo_build.py, why: "lookup needs a full clone of toledo (the one route where reading three files is not enough): run this build script first, it generates the library the CLI reads"}
+      - {repo: toledo, path: scripts/toledo, why: "then look the object up with the CLI: find / show / ancestry"}
+      - {repo: toledo, path: registry/SCHEMA.md, why: "how a code, parents and tier are read"}
+      - {repo: toledo, path: registry/CANONICAL.json, why: "fallback only: the full registry is several megabytes, fetch it when a clone and build are not possible"}
+    gates: [TG-RFG-01]
+    then: "Usable match (read the statement, a keyword hit is not a match): cite its code, reuse its statement. Ambiguous, superseded or conflicting: HOLD, do not guess. Not found: check Genesis compatibility, derive only the missing piece, label it PROPOSAL."
+
+  - id: ontology
+    when: "You need to say what an object IS, which domain it belongs to, or how two domains relate."
+    steps:
+      - {repo: readout_genesis, path: AGENTS.md, why: "what Genesis may and may not decide"}
+      - {repo: readout_genesis, path: README.md, why: "knowledge-graph map of the canon"}
+      - {repo: readout_genesis, path: READOUT_GENESIS_CORE.md, why: "the canon; contains its own reading order for a fresh session"}
+    gates: [TG-RFG-01]
+    then: "State the gate / section the object instantiates; theorem status still comes from Toledo."
+
+  - id: claim-strength
+    when: "You are about to call something proven, verified, settled, open or hard."
+    steps:
+      - {repo: readout_universe, path: README.md, why: "the tier vocabulary"}
+      - {repo: readout_universe, path: claims.md, why: "how a claims register is kept"}
+      - {repo: readout_universe, path: plugins/readout-universe/skills/readout-universe/SKILL.md, why: "the operational tier-tagging discipline, where the gate is defined"}
+      - {repo: readout_universe, path: scope_correction.md, why: "worked example: a proposed (not applied) correction that brings an overstated pull-request title down to what the file actually shows"}
+    gates: [TIER-TAGGING]
+    then: "Tag the claim with the tier that matches what was actually checked, never higher."
+
+  - id: discrete-math
+    when: "You are about to use a number, limit, continuum object, angle, derivative or operator."
+    steps:
+      - {repo: information-discrete-math, path: AI_START_HERE.md, why: "shortest orientation"}
+      - {repo: information-discrete-math, path: plugins/information-discrete-math/skills/information-discrete-math/SKILL.md, why: "the operational floor: contaminated-concept table, pre-write checklist, number ladder"}
+      - {repo: information-discrete-math, path: llms.txt, why: "file map for agents"}
+      - {repo: information-discrete-math, path: docs/TOLEDO_CODES.md, why: "which Toledo codes this repository carries"}
+    gates: [TG-RFG-01]
+    then: "Work on the discrete floor; equation codes are still looked up in Toledo."
+
+  - id: write-and-release
+    when: "You are producing a claim, a paper, a review, or anything that will be released."
+    steps:
+      - {repo: glosa, path: llms.txt, why: "file map for agents"}
+      - {repo: glosa, path: plugins/glosa/skills/glosa/SKILL.md, why: "master entry point of the method"}
+      - {repo: glosa, path: plugins/glosa/skills/glosa-publish-gate/SKILL.md, why: "the release gate as a skill (a pointer)"}
+      - {repo: glosa, path: methodology/P10_publish_gate.md, why: "the full text of the gate the skill points to"}
+    gates: [GLOSA-PUBLISH-GATE, TIER-TAGGING]
+    then: "Maker is not checker: obtain an independent check before release."
+
+  - id: universe-step-by-step
+    when: "You want the root to Standard-Model stream, the universe read out step by step."
+    steps:
+      - {repo: readout_genesis, path: READOUT_GENESIS_CORE.md, why: "source of truth for the stream: the LAST appendix lettered C, titled APPENDIX C (SM DOMAIN EQUATION STREAM ...), near the end of a file of about half a megabyte - use materialize, not a truncating fetch; an earlier Appendix C (reading order) is a different section"}
+      - {repo: toledo, path: registry/genesis_root.json, why: "the root codes every other code descends from"}
+      - {repo: readout_universe, path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md, why: "synced mirror; on mismatch the source of truth wins"}
+    gates: [TG-RFG-01, TIER-TAGGING]
+    then: "Cite stream items by Toledo code and carry the tier the source states."
+
+  - id: map-of-the-programme
+    when: "You want the prose map of who holds which role and who calls whom."
+    steps:
+      - {repo: glosa, path: docs/ECOSYSTEM.md, why: "the earlier prose map this hub descends from"}
+    gates: []
+    then: "Use this hub for pinned, machine-checked routing; use that document for narrative."
+
+  - id: health
+    when: "You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.)"
+    steps:
+      - {repo: birca, path: README.md, why: "what has and has not been validated; which safety audits are still open"}
+      - {repo: birca, path: LEGAL_DISCLAIMER.md, why: "scope, prohibited uses, the disclaimer that must ship unmodified, the deployer's own legal-review duty, liability"}
+      - {repo: birca, path: SKILL.md, why: "the fixed layer order; the immediate safety gate precedes any interpretation"}
+      - {repo: birca, path: SYSTEM_PROMPT.md, why: "the instruction set the skill itself names as its single source of truth; holds the rule not to delay the safety screen with extensive history-taking"}
+    gates: [BIRCA-SAFETY-GATE]
+    then: "The emergency screen precedes any interpretation and cannot be skipped. Educational and research use only; never diagnostic, never treatment selection; the repository states its clinical-safety audit is still open."
+
+  - id: navier-stokes
+    when: "The task touches the Navier-Stokes readout problem or the finite-bridge programme."
+    steps:
+      - {repo: readout-problem-navier-stokes, path: AGENTS.md, why: "the mandatory reading order and the non-negotiable rules"}
+      - {repo: readout-problem-navier-stokes, path: CLAY_READ_FIRST.md, why: "first item of that reading order"}
+      - {repo: readout-problem-navier-stokes, path: CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md, why: "second item of that order"}
+      - {repo: readout-problem-navier-stokes, path: CLAY_RESEARCH_TODO.md, why: "third item of that order"}
+      - {repo: readout-problem-navier-stokes, path: CLAIMS.md, why: "fourth item: what is and is not claimed"}
+    gates: [TG-RFG-01, TIER-TAGGING]
+    then: "The Clay problem stays open; never phrase a finite result as a resolution."
+
+  - id: issue-analysis
+    when: "You are analysing an incident, complaint, conflict, anomaly or decision."
+    steps:
+      - {repo: skillme, path: AI_START_HERE.md, why: "the discovery order"}
+      - {repo: skillme, path: plugins/skillme/skills/skillme/SKILL.md, why: "the operational protocol: two-question intake gate, moves in order, hard invariants"}
+    gates: []
+    then: "Do not name a cause before a finite retained difference has been found."

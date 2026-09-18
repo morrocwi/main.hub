@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<key id="kind" for="node" attr.name="kind" attr.type="string"/>
+<key id="type" for="edge" attr.name="type" attr.type="string"/>
+<graph id="main.hub" edgedefault="directed">
+<node id="hub:main.hub"><data key="kind">HUB</data></node>
+<node id="axis:mathematics"><data key="kind">AXIS</data></node>
+<node id="axis:mathematical-floor"><data key="kind">AXIS</data></node>
+<node id="axis:ontology"><data key="kind">AXIS</data></node>
+<node id="axis:epistemology"><data key="kind">AXIS</data></node>
+<node id="axis:method"><data key="kind">AXIS</data></node>
+<node id="toledo"><data key="kind">REPO</data></node>
+<node id="information-discrete-math"><data key="kind">REPO</data></node>
+<node id="readout_genesis"><data key="kind">REPO</data></node>
+<node id="readout_universe"><data key="kind">REPO</data></node>
+<node id="glosa"><data key="kind">REPO</data></node>
+<node id="birca"><data key="kind">REPO</data></node>
+<node id="readout-problem-navier-stokes"><data key="kind">REPO</data></node>
+<node id="skillme"><data key="kind">REPO</data></node>
+<node id="zero-readout-certifies"><data key="kind">REPO</data></node>
+<node id="finite-readout-acceleration"><data key="kind">REPO</data></node>
+<node id="seth-skill"><data key="kind">REPO</data></node>
+<node id="retained-sturm"><data key="kind">REPO</data></node>
+<node id="gate:TG-RFG-01"><data key="kind">GATE</data></node>
+<node id="gate:TIER-TAGGING"><data key="kind">GATE</data></node>
+<node id="gate:GLOSA-PUBLISH-GATE"><data key="kind">GATE</data></node>
+<node id="gate:BIRCA-SAFETY-GATE"><data key="kind">GATE</data></node>
+<node id="artifact:universe-step-by-step"><data key="kind">ARTIFACT</data></node>
+<node id="route:equation"><data key="kind">ROUTE</data></node>
+<node id="route:ontology"><data key="kind">ROUTE</data></node>
+<node id="route:claim-strength"><data key="kind">ROUTE</data></node>
+<node id="route:discrete-math"><data key="kind">ROUTE</data></node>
+<node id="route:write-and-release"><data key="kind">ROUTE</data></node>
+<node id="route:universe-step-by-step"><data key="kind">ROUTE</data></node>
+<node id="route:map-of-the-programme"><data key="kind">ROUTE</data></node>
+<node id="route:health"><data key="kind">ROUTE</data></node>
+<node id="route:navier-stokes"><data key="kind">ROUTE</data></node>
+<node id="route:issue-analysis"><data key="kind">ROUTE</data></node>
+<edge source="toledo" target="axis:mathematics"><data key="type">authority-for</data></edge>
+<edge source="readout_genesis" target="axis:ontology"><data key="type">authority-for</data></edge>
+<edge source="readout_universe" target="axis:epistemology"><data key="type">authority-for</data></edge>
+<edge source="glosa" target="axis:method"><data key="type">authority-for</data></edge>
+<edge source="information-discrete-math" target="axis:mathematical-floor"><data key="type">authority-for</data></edge>
+<edge source="readout_genesis" target="toledo"><data key="type">defers-status-to</data></edge>
+<edge source="readout_genesis" target="information-discrete-math"><data key="type">delegates-proof-to</data></edge>
+<edge source="readout_genesis" target="gate:TG-RFG-01"><data key="type">requires-gate</data></edge>
+<edge source="information-discrete-math" target="gate:TG-RFG-01"><data key="type">requires-gate</data></edge>
+<edge source="readout-problem-navier-stokes" target="gate:TG-RFG-01"><data key="type">requires-gate</data></edge>
+<edge source="information-discrete-math" target="toledo"><data key="type">registers-into</data></edge>
+<edge source="glosa" target="toledo"><data key="type">prescribes-registration-in</data></edge>
+<edge source="toledo" target="readout_genesis"><data key="type">imports-coq-from</data></edge>
+<edge source="toledo" target="readout_universe"><data key="type">imports-coq-from</data></edge>
+<edge source="toledo" target="information-discrete-math"><data key="type">imports-coq-from</data></edge>
+<edge source="toledo" target="zero-readout-certifies"><data key="type">imports-coq-from</data></edge>
+<edge source="toledo" target="finite-readout-acceleration"><data key="type">imports-coq-from</data></edge>
+<edge source="readout_universe" target="information-discrete-math"><data key="type">builds-on</data></edge>
+<edge source="skillme" target="information-discrete-math"><data key="type">builds-on</data></edge>
+<edge source="skillme" target="readout_genesis"><data key="type">builds-on</data></edge>
+<edge source="zero-readout-certifies" target="information-discrete-math"><data key="type">companion-of</data></edge>
+<edge source="readout-problem-navier-stokes" target="toledo"><data key="type">defers-status-to</data></edge>
+<edge source="readout-problem-navier-stokes" target="information-discrete-math"><data key="type">reads-shared-math-from</data></edge>
+<edge source="readout-problem-navier-stokes" target="readout_genesis"><data key="type">checks-ontology-against</data></edge>
+<edge source="birca" target="readout_genesis"><data key="type">declares-lineage-from</data></edge>
+<edge source="readout_universe" target="readout_genesis"><data key="type">holds-synced-copy-from</data></edge>
+<edge source="artifact:universe-step-by-step" target="readout_genesis"><data key="type">source-of-truth-in</data></edge>
+<edge source="artifact:universe-step-by-step" target="readout_universe"><data key="type">mirrored-in</data></edge>
+<edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:equation" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:equation" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:ontology" target="readout_genesis"><data key="type">reads</data></edge>
+<edge source="route:ontology" target="readout_genesis"><data key="type">reads</data></edge>
+<edge source="route:ontology" target="readout_genesis"><data key="type">reads</data></edge>
+<edge source="route:ontology" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
+<edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
+<edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
+<edge source="route:claim-strength" target="readout_universe"><data key="type">reads</data></edge>
+<edge source="route:claim-strength" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
+<edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
+<edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
+<edge source="route:discrete-math" target="information-discrete-math"><data key="type">reads</data></edge>
+<edge source="route:discrete-math" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
+<edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
+<edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
+<edge source="route:write-and-release" target="glosa"><data key="type">reads</data></edge>
+<edge source="route:write-and-release" target="gate:GLOSA-PUBLISH-GATE"><data key="type">passes</data></edge>
+<edge source="route:write-and-release" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:universe-step-by-step" target="readout_genesis"><data key="type">reads</data></edge>
+<edge source="route:universe-step-by-step" target="toledo"><data key="type">reads</data></edge>
+<edge source="route:universe-step-by-step" target="readout_universe"><data key="type">reads</data></edge>
+<edge source="route:universe-step-by-step" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:universe-step-by-step" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:map-of-the-programme" target="glosa"><data key="type">reads</data></edge>
+<edge source="route:health" target="birca"><data key="type">reads</data></edge>
+<edge source="route:health" target="birca"><data key="type">reads</data></edge>
+<edge source="route:health" target="birca"><data key="type">reads</data></edge>
+<edge source="route:health" target="birca"><data key="type">reads</data></edge>
+<edge source="route:health" target="gate:BIRCA-SAFETY-GATE"><data key="type">passes</data></edge>
+<edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
+<edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
+<edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
+<edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
+<edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
+<edge source="route:navier-stokes" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
+<edge source="route:navier-stokes" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:issue-analysis" target="skillme"><data key="type">reads</data></edge>
+<edge source="route:issue-analysis" target="skillme"><data key="type">reads</data></edge>
+</graph>
+</graphml>

@@ -1,0 +1,877 @@
+{
+ "generated_from_lock": "2026-09-18",
+ "nodes": [
+  {
+   "id": "hub:main.hub",
+   "kind": "HUB"
+  },
+  {
+   "id": "axis:mathematics",
+   "kind": "AXIS",
+   "question": "Does this equation / definition / theorem already exist, under which code, at which tier?"
+  },
+  {
+   "id": "axis:mathematical-floor",
+   "kind": "AXIS",
+   "question": "How is a number, limit, continuum object or operator built as a finite discrete readout?"
+  },
+  {
+   "id": "axis:ontology",
+   "kind": "AXIS",
+   "question": "What is this object in the one-root picture, and which gate or section does it instantiate?"
+  },
+  {
+   "id": "axis:epistemology",
+   "kind": "AXIS",
+   "question": "How strong is this claim, and which evidence tier may it carry?"
+  },
+  {
+   "id": "axis:method",
+   "kind": "AXIS",
+   "question": "How do a human and an AI produce, check and release this piece of knowledge?"
+  },
+  {
+   "id": "toledo",
+   "kind": "REPO",
+   "class": "axis",
+   "axis": "mathematics",
+   "role": "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists.",
+   "url": "https://github.com/morrocwi/toledo",
+   "commit": "d46a9aab6c22be391fc8b2486d9b101443ae158e",
+   "tag": "v1.8.0",
+   "enter": [
+    "AGENTS.md",
+    "EQUATION_SOURCE_POLICY.md",
+    "registry/SCHEMA.md",
+    "registry/CANONICAL.json",
+    "registry/genesis_root.json",
+    "scripts/toledo_build.py",
+    "scripts/toledo"
+   ]
+  },
+  {
+   "id": "information-discrete-math",
+   "kind": "REPO",
+   "class": "axis",
+   "axis": "mathematical-floor",
+   "role": "Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor.",
+   "url": "https://github.com/morrocwi/information-discrete-math",
+   "commit": "e4932afee144484759f0f3275e69fc923b80d091",
+   "tag": "v1.6.0",
+   "enter": [
+    "AI_START_HERE.md",
+    "llms.txt",
+    "AGENTS.md",
+    "INDEX.md",
+    "docs/TOLEDO_CODES.md",
+    "textbook/INFORMATION_DISCRETE_MATHEMATICS.md"
+   ]
+  },
+  {
+   "id": "readout_genesis",
+   "kind": "REPO",
+   "class": "axis",
+   "axis": "ontology",
+   "role": "One-root, information-first canon whose thesis is that every domain is a translation of one retained structure; tiered claims.",
+   "url": "https://github.com/morrocwi/readout_genesis",
+   "commit": "1ca99bacc77624f75dd4c5752cbe20a0c9907618",
+   "tag": null,
+   "enter": [
+    "AGENTS.md",
+    "README.md",
+    "READOUT_GENESIS_CORE.md",
+    "APPLICATIONS.md"
+   ]
+  },
+  {
+   "id": "readout_universe",
+   "kind": "REPO",
+   "class": "axis",
+   "axis": "epistemology",
+   "role": "Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier.",
+   "url": "https://github.com/morrocwi/readout_universe",
+   "commit": "68863dfefc32cdbc4d97871633e36aec3c8b8018",
+   "tag": "v1.11.0",
+   "enter": [
+    "README.md",
+    "claims.md",
+    "philosophy.md",
+    "logic.md",
+    "scope_correction.md"
+   ]
+  },
+  {
+   "id": "glosa",
+   "kind": "REPO",
+   "class": "axis",
+   "axis": "method",
+   "role": "Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production.",
+   "url": "https://github.com/morrocwi/glosa",
+   "commit": "106acb3ee985f91511a61f31840e046fb1e76034",
+   "tag": "v0.4.1",
+   "enter": [
+    "llms.txt",
+    "AGENTS.md",
+    "plugins/glosa/skills/glosa/SKILL.md",
+    "docs/ECOSYSTEM.md",
+    "CLAIM_BOUNDARY.md"
+   ]
+  },
+  {
+   "id": "birca",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Educational and research-only (non-commercial) theoretical framework packaged as a safety-gated, context-bound health-information skill; not a medical service, not diagnostic, no clinical-safety audit yet.",
+   "url": "https://github.com/morrocwi/birca",
+   "commit": "4459977909911d5faadec778c460d3acfdda170c",
+   "tag": "birca-v1.10.6",
+   "enter": [
+    "README.md",
+    "LEGAL_DISCLAIMER.md",
+    "SKILL.md",
+    "SYSTEM_PROMPT.md",
+    "compute/README.md"
+   ]
+  },
+  {
+   "id": "readout-problem-navier-stokes",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem.",
+   "url": "https://github.com/morrocwi/readout-problem-navier-stokes",
+   "commit": "e2027c98edf94f5eee04119aeacad9dbcd9378f5",
+   "tag": "v0.1.0",
+   "enter": [
+    "CLAY_READ_FIRST.md",
+    "AGENTS.md",
+    "CLAIMS.md",
+    "README.md"
+   ]
+  },
+  {
+   "id": "skillme",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Philosophy-first protocol for analysing any reported issue without naming a cause before it is found.",
+   "url": "https://github.com/morrocwi/skillme",
+   "commit": "232cc8d2025cdec64cc77ad8ec2fceb17639f0e0",
+   "tag": "v0.4.10",
+   "enter": [
+    "AI_START_HERE.md",
+    "llms.txt",
+    "SKILLME.md"
+   ]
+  },
+  {
+   "id": "zero-readout-certifies",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Machine-checked characterisation of the zero fibre of a finite retained-difference operator.",
+   "url": "https://github.com/morrocwi/zero-readout-certifies",
+   "commit": "adfd25a26f78d0568739c364ef2fa416dab881de",
+   "tag": null,
+   "enter": [
+    "README.md",
+    "REPRODUCE.md"
+   ]
+  },
+  {
+   "id": "finite-readout-acceleration",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy.",
+   "url": "https://github.com/morrocwi/finite-readout-acceleration",
+   "commit": "82bd6f307a34916241190b5fe86d588ed6789dd0",
+   "tag": "v0.1.0",
+   "enter": [
+    "README.md",
+    "DESIGN_NOTES.md"
+   ]
+  },
+  {
+   "id": "seth-skill",
+   "kind": "REPO",
+   "class": "catalog",
+   "axis": null,
+   "role": "AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis.",
+   "url": "https://github.com/morrocwi/seth-skill",
+   "commit": "4e8e9e7708078aec672304f46c99b946e13fc43c",
+   "tag": "v0.2.0",
+   "enter": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "retained-sturm",
+   "kind": "REPO",
+   "class": "catalog",
+   "axis": null,
+   "role": "Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator.",
+   "url": "https://github.com/morrocwi/retained-sturm",
+   "commit": "a2a99d4ff9d080518003a3d90a7800add55a9957",
+   "tag": null,
+   "enter": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "gate:TG-RFG-01",
+   "kind": "GATE",
+   "name": "Toledo-Genesis reuse-first gate"
+  },
+  {
+   "id": "gate:TIER-TAGGING",
+   "kind": "GATE",
+   "name": "Evidence-tier tagging"
+  },
+  {
+   "id": "gate:GLOSA-PUBLISH-GATE",
+   "kind": "GATE",
+   "name": "glosa publish gate"
+  },
+  {
+   "id": "gate:BIRCA-SAFETY-GATE",
+   "kind": "GATE",
+   "name": "birca immediate safety gate"
+  },
+  {
+   "id": "artifact:universe-step-by-step",
+   "kind": "ARTIFACT",
+   "name": "Root to Standard-Model equation stream (Appendix C, SM domain equation stream)"
+  },
+  {
+   "id": "route:equation",
+   "kind": "ROUTE",
+   "when": "You are about to write, derive, cite or reuse ANY equation, definition or theorem."
+  },
+  {
+   "id": "route:ontology",
+   "kind": "ROUTE",
+   "when": "You need to say what an object IS, which domain it belongs to, or how two domains relate."
+  },
+  {
+   "id": "route:claim-strength",
+   "kind": "ROUTE",
+   "when": "You are about to call something proven, verified, settled, open or hard."
+  },
+  {
+   "id": "route:discrete-math",
+   "kind": "ROUTE",
+   "when": "You are about to use a number, limit, continuum object, angle, derivative or operator."
+  },
+  {
+   "id": "route:write-and-release",
+   "kind": "ROUTE",
+   "when": "You are producing a claim, a paper, a review, or anything that will be released."
+  },
+  {
+   "id": "route:universe-step-by-step",
+   "kind": "ROUTE",
+   "when": "You want the root to Standard-Model stream, the universe read out step by step."
+  },
+  {
+   "id": "route:map-of-the-programme",
+   "kind": "ROUTE",
+   "when": "You want the prose map of who holds which role and who calls whom."
+  },
+  {
+   "id": "route:health",
+   "kind": "ROUTE",
+   "when": "You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.)"
+  },
+  {
+   "id": "route:navier-stokes",
+   "kind": "ROUTE",
+   "when": "The task touches the Navier-Stokes readout problem or the finite-bridge programme."
+  },
+  {
+   "id": "route:issue-analysis",
+   "kind": "ROUTE",
+   "when": "You are analysing an incident, complaint, conflict, anomaly or decision."
+  }
+ ],
+ "edges": [
+  {
+   "source": "toledo",
+   "target": "axis:mathematics",
+   "type": "authority-for",
+   "evidence": {
+    "repo": "glosa",
+    "path": "docs/ECOSYSTEM.md",
+    "match": "| Equation source of record + lookup gate"
+   }
+  },
+  {
+   "source": "readout_genesis",
+   "target": "axis:ontology",
+   "type": "authority-for",
+   "evidence": {
+    "repo": "toledo",
+    "path": "EQUATION_SOURCE_POLICY.md",
+    "match": "Readout Genesis is the primary ontology lens"
+   }
+  },
+  {
+   "source": "readout_universe",
+   "target": "axis:epistemology",
+   "type": "authority-for",
+   "evidence": {
+    "repo": "toledo",
+    "path": "EQUATION_SOURCE_POLICY.md",
+    "match": "Readout Universe is the primary epistemology lens"
+   }
+  },
+  {
+   "source": "glosa",
+   "target": "axis:method",
+   "type": "authority-for",
+   "evidence": {
+    "repo": "toledo",
+    "path": "EQUATION_SOURCE_POLICY.md",
+    "match": "GLOSA is the primary human"
+   }
+  },
+  {
+   "source": "information-discrete-math",
+   "target": "axis:mathematical-floor",
+   "type": "authority-for",
+   "evidence": {
+    "repo": "glosa",
+    "path": "docs/ECOSYSTEM.md",
+    "match": "| Mathematical floor (readout-first number ladder, Coq) | **information-discrete-math"
+   }
+  },
+  {
+   "source": "readout_genesis",
+   "target": "toledo",
+   "type": "defers-status-to",
+   "evidence": {
+    "repo": "readout_genesis",
+    "path": "AGENTS.md",
+    "match": "Toledo records status/provenance"
+   }
+  },
+  {
+   "source": "readout_genesis",
+   "target": "information-discrete-math",
+   "type": "delegates-proof-to",
+   "evidence": {
+    "repo": "readout_genesis",
+    "path": "AGENTS.md",
+    "match": "IDM proves generic finite kernels"
+   }
+  },
+  {
+   "source": "readout_genesis",
+   "target": "gate:TG-RFG-01",
+   "type": "requires-gate",
+   "evidence": {
+    "repo": "readout_genesis",
+    "path": "AGENTS.md",
+    "match": "MUST NOT replace, the canonical Toledo provenance gate"
+   }
+  },
+  {
+   "source": "information-discrete-math",
+   "target": "gate:TG-RFG-01",
+   "type": "requires-gate",
+   "evidence": {
+    "repo": "information-discrete-math",
+    "path": "AGENTS.md",
+    "match": "## Mandatory Toledo-Genesis reuse-first gate"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "gate:TG-RFG-01",
+   "type": "requires-gate",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "AGENTS.md",
+    "match": "before introducing or renaming a mathematical object"
+   }
+  },
+  {
+   "source": "information-discrete-math",
+   "target": "toledo",
+   "type": "registers-into",
+   "evidence": {
+    "repo": "information-discrete-math",
+    "path": "docs/TOLEDO_CODES.md",
+    "match": "was registered into Toledo"
+   }
+  },
+  {
+   "source": "glosa",
+   "target": "toledo",
+   "type": "prescribes-registration-in",
+   "evidence": {
+    "repo": "glosa",
+    "path": "methodology/P19_registration.md",
+    "match": "| An **equation** (new, revised, or reused in a new domain) | **Toledo**"
+   }
+  },
+  {
+   "source": "toledo",
+   "target": "readout_genesis",
+   "type": "imports-coq-from",
+   "evidence": {
+    "repo": "toledo",
+    "path": "coq/readout_genesis/PROVENANCE.json",
+    "match": "Files are imported as public GitHub source"
+   }
+  },
+  {
+   "source": "toledo",
+   "target": "readout_universe",
+   "type": "imports-coq-from",
+   "evidence": {
+    "repo": "toledo",
+    "path": "coq/readout_universe/PROVENANCE.json",
+    "match": "Imported under the MIT terms already granted by the upstream repository"
+   }
+  },
+  {
+   "source": "toledo",
+   "target": "information-discrete-math",
+   "type": "imports-coq-from",
+   "evidence": {
+    "repo": "toledo",
+    "path": "coq/information-discrete-math/PROVENANCE.json",
+    "match": "Copied verbatim (byte-for-byte diff against the upstream commit above is empty"
+   }
+  },
+  {
+   "source": "toledo",
+   "target": "zero-readout-certifies",
+   "type": "imports-coq-from",
+   "evidence": {
+    "repo": "toledo",
+    "path": "coq/zero-readout-certifies/PROVENANCE.json",
+    "match": "Copied verbatim (byte-for-byte diff against the upstream commit above is empty"
+   }
+  },
+  {
+   "source": "toledo",
+   "target": "finite-readout-acceleration",
+   "type": "imports-coq-from",
+   "evidence": {
+    "repo": "toledo",
+    "path": "coq/finite-readout-acceleration/PROVENANCE.json",
+    "match": "Copied verbatim (byte-for-byte diff against the upstream commit above is empty"
+   }
+  },
+  {
+   "source": "readout_universe",
+   "target": "information-discrete-math",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "readout_universe",
+    "path": "philosophy.md",
+    "match": "The mandatory floor for this"
+   }
+  },
+  {
+   "source": "skillme",
+   "target": "information-discrete-math",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "skillme",
+    "path": "README.md",
+    "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
+   }
+  },
+  {
+   "source": "skillme",
+   "target": "readout_genesis",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "skillme",
+    "path": "README.md",
+    "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
+   }
+  },
+  {
+   "source": "zero-readout-certifies",
+   "target": "information-discrete-math",
+   "type": "companion-of",
+   "evidence": {
+    "repo": "glosa",
+    "path": "docs/ECOSYSTEM.md",
+    "match": "zero-readout-certifies (public)<br/>Coq companion to IDM"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "toledo",
+   "type": "defers-status-to",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "README.md",
+    "match": "proposal/equation provenance and tier/status"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "information-discrete-math",
+   "type": "reads-shared-math-from",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "AGENTS.md",
+    "match": "If working on shared bridge mathematics, read"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "readout_genesis",
+   "type": "checks-ontology-against",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "AGENTS.md",
+    "match": "is checked next for ontology"
+   }
+  },
+  {
+   "source": "birca",
+   "target": "readout_genesis",
+   "type": "declares-lineage-from",
+   "evidence": {
+    "repo": "birca",
+    "path": "compute/README.md",
+    "match": "`morrocwi/readout_genesis`, pinned commit"
+   }
+  },
+  {
+   "source": "readout_universe",
+   "target": "readout_genesis",
+   "type": "holds-synced-copy-from",
+   "evidence": {
+    "repo": "readout_universe",
+    "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md",
+    "match": "if a mismatch is ever found, Appendix C wins"
+   }
+  },
+  {
+   "source": "artifact:universe-step-by-step",
+   "target": "readout_genesis",
+   "type": "source-of-truth-in"
+  },
+  {
+   "source": "artifact:universe-step-by-step",
+   "target": "readout_universe",
+   "type": "mirrored-in"
+  },
+  {
+   "source": "route:equation",
+   "target": "toledo",
+   "type": "reads",
+   "order": 1,
+   "path": "EQUATION_SOURCE_POLICY.md"
+  },
+  {
+   "source": "route:equation",
+   "target": "toledo",
+   "type": "reads",
+   "order": 2,
+   "path": "README.md"
+  },
+  {
+   "source": "route:equation",
+   "target": "toledo",
+   "type": "reads",
+   "order": 3,
+   "path": "scripts/toledo_build.py"
+  },
+  {
+   "source": "route:equation",
+   "target": "toledo",
+   "type": "reads",
+   "order": 4,
+   "path": "scripts/toledo"
+  },
+  {
+   "source": "route:equation",
+   "target": "toledo",
+   "type": "reads",
+   "order": 5,
+   "path": "registry/SCHEMA.md"
+  },
+  {
+   "source": "route:equation",
+   "target": "toledo",
+   "type": "reads",
+   "order": 6,
+   "path": "registry/CANONICAL.json"
+  },
+  {
+   "source": "route:equation",
+   "target": "gate:TG-RFG-01",
+   "type": "passes"
+  },
+  {
+   "source": "route:ontology",
+   "target": "readout_genesis",
+   "type": "reads",
+   "order": 1,
+   "path": "AGENTS.md"
+  },
+  {
+   "source": "route:ontology",
+   "target": "readout_genesis",
+   "type": "reads",
+   "order": 2,
+   "path": "README.md"
+  },
+  {
+   "source": "route:ontology",
+   "target": "readout_genesis",
+   "type": "reads",
+   "order": 3,
+   "path": "READOUT_GENESIS_CORE.md"
+  },
+  {
+   "source": "route:ontology",
+   "target": "gate:TG-RFG-01",
+   "type": "passes"
+  },
+  {
+   "source": "route:claim-strength",
+   "target": "readout_universe",
+   "type": "reads",
+   "order": 1,
+   "path": "README.md"
+  },
+  {
+   "source": "route:claim-strength",
+   "target": "readout_universe",
+   "type": "reads",
+   "order": 2,
+   "path": "claims.md"
+  },
+  {
+   "source": "route:claim-strength",
+   "target": "readout_universe",
+   "type": "reads",
+   "order": 3,
+   "path": "plugins/readout-universe/skills/readout-universe/SKILL.md"
+  },
+  {
+   "source": "route:claim-strength",
+   "target": "readout_universe",
+   "type": "reads",
+   "order": 4,
+   "path": "scope_correction.md"
+  },
+  {
+   "source": "route:claim-strength",
+   "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:discrete-math",
+   "target": "information-discrete-math",
+   "type": "reads",
+   "order": 1,
+   "path": "AI_START_HERE.md"
+  },
+  {
+   "source": "route:discrete-math",
+   "target": "information-discrete-math",
+   "type": "reads",
+   "order": 2,
+   "path": "plugins/information-discrete-math/skills/information-discrete-math/SKILL.md"
+  },
+  {
+   "source": "route:discrete-math",
+   "target": "information-discrete-math",
+   "type": "reads",
+   "order": 3,
+   "path": "llms.txt"
+  },
+  {
+   "source": "route:discrete-math",
+   "target": "information-discrete-math",
+   "type": "reads",
+   "order": 4,
+   "path": "docs/TOLEDO_CODES.md"
+  },
+  {
+   "source": "route:discrete-math",
+   "target": "gate:TG-RFG-01",
+   "type": "passes"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "glosa",
+   "type": "reads",
+   "order": 1,
+   "path": "llms.txt"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "glosa",
+   "type": "reads",
+   "order": 2,
+   "path": "plugins/glosa/skills/glosa/SKILL.md"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "glosa",
+   "type": "reads",
+   "order": 3,
+   "path": "plugins/glosa/skills/glosa-publish-gate/SKILL.md"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "glosa",
+   "type": "reads",
+   "order": 4,
+   "path": "methodology/P10_publish_gate.md"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "gate:GLOSA-PUBLISH-GATE",
+   "type": "passes"
+  },
+  {
+   "source": "route:write-and-release",
+   "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:universe-step-by-step",
+   "target": "readout_genesis",
+   "type": "reads",
+   "order": 1,
+   "path": "READOUT_GENESIS_CORE.md"
+  },
+  {
+   "source": "route:universe-step-by-step",
+   "target": "toledo",
+   "type": "reads",
+   "order": 2,
+   "path": "registry/genesis_root.json"
+  },
+  {
+   "source": "route:universe-step-by-step",
+   "target": "readout_universe",
+   "type": "reads",
+   "order": 3,
+   "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md"
+  },
+  {
+   "source": "route:universe-step-by-step",
+   "target": "gate:TG-RFG-01",
+   "type": "passes"
+  },
+  {
+   "source": "route:universe-step-by-step",
+   "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:map-of-the-programme",
+   "target": "glosa",
+   "type": "reads",
+   "order": 1,
+   "path": "docs/ECOSYSTEM.md"
+  },
+  {
+   "source": "route:health",
+   "target": "birca",
+   "type": "reads",
+   "order": 1,
+   "path": "README.md"
+  },
+  {
+   "source": "route:health",
+   "target": "birca",
+   "type": "reads",
+   "order": 2,
+   "path": "LEGAL_DISCLAIMER.md"
+  },
+  {
+   "source": "route:health",
+   "target": "birca",
+   "type": "reads",
+   "order": 3,
+   "path": "SKILL.md"
+  },
+  {
+   "source": "route:health",
+   "target": "birca",
+   "type": "reads",
+   "order": 4,
+   "path": "SYSTEM_PROMPT.md"
+  },
+  {
+   "source": "route:health",
+   "target": "gate:BIRCA-SAFETY-GATE",
+   "type": "passes"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "readout-problem-navier-stokes",
+   "type": "reads",
+   "order": 1,
+   "path": "AGENTS.md"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "readout-problem-navier-stokes",
+   "type": "reads",
+   "order": 2,
+   "path": "CLAY_READ_FIRST.md"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "readout-problem-navier-stokes",
+   "type": "reads",
+   "order": 3,
+   "path": "CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "readout-problem-navier-stokes",
+   "type": "reads",
+   "order": 4,
+   "path": "CLAY_RESEARCH_TODO.md"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "readout-problem-navier-stokes",
+   "type": "reads",
+   "order": 5,
+   "path": "CLAIMS.md"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "gate:TG-RFG-01",
+   "type": "passes"
+  },
+  {
+   "source": "route:navier-stokes",
+   "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:issue-analysis",
+   "target": "skillme",
+   "type": "reads",
+   "order": 1,
+   "path": "AI_START_HERE.md"
+  },
+  {
+   "source": "route:issue-analysis",
+   "target": "skillme",
+   "type": "reads",
+   "order": 2,
+   "path": "plugins/skillme/skills/skillme/SKILL.md"
+  }
+ ]
+}

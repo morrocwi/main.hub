@@ -1,0 +1,194 @@
+# main.hub — nodes (hand-edited source of truth; everything under nodes/, ROUTES.md,
+# llms.txt, graph/hub.* is GENERATED from graph/*.yaml by `python scripts/hub.py build`).
+#
+# A node is a pointer, never a copy. No equation, theorem statement or claim text lives here.
+# class:
+#   axis     the repository is the programme's source of record for one axis
+#   linked   at least one machine-verified edge (graph/edges.yaml) connects it to an axis node
+#   catalog  public repository of the same programme author with NO verified cross-repo edge yet;
+#            listed so an agent can find it, explicitly not claimed to be wired into the graph
+owner: morrocwi
+host: https://github.com
+
+axes:
+  - id: mathematics
+    question: "Does this equation / definition / theorem already exist, under which code, at which tier?"
+  - id: mathematical-floor
+    question: "How is a number, limit, continuum object or operator built as a finite discrete readout?"
+  - id: ontology
+    question: "What is this object in the one-root picture, and which gate or section does it instantiate?"
+  - id: epistemology
+    question: "How strong is this claim, and which evidence tier may it carry?"
+  - id: method
+    question: "How do a human and an AI produce, check and release this piece of knowledge?"
+
+repos:
+  - id: toledo
+    class: axis
+    axis: mathematics
+    role: "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists."
+    is: ["equation source of record", "lookup gate (registry JSON, CLI, MCP, static site)"]
+    is_not: ["a home for papers, prose or ontology", "a place where a proposal counts as a theorem"]
+    enter:
+      - AGENTS.md
+      - EQUATION_SOURCE_POLICY.md
+      - registry/SCHEMA.md
+      - registry/CANONICAL.json
+      - registry/genesis_root.json
+      - scripts/toledo_build.py
+      - scripts/toledo
+    gates: [TG-RFG-01]
+    doi: 10.5281/zenodo.22537318
+
+  - id: information-discrete-math
+    class: axis
+    axis: mathematical-floor
+    role: "Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor."
+    is: ["number ladder and finite-kernel proofs", "installable skill + solver API"]
+    is_not: ["the equation registry (codes live in Toledo)", "an ontology"]
+    enter:
+      - AI_START_HERE.md
+      - llms.txt
+      - AGENTS.md
+      - INDEX.md
+      - docs/TOLEDO_CODES.md
+      - textbook/INFORMATION_DISCRETE_MATHEMATICS.md
+    gates: [TG-RFG-01]
+    doi: 10.5281/zenodo.22644130
+
+  - id: readout_genesis
+    class: axis
+    axis: ontology
+    role: "One-root, information-first canon whose thesis is that every domain is a translation of one retained structure; tiered claims."
+    is: ["ontology lens", "interpretation / application map across domains"]
+    is_not: ["an independent source of theorem status (Toledo records that)", "a registry"]
+    enter:
+      - AGENTS.md
+      - README.md
+      - READOUT_GENESIS_CORE.md
+      - APPLICATIONS.md
+    gates: [TG-RFG-01]
+
+  - id: readout_universe
+    class: axis
+    axis: epistemology
+    role: "Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier."
+    is: ["epistemology lens", "tier vocabulary, claims register, companion tools and plugin"]
+    is_not: ["the equation registry", "the ontology canon"]
+    enter:
+      - README.md
+      - claims.md
+      - philosophy.md
+      - logic.md
+      - scope_correction.md
+    gates: [TIER-TAGGING]
+
+  - id: glosa
+    class: axis
+    axis: method
+    role: "Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production."
+    is: ["method + human-AI collaboration lens", "claim card, blackbox note, independent check, publish gate"]
+    is_not: ["a source of equations", "a certification authority"]
+    enter:
+      - llms.txt
+      - AGENTS.md
+      - plugins/glosa/skills/glosa/SKILL.md
+      - docs/ECOSYSTEM.md
+      - CLAIM_BOUNDARY.md
+    gates: [GLOSA-PUBLISH-GATE]
+
+  - id: birca
+    class: linked
+    role: "Educational and research-only (non-commercial) theoretical framework packaged as a safety-gated, context-bound health-information skill; not a medical service, not diagnostic, no clinical-safety audit yet."
+    is: ["application leaf (health information)", "licensed CC BY-NC-SA 4.0 with a mandatory-preservation condition; LICENSE.md states the licence is in effect (one README table row still calls it pending - LICENSE.md governs)"]
+    is_not: ["a medical product", "diagnostic or treatment selection", "clinically safety-audited (its README lists that audit as still open)"]
+    gates: [BIRCA-SAFETY-GATE]
+    enter:
+      - README.md
+      - LEGAL_DISCLAIMER.md
+      - SKILL.md
+      - SYSTEM_PROMPT.md
+      - compute/README.md
+
+  - id: readout-problem-navier-stokes
+    class: linked
+    role: "Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem."
+    is: ["domain instantiation of the finite-bridge programme", "deposited paper + finite lanes"]
+    is_not: ["a proof of global regularity or blow-up"]
+    enter:
+      - CLAY_READ_FIRST.md
+      - AGENTS.md
+      - CLAIMS.md
+      - README.md
+    gates: [TG-RFG-01]
+
+  - id: skillme
+    class: linked
+    role: "Philosophy-first protocol for analysing any reported issue without naming a cause before it is found."
+    is: ["method-family sibling (issue analysis)"]
+    is_not: ["a source of equations"]
+    enter:
+      - AI_START_HERE.md
+      - llms.txt
+      - SKILLME.md
+
+  - id: zero-readout-certifies
+    class: linked
+    role: "Machine-checked characterisation of the zero fibre of a finite retained-difference operator."
+    is: ["Coq companion paper + reproduction"]
+    is_not: ["a general solver"]
+    enter:
+      - README.md
+      - REPRODUCE.md
+
+  - id: finite-readout-acceleration
+    class: linked
+    role: "Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy."
+    is: ["engineering application leaf (web / cache / database)"]
+    is_not: ["a research canon"]
+    enter:
+      - README.md
+      - DESIGN_NOTES.md
+
+  - id: seth-skill
+    class: catalog
+    role: "AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis."
+    is: ["application skill (social enterprise)"]
+    is_not: ["wired into the equation / ontology graph by any verified edge"]
+    enter:
+      - README.md
+
+  - id: retained-sturm
+    class: catalog
+    role: "Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator."
+    is: ["numerical-method paper + benchmark"]
+    is_not: ["wired into the equation / ontology graph by any verified edge"]
+    enter:
+      - README.md
+
+gates:
+  - id: TG-RFG-01
+    name: "Toledo-Genesis reuse-first gate"
+    summary: "Toledo lookup, Genesis compatibility, reuse the existing object, derive only the missing piece, mark PROPOSAL."
+    defined_in: {repo: toledo, path: EQUATION_SOURCE_POLICY.md, match: "**Rule ID:** `TG-RFG-01`"}
+  - id: TIER-TAGGING
+    name: "Evidence-tier tagging"
+    summary: "A claim's stated strength never exceeds what was actually checked, measured or declared."
+    defined_in: {repo: readout_universe, path: plugins/readout-universe/skills/readout-universe/SKILL.md, match: "stated strength never exceeds"}
+  - id: GLOSA-PUBLISH-GATE
+    name: "glosa publish gate"
+    summary: "Release gate with leak scan and knowledge-state semantics; maker is not checker."
+    defined_in: {repo: glosa, path: methodology/P10_publish_gate.md, match: "# P10 — Publish gate"}
+  - id: BIRCA-SAFETY-GATE
+    name: "birca immediate safety gate"
+    summary: "An emergency and red-flag screen runs before any interpretation, cannot be skipped by user request or claimed consent; unknown safety status counts as unresolved; the skill's system prompt adds that it must not be delayed by extensive history-taking. The skill is not a substitute for emergency services or a clinician."
+    defined_in: {repo: birca, path: SKILL.md, match: "Immediate Safety Gate"}
+
+artifacts:
+  - id: universe-step-by-step
+    name: "Root to Standard-Model equation stream (Appendix C, SM domain equation stream)"
+    note: "One stream, more than one public copy. When copies disagree the source of truth wins."
+    source_of_truth: {repo: readout_genesis, path: READOUT_GENESIS_CORE.md, match: "APPENDIX C (SM DOMAIN EQUATION STREAM"}
+    mirrors:
+      - {repo: readout_universe, path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md, match: "Appendix C wins"}
+    codes_in: {repo: toledo, path: registry/genesis_root.json}

@@ -1,0 +1,148 @@
+generated_on: '2026-09-18'
+note: Pins are the PUBLIC default-branch state (origin/<branch>), never local work.
+repos:
+  toledo:
+    url: https://github.com/morrocwi/toledo
+    branch: main
+    commit: d46a9aab6c22be391fc8b2486d9b101443ae158e
+    tag: v1.8.0
+    commits_after_tag: 147
+    paths:
+      AGENTS.md: 31d80fe6613a6c78c145b7319416b46315401215
+      EQUATION_SOURCE_POLICY.md: 9d17197ee84d5fb04dd5a959e4c48df6b9f64f56
+      README.md: 0ba48c64a90816f15264542918b5d0fb50155ee6
+      coq/finite-readout-acceleration/PROVENANCE.json: 1b4f6f39d59b4ba747677d971b5861c3ca3569bb
+      coq/information-discrete-math/PROVENANCE.json: 59e78096bf62080ed61c365292c4dc1a2ef8fcbd
+      coq/readout_genesis/PROVENANCE.json: 934c5aae9a438d87316a1b41d53cbf8b385bb7de
+      coq/readout_universe/PROVENANCE.json: c521b093ad6a1472a3a9a62f53428b0be2b95620
+      coq/zero-readout-certifies/PROVENANCE.json: 69ccf0bba4e66ea55a3b9ce753499af6f08072e2
+      registry/CANONICAL.json: b6ce6dc603c07352b1eb81f774d6aa86a7b280eb
+      registry/SCHEMA.md: 7c3803c3d42cbe98e31882b1e37fced3e6041e2f
+      registry/genesis_root.json: eff83749f4a34dd5c7cc0f52f3d11375153a32b0
+      scripts/toledo: 380cbe2eee06acfe23cf8a3498b69e2edf7d7fed
+      scripts/toledo_build.py: 3af4db3405b85e8e6009a56868d940a578e680c7
+  information-discrete-math:
+    url: https://github.com/morrocwi/information-discrete-math
+    branch: main
+    commit: e4932afee144484759f0f3275e69fc923b80d091
+    tag: v1.6.0
+    commits_after_tag: 118
+    paths:
+      AGENTS.md: 3cdad6013c9113dfd7998a504f78300e0bd4640e
+      AI_START_HERE.md: 78683e7bf4a0311cd6f387fa3aa888db05950585
+      INDEX.md: d66afcf0cb8bd1c792641d20d6b03c170e94e29e
+      docs/TOLEDO_CODES.md: c07c8be7cc43be6ef540b4bd2d0d2db94ae5dd6c
+      llms.txt: 6eaeab68a7d4470ec3f2d708a8e77746c22cc8d5
+      plugins/information-discrete-math/skills/information-discrete-math/SKILL.md: cd1cdef1a50e99587d40e8cddde99b417ab0fc3c
+      textbook/INFORMATION_DISCRETE_MATHEMATICS.md: bfe7bc64a618c293745ee80125b3049900b1a2bb
+  readout_genesis:
+    url: https://github.com/morrocwi/readout_genesis
+    branch: main
+    commit: 1ca99bacc77624f75dd4c5752cbe20a0c9907618
+    tag: null
+    commits_after_tag: null
+    paths:
+      AGENTS.md: 803e509e74f5753e56ebb73f89553e97b2032819
+      APPLICATIONS.md: 6e936df950f201fb34dd82055d4d7f9ed22a655e
+      README.md: 37f96e24f452bcdc68a6ac0b2a3a48c6d0b16c8a
+      READOUT_GENESIS_CORE.md: 5cf400056a6d87d495ebb013cc646d7c3e22c7a8
+  readout_universe:
+    url: https://github.com/morrocwi/readout_universe
+    branch: main
+    commit: 68863dfefc32cdbc4d97871633e36aec3c8b8018
+    tag: v1.11.0
+    commits_after_tag: 31
+    paths:
+      EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md: c89bafa0c859efdd7a1c5a4272a905d9ef549fb8
+      README.md: a8db552cd8d213f85cc7a08ca88e4223e359072f
+      claims.md: 702bb89bad6f000304141afdd88e8995a9d49a5e
+      logic.md: e93fa284beb7cf395321276ceb7b5406866a029d
+      philosophy.md: d208103daf47853ad0d716f42b03da896517c995
+      plugins/readout-universe/skills/readout-universe/SKILL.md: 29df46be803fce1f743c509c38cec30977a32cf4
+      scope_correction.md: ac8603620533682bfeebc88152d78c767785f55c
+  glosa:
+    url: https://github.com/morrocwi/glosa
+    branch: main
+    commit: 106acb3ee985f91511a61f31840e046fb1e76034
+    tag: v0.4.1
+    commits_after_tag: 120
+    paths:
+      AGENTS.md: 4aa065fe156fadaadbcb98a3db46787d7b004a5b
+      CLAIM_BOUNDARY.md: 2e27b1320c589fc2e5e2542e5d67d9ad97e6cf0c
+      docs/ECOSYSTEM.md: 2b1a7a592f9264895038448cd04e55102040117e
+      llms.txt: b072504d89a7ae6ec336a3bae30d6e0fe0ecd8de
+      methodology/P10_publish_gate.md: 7aa97fd4f542cafcbf24e4f607bea2205904200b
+      methodology/P19_registration.md: c0b778a266149e4217856400180badae3d61e3a2
+      plugins/glosa/skills/glosa-publish-gate/SKILL.md: eb258e7f5c45e4a9eb499fe905b8da534e21d457
+      plugins/glosa/skills/glosa/SKILL.md: c149d05c20ddd1aa2311cb2e3bf97b34911f87e0
+  birca:
+    url: https://github.com/morrocwi/birca
+    branch: main
+    commit: 4459977909911d5faadec778c460d3acfdda170c
+    tag: birca-v1.10.6
+    commits_after_tag: 7
+    paths:
+      LEGAL_DISCLAIMER.md: 0c5606c09be6e1aabd6a92f8e057e95cfd529b7f
+      README.md: e1c2f1dbe0eef3179e0691ac5bb6782e9c2d08ed
+      SKILL.md: 71c4946c0cc10c4d55f2d93d56d4baf6c1b8f86f
+      SYSTEM_PROMPT.md: 0ff64d421df42641debe216b7e7b0c9c87231ea9
+      compute/README.md: 8c90f9241f01a59713f53789cd97d0cae3199918
+  readout-problem-navier-stokes:
+    url: https://github.com/morrocwi/readout-problem-navier-stokes
+    branch: main
+    commit: e2027c98edf94f5eee04119aeacad9dbcd9378f5
+    tag: v0.1.0
+    commits_after_tag: 440
+    paths:
+      AGENTS.md: 53eca6501c5687dde3eb3f9276f2bda871a8d46e
+      CLAIMS.md: 51e032e6aae30320743e9e0cdbb3467f376a0c7f
+      CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md: 691a5c8efe86ccd63d5667960ab63b6e082cb4d4
+      CLAY_READ_FIRST.md: c5ac2e081b320b443ae8022be4502b9dc8e2cceb
+      CLAY_RESEARCH_TODO.md: d1298ab3bb3852694fbfc95e529e61ec00fc10db
+      README.md: 963f0c2b60e2346fe8ad52b1a5180bdf59be968d
+  skillme:
+    url: https://github.com/morrocwi/skillme
+    branch: main
+    commit: 232cc8d2025cdec64cc77ad8ec2fceb17639f0e0
+    tag: v0.4.10
+    commits_after_tag: 9
+    paths:
+      AI_START_HERE.md: 64c9d7d8280d351d4a704f70a25c48c01efc5d82
+      README.md: 156ffce0fb977f109d4101bffaed4e3bfda2a52c
+      SKILLME.md: baebf48d292999e86ad2c3ed89768553d863db1c
+      llms.txt: 3ae3208cd9c3d501054fc096de9e322dd09336f3
+      plugins/skillme/skills/skillme/SKILL.md: 7c709a5a3a9037c846e98ca5693482e7b654b456
+  zero-readout-certifies:
+    url: https://github.com/morrocwi/zero-readout-certifies
+    branch: main
+    commit: adfd25a26f78d0568739c364ef2fa416dab881de
+    tag: null
+    commits_after_tag: null
+    paths:
+      README.md: 8a8a209497410f04f520bd7e76160899f5c1e987
+      REPRODUCE.md: 1fcd7f1e9e9a93084dfadc2f89c56cfecf8020f0
+  finite-readout-acceleration:
+    url: https://github.com/morrocwi/finite-readout-acceleration
+    branch: main
+    commit: 82bd6f307a34916241190b5fe86d588ed6789dd0
+    tag: v0.1.0
+    commits_after_tag: 2
+    paths:
+      DESIGN_NOTES.md: 29dee69b2dfe9a576eea7ffd0fa9dd205549129b
+      README.md: 79fbd037ffa7ef6094fb0ac1ac39b45b2ae3a1e4
+  seth-skill:
+    url: https://github.com/morrocwi/seth-skill
+    branch: main
+    commit: 4e8e9e7708078aec672304f46c99b946e13fc43c
+    tag: v0.2.0
+    commits_after_tag: 0
+    paths:
+      README.md: e430f5075df430ba3cc071217e7d6c749faf1cac
+  retained-sturm:
+    url: https://github.com/morrocwi/retained-sturm
+    branch: main
+    commit: a2a99d4ff9d080518003a3d90a7800add55a9957
+    tag: null
+    commits_after_tag: null
+    paths:
+      README.md: b298470e74706d7852afdb9af68f3ec963a2fe4f

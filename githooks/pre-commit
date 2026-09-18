@@ -1,0 +1,4 @@
+#!/bin/sh
+# Fast gate: structure, generated files up to date, leak scan. Pins are re-verified in CI and
+# by `check --workspace` before a release.
+exec python3 "$(git rev-parse --show-toplevel)/scripts/hub.py" check
