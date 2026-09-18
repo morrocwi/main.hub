@@ -1,5 +1,6 @@
 generated_on: '2026-09-18'
-note: Pins are the PUBLIC default-branch state (origin/<branch>), never local work.
+note: "Pins are the PUBLIC default-branch state (origin/<branch>), never local work. Every pinned path\n  was confirmed to\
+  \ be a regular file, not a symbolic link, in that repository."
 repos:
   glosa:
     url: https://github.com/morrocwi/glosa

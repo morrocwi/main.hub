@@ -245,7 +245,7 @@ def references(d):
 def git(repo_dir, *args, check=True):
     p = subprocess.run(["git", "-C", str(repo_dir), *args], capture_output=True, text=True)
     if check and p.returncode:
-        raise RuntimeError(f"git {' '.join(args)} in {repo_dir}: {p.stderr.strip()}")
+        raise RuntimeError(f"git {' '.join(args)} in {Path(repo_dir).name}: {p.stderr.strip()}")
     return p.stdout.strip() if p.returncode == 0 else None
 
 
@@ -279,15 +279,19 @@ def cmd_lock(args):
         paths = {}
         for p in sorted(wanted.get(rid, ())):
             blob = git(rdir, "rev-parse", f"{commit}:{p}", check=False)
-            if blob is not None and git(rdir, "cat-file", "-t", blob, check=False) != "blob":
-                sys.exit(f"lock: {rid}:{p} is not a file")
             if blob is None:
                 sys.exit(f"lock: {rid}:{p} does not exist at {head} ({commit[:12]})")
+            if git(rdir, "cat-file", "-t", blob, check=False) != "blob":
+                sys.exit(f"lock: {rid}:{p} is not a file")
+            mode = (git(rdir, "ls-tree", commit, "--", p, check=False) or "").split(None, 1)
+            if mode and mode[0] == "120000":                    # a symlink blob: its "content" is a path, not the file
+                sys.exit(f"lock: {rid}:{p} is a symbolic link in that repository - refusing to pin it")
             paths[p] = blob
         repos[rid] = {"url": repo_url(d["nodes"], rid), "branch": head.split("/", 1)[1],
                       "commit": commit, "tag": tag, "commits_after_tag": after, "paths": paths}
     out = {"generated_on": date.today().isoformat(),
-           "note": "Pins are the PUBLIC default-branch state (origin/<branch>), never local work.",
+           "note": "Pins are the PUBLIC default-branch state (origin/<branch>), never local work. Every pinned path\n"
+                   "  was confirmed to be a regular file, not a symbolic link, in that repository.",
            "repos": repos}
     (GRAPH / "lock.yaml").write_text(yaml.safe_dump(out, sort_keys=False, width=120), encoding="utf-8")
     print(f"lock: pinned {sum(len(v['paths']) for v in repos.values())} files in {len(repos)} repositories")
