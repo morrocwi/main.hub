@@ -22,5 +22,6 @@ types:
   companion-of:               "a file (possibly in a third repository) describes the repo as a companion of the target"
   cites-proposal-from:        "repo names a Toledo proposals-lane entry as the derivation behind a specific mechanism it runs; the proposal is not yet a Toledo theorem"
   logged-diagnosis-in:        "repo records a diagnosis of one of its own findings as a project in the target's case system"
+  borrows-vocabulary-from:    "repo reuses a target's typed vocabulary by declared analogy, without depending on the target's mechanism"
 
 # Edges live with the repository they start from: graph/repos/<from>.yaml, key `edges`.

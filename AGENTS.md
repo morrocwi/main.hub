@@ -46,6 +46,7 @@ tells you where to go; the repository you arrive at tells you what is true there
 | You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.) | [`birca`](ROUTES.md#health) | BIRCA-SAFETY-GATE |
 | The task touches the Navier-Stokes readout problem or the finite-bridge programme. | [`readout-problem-navier-stokes`](ROUTES.md#navier-stokes) | TG-RFG-01, TIER-TAGGING |
 | The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act. | [`task-conditioned-6d-pose-stop`](ROUTES.md#pose-stop) | TIER-TAGGING |
+| The task must decide what a system may generate versus what it may present as established, especially when evidence is currently insufficient. | [`dual-lane-epistemic-harness`](ROUTES.md#epistemic-control) | TIER-TAGGING, TG-RFG-01 |
 | You are analysing an incident, complaint, conflict, anomaly or decision. | [`skillme`](ROUTES.md#issue-analysis) | - |
 <!-- END GENERATED: routes -->
 

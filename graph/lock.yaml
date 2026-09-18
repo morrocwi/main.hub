@@ -110,6 +110,18 @@ repos:
       SYSTEM_PROMPT.md: 0ff64d421df42641debe216b7e7b0c9c87231ea9
       compute/README.md: 8c90f9241f01a59713f53789cd97d0cae3199918
       mcp_server/README.md: 2ebafb717c83d84e3259f809fb56be626fc55313
+  dual-lane-epistemic-harness:
+    url: https://github.com/morrocwi/dual-lane-epistemic-harness
+    branch: main
+    commit: 579d670f93499c3596f8127a868f40b3350fba9e
+    tag: null
+    commits_after_tag: null
+    paths:
+      AGENTS.md: 73ab1c67432c76f8919e92c6d32500eb0a4e0276
+      CLAIMS.md: bd99043cd48e2367bb707e127dfae40e0c4b4fc6
+      README.md: e9870f7ae868b243d64846aad85a88dd4cf657c8
+      REPRODUCE.md: 405391cc41d53bbb4993ae871e15b6e9c9edfa56
+      docs/CORRECTIONS.md: 9048297f162488dd69c344d0a80d5f5b7c5c9288
   finite-readout-acceleration:
     url: https://github.com/morrocwi/finite-readout-acceleration
     branch: main

@@ -18,6 +18,7 @@
 - readout_universe (axis) : Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier. https://github.com/morrocwi/readout_universe
 - toledo (axis) : Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists. https://github.com/morrocwi/toledo
 - birca (linked) : Educational and research-only (non-commercial) theoretical framework packaged as a safety-gated, context-bound health-information skill; not a medical service, not diagnostic, no clinical-safety audit yet. https://github.com/morrocwi/birca
+- dual-lane-epistemic-harness (linked) : A control architecture for generative AI under evidence gaps: verification status and generation class stay independent, so a HOLD claim may still emit an explicitly labelled Imagined Proposal - imagination alone can never authorize itself. https://github.com/morrocwi/dual-lane-epistemic-harness
 - finite-readout-acceleration (linked) : Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy. https://github.com/morrocwi/finite-readout-acceleration
 - readout-problem-navier-stokes (linked) : Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem. https://github.com/morrocwi/readout-problem-navier-stokes
 - skillme (linked) : Philosophy-first protocol for analysing any reported issue without naming a cause before it is found. https://github.com/morrocwi/skillme

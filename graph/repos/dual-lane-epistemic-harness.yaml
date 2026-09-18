@@ -1,0 +1,26 @@
+# dual-lane-epistemic-harness - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: dual-lane-epistemic-harness
+class: linked
+role: "A control architecture for generative AI under evidence gaps: verification status and generation class stay independent, so a HOLD claim may still emit an explicitly labelled Imagined Proposal - imagination alone can never authorize itself."
+is:
+- "a preprint (v3) plus an independently reconstructed, executable finite-state conformance checker"
+- "explicit about what it did not verify: a pre-deposit corrections log, including a case where an independent review's own finding was itself wrong and re-checked before being applied"
+is_not:
+- "a claim that the paper's printed Table 3 counts (22/44/0, 24/48/3, 24/46/1) have been reproduced (this repository's own reconstruction gives different counts)"
+- "a Toledo registration of Theorem 1 or invariants I1-I6 (marked PROPOSAL / not yet in Toledo)"
+- "tested against a real LLM (the paper reports no benchmark; H1-H4 are preregistered hypotheses)"
+enter:
+- AGENTS.md
+- README.md
+- CLAIMS.md
+- REPRODUCE.md
+edges:
+  - type: builds-on
+    to: toledo
+    evidence: {path: README.md, match: "The lens layer is grounded in Toledo's Readout Bridge"}
+  - type: builds-on
+    to: information-discrete-math
+    evidence: {path: CLAIMS.md, match: "live in `morrocwi/information-discrete-math`"}
+  - type: borrows-vocabulary-from
+    to: readout_universe
+    evidence: {path: README.md, match: "readout_universe`'s evidence-tier discipline"}

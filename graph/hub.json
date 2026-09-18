@@ -135,6 +135,22 @@
    ]
   },
   {
+   "id": "dual-lane-epistemic-harness",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "A control architecture for generative AI under evidence gaps: verification status and generation class stay independent, so a HOLD claim may still emit an explicitly labelled Imagined Proposal - imagination alone can never authorize itself.",
+   "url": "https://github.com/morrocwi/dual-lane-epistemic-harness",
+   "commit": "579d670f93499c3596f8127a868f40b3350fba9e",
+   "tag": null,
+   "enter": [
+    "AGENTS.md",
+    "README.md",
+    "CLAIMS.md",
+    "REPRODUCE.md"
+   ]
+  },
+  {
    "id": "finite-readout-acceleration",
    "kind": "REPO",
    "class": "linked",
@@ -646,6 +662,11 @@
    "when": "The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act."
   },
   {
+   "id": "route:epistemic-control",
+   "kind": "ROUTE",
+   "when": "The task must decide what a system may generate versus what it may present as established, especially when evidence is currently insufficient."
+  },
+  {
    "id": "route:issue-analysis",
    "kind": "ROUTE",
    "when": "You are analysing an incident, complaint, conflict, anomaly or decision."
@@ -660,6 +681,36 @@
     "repo": "birca",
     "path": "compute/README.md",
     "match": "`morrocwi/readout_genesis`, pinned commit"
+   }
+  },
+  {
+   "source": "dual-lane-epistemic-harness",
+   "target": "toledo",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "dual-lane-epistemic-harness",
+    "path": "README.md",
+    "match": "The lens layer is grounded in Toledo's Readout Bridge"
+   }
+  },
+  {
+   "source": "dual-lane-epistemic-harness",
+   "target": "information-discrete-math",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "dual-lane-epistemic-harness",
+    "path": "CLAIMS.md",
+    "match": "live in `morrocwi/information-discrete-math`"
+   }
+  },
+  {
+   "source": "dual-lane-epistemic-harness",
+   "target": "readout_universe",
+   "type": "borrows-vocabulary-from",
+   "evidence": {
+    "repo": "dual-lane-epistemic-harness",
+    "path": "README.md",
+    "match": "readout_universe`'s evidence-tier discipline"
    }
   },
   {
@@ -1551,6 +1602,42 @@
   {
    "source": "route:pose-stop",
    "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:epistemic-control",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
+  },
+  {
+   "source": "route:epistemic-control",
+   "target": "dual-lane-epistemic-harness",
+   "type": "reads",
+   "order": 1,
+   "path": "README.md"
+  },
+  {
+   "source": "route:epistemic-control",
+   "target": "dual-lane-epistemic-harness",
+   "type": "reads",
+   "order": 2,
+   "path": "CLAIMS.md"
+  },
+  {
+   "source": "route:epistemic-control",
+   "target": "dual-lane-epistemic-harness",
+   "type": "reads",
+   "order": 3,
+   "path": "docs/CORRECTIONS.md"
+  },
+  {
+   "source": "route:epistemic-control",
+   "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:epistemic-control",
+   "target": "gate:TG-RFG-01",
    "type": "passes"
   },
   {

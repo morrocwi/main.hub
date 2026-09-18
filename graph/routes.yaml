@@ -99,6 +99,15 @@ routes:
     gates: [TIER-TAGGING]
     then: "HOLD when no certificate exists within budget; a terminal HOLD is never relabelled as a certificate. Read CLAIMS.md before repeating any of this repository's own numbers as settled."
 
+  - id: epistemic-control
+    when: "The task must decide what a system may generate versus what it may present as established, especially when evidence is currently insufficient."
+    steps:
+      - {repo: dual-lane-epistemic-harness, path: README.md, why: "the rule: HOLD blocks authorization, not imagination - a typed Imagined Proposal may exist while a claim stays unauthorized"}
+      - {repo: dual-lane-epistemic-harness, path: CLAIMS.md, why: "what is established here and what is not, including the paper's own unreproduced Table 3 counts and which formal objects are not yet in Toledo"}
+      - {repo: dual-lane-epistemic-harness, path: docs/CORRECTIONS.md, why: "a worked example of catching, and then re-checking, a citation error - including a case where the correction itself needed correcting"}
+    gates: [TIER-TAGGING, TG-RFG-01]
+    then: "A speculative artifact may exist labelled as such; it may never be relabelled as observed or derived without a new evidence-and-verification event."
+
   - id: issue-analysis
     when: "You are analysing an incident, complaint, conflict, anomaly or decision."
     steps:

@@ -22,6 +22,7 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Verified edges
 
+- `dual-lane-epistemic-harness` **borrows-vocabulary-from** `readout_universe` - evidence: `dual-lane-epistemic-harness` / [`README.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/README.md) contains "readout_universe`'s evidence-tier discipline"
 - `readout_universe` **authority-for** `axis:epistemology` - evidence: `toledo` / [`EQUATION_SOURCE_POLICY.md`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/EQUATION_SOURCE_POLICY.md) contains "Readout Universe is the primary epistemology lens"
 - `readout_universe` **builds-on** `information-discrete-math` - evidence: `readout_universe` / [`philosophy.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/philosophy.md) contains "The mandatory floor for this"
 - `readout_universe` **holds-synced-copy-from** `readout_genesis` - evidence: `readout_universe` / [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md) contains "if a mismatch is ever found, Appendix C wins"
@@ -29,4 +30,4 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Neighbour cards
 
-[[information-discrete-math]] · [[readout_genesis]] · [[toledo]]
+[[dual-lane-epistemic-harness]] · [[information-discrete-math]] · [[readout_genesis]] · [[toledo]]

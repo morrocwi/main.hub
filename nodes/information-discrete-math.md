@@ -24,6 +24,7 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Verified edges
 
+- `dual-lane-epistemic-harness` **builds-on** `information-discrete-math` - evidence: `dual-lane-epistemic-harness` / [`CLAIMS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/CLAIMS.md) contains "live in `morrocwi/information-discrete-math`"
 - `information-discrete-math` **authority-for** `axis:mathematical-floor` - evidence: `glosa` / [`docs/ECOSYSTEM.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/docs/ECOSYSTEM.md) contains "| Mathematical floor (readout-first number ladder, Coq) | **information-discrete-math"
 - `information-discrete-math` **requires-gate** `gate:TG-RFG-01` - evidence: `information-discrete-math` / [`AGENTS.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/AGENTS.md) contains "## Mandatory Toledo-Genesis reuse-first gate"
 - `information-discrete-math` **registers-into** `toledo` - evidence: `information-discrete-math` / [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/docs/TOLEDO_CODES.md) contains "was registered into Toledo"
@@ -36,4 +37,4 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Neighbour cards
 
-[[readout-problem-navier-stokes]] · [[readout_genesis]] · [[readout_universe]] · [[skillme]] · [[toledo]] · [[zero-readout-certifies]]
+[[dual-lane-epistemic-harness]] · [[readout-problem-navier-stokes]] · [[readout_genesis]] · [[readout_universe]] · [[skillme]] · [[toledo]] · [[zero-readout-certifies]]

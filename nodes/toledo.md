@@ -24,6 +24,7 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Verified edges
 
+- `dual-lane-epistemic-harness` **builds-on** `toledo` - evidence: `dual-lane-epistemic-harness` / [`README.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/README.md) contains "The lens layer is grounded in Toledo's Readout Bridge"
 - `glosa` **prescribes-registration-in** `toledo` - evidence: `glosa` / [`methodology/P19_registration.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/methodology/P19_registration.md) contains "| An **equation** (new, revised, or reused in a new domain) | **Toledo**"
 - `information-discrete-math` **registers-into** `toledo` - evidence: `information-discrete-math` / [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/docs/TOLEDO_CODES.md) contains "was registered into Toledo"
 - `readout-problem-navier-stokes` **defers-status-to** `toledo` - evidence: `readout-problem-navier-stokes` / [`README.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/README.md) contains "proposal/equation provenance and tier/status"
@@ -38,4 +39,4 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Neighbour cards
 
-[[finite-readout-acceleration]] · [[glosa]] · [[information-discrete-math]] · [[readout-problem-navier-stokes]] · [[readout_genesis]] · [[readout_universe]] · [[task-conditioned-6d-pose-stop]] · [[zero-readout-certifies]]
+[[dual-lane-epistemic-harness]] · [[finite-readout-acceleration]] · [[glosa]] · [[information-discrete-math]] · [[readout-problem-navier-stokes]] · [[readout_genesis]] · [[readout_universe]] · [[task-conditioned-6d-pose-stop]] · [[zero-readout-certifies]]

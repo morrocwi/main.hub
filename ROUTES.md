@@ -18,6 +18,7 @@ A pin is a readout of one moment: compare it with the live default branch before
 | You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.) | [`birca`](ROUTES.md#health) | BIRCA-SAFETY-GATE |
 | The task touches the Navier-Stokes readout problem or the finite-bridge programme. | [`readout-problem-navier-stokes`](ROUTES.md#navier-stokes) | TG-RFG-01, TIER-TAGGING |
 | The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act. | [`task-conditioned-6d-pose-stop`](ROUTES.md#pose-stop) | TIER-TAGGING |
+| The task must decide what a system may generate versus what it may present as established, especially when evidence is currently insufficient. | [`dual-lane-epistemic-harness`](ROUTES.md#epistemic-control) | TIER-TAGGING, TG-RFG-01 |
 | You are analysing an incident, complaint, conflict, anomaly or decision. | [`skillme`](ROUTES.md#issue-analysis) | - |
 
 ## Step 0
@@ -213,6 +214,21 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 **Gates:** TIER-TAGGING
 
 **Then:** HOLD when no certificate exists within budget; a terminal HOLD is never relabelled as a certificate. Read CLAIMS.md before repeating any of this repository's own numbers as settled.
+
+## epistemic-control
+
+**When:** The task must decide what a system may generate versus what it may present as established, especially when evidence is currently insufficient.
+
+1. `dual-lane-epistemic-harness` / [`README.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/README.md) - the rule: HOLD blocks authorization, not imagination - a typed Imagined Proposal may exist while a claim stays unauthorized  
+   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/579d670f93499c3596f8127a868f40b3350fba9e/README.md>
+2. `dual-lane-epistemic-harness` / [`CLAIMS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/CLAIMS.md) - what is established here and what is not, including the paper's own unreproduced Table 3 counts and which formal objects are not yet in Toledo  
+   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/579d670f93499c3596f8127a868f40b3350fba9e/CLAIMS.md>
+3. `dual-lane-epistemic-harness` / [`docs/CORRECTIONS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/docs/CORRECTIONS.md) - a worked example of catching, and then re-checking, a citation error - including a case where the correction itself needed correcting  
+   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/579d670f93499c3596f8127a868f40b3350fba9e/docs/CORRECTIONS.md>
+
+**Gates:** TIER-TAGGING, TG-RFG-01
+
+**Then:** A speculative artifact may exist labelled as such; it may never be relabelled as observed or derived without a new evidence-and-verification event.
 
 ## issue-analysis
 
