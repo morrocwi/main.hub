@@ -186,7 +186,7 @@
    "axis": null,
    "role": "Coverage-qualified stopping for iterative 6D pose refinement: an observable readout goes through a calibrated completion envelope and a task reader to ACT, CONTINUE or HOLD - never a bare pose estimate.",
    "url": "https://github.com/morrocwi/task-conditioned-6d-pose-stop",
-   "commit": "be2d7f28878df20f00291a944f12fe28a443d79f",
+   "commit": "176881a6476d28da18177c6638c982e50370776a",
    "tag": "v0.7.0",
    "enter": [
     "README.md",

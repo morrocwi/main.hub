@@ -24,7 +24,7 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 - `glosa` **authority-for** `axis:method` - evidence: `toledo` / [`EQUATION_SOURCE_POLICY.md`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/EQUATION_SOURCE_POLICY.md) contains "GLOSA is the primary human"
 - `glosa` **prescribes-registration-in** `toledo` - evidence: `glosa` / [`methodology/P19_registration.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/methodology/P19_registration.md) contains "| An **equation** (new, revised, or reused in a new domain) | **Toledo**"
-- `task-conditioned-6d-pose-stop` **logged-diagnosis-in** `glosa` - evidence: `task-conditioned-6d-pose-stop` / [`README.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/README.md) contains "A diagnosis recorded in glosa"
+- `task-conditioned-6d-pose-stop` **logged-diagnosis-in** `glosa` - evidence: `task-conditioned-6d-pose-stop` / [`README.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/176881a6476d28da18177c6638c982e50370776a/README.md) contains "A diagnosis recorded in glosa"
 
 ## Neighbour cards
 

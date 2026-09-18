@@ -203,12 +203,12 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act.
 
-1. `task-conditioned-6d-pose-stop` / [`README.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/README.md) - the ACT / CONTINUE / HOLD rule and the certificate-hitting-time distinction from a bare pose estimate  
-   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/be2d7f28878df20f00291a944f12fe28a443d79f/README.md>
-2. `task-conditioned-6d-pose-stop` / [`CLAIMS.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/CLAIMS.md) - which of its own claims are supported, refuted or still open - several real-sensor claims here are refuted  
-   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/be2d7f28878df20f00291a944f12fe28a443d79f/CLAIMS.md>
-3. `task-conditioned-6d-pose-stop` / [`RESEARCH_QUESTION.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/RESEARCH_QUESTION.md) - the single testable question, and the falsifiers that would settle it  
-   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/be2d7f28878df20f00291a944f12fe28a443d79f/RESEARCH_QUESTION.md>
+1. `task-conditioned-6d-pose-stop` / [`README.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/176881a6476d28da18177c6638c982e50370776a/README.md) - the ACT / CONTINUE / HOLD rule and the certificate-hitting-time distinction from a bare pose estimate  
+   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/176881a6476d28da18177c6638c982e50370776a/README.md>
+2. `task-conditioned-6d-pose-stop` / [`CLAIMS.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/176881a6476d28da18177c6638c982e50370776a/CLAIMS.md) - which of its own claims are supported, refuted or still open - several real-sensor claims here are refuted  
+   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/176881a6476d28da18177c6638c982e50370776a/CLAIMS.md>
+3. `task-conditioned-6d-pose-stop` / [`RESEARCH_QUESTION.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/176881a6476d28da18177c6638c982e50370776a/RESEARCH_QUESTION.md) - the single testable question, and the falsifiers that would settle it  
+   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/176881a6476d28da18177c6638c982e50370776a/RESEARCH_QUESTION.md>
 
 **Gates:** TIER-TAGGING
 

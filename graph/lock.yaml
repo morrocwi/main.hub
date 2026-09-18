@@ -150,9 +150,9 @@ repos:
   task-conditioned-6d-pose-stop:
     url: https://github.com/morrocwi/task-conditioned-6d-pose-stop
     branch: main
-    commit: be2d7f28878df20f00291a944f12fe28a443d79f
+    commit: 176881a6476d28da18177c6638c982e50370776a
     tag: v0.7.0
-    commits_after_tag: 29
+    commits_after_tag: 31
     paths:
       CLAIMS.md: 33455bf95e0cd9de52cc63a1bfc767d64600ee4c
       CONTRIBUTING.md: 8bc157227452e5be619738c7d2641305b81d530c
