@@ -20,5 +20,7 @@ types:
   declares-lineage-from:      "repo names the target at a pinned commit as the source lineage of a component it ships; the component itself need not exist in the target"
   holds-synced-copy-from:     "ONE named file in the repo is a synced copy of a document in the target; the target holds the source of truth (says nothing about the rest of the repo)"
   companion-of:               "a file (possibly in a third repository) describes the repo as a companion of the target"
+  cites-proposal-from:        "repo names a Toledo proposals-lane entry as the derivation behind a specific mechanism it runs; the proposal is not yet a Toledo theorem"
+  logged-diagnosis-in:        "repo records a diagnosis of one of its own findings as a project in the target's case system"
 
 # Edges live with the repository they start from: graph/repos/<from>.yaml, key `edges`.

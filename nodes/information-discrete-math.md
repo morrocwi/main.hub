@@ -7,26 +7,26 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 - **Role:** Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor.
 - **Is:** number ladder and finite-kernel proofs; installable skill + solver API
 - **Is not:** the equation registry (codes live in Toledo); an ontology
-- **Pinned:** `6e03a46f434a` on `main`, 120 commits after tag `v1.6.0`
+- **Pinned:** `33c54bb2512c` on `main`, 121 commits after tag `v1.6.0`
 - **Concept DOI:** 10.5281/zenodo.22644130
 - **Gates:** TG-RFG-01
-- **Surfaces:** plugin [information-discrete-math plugin](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/.claude-plugin/marketplace.json); skill [information-discrete-math skill](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md); api [idm library and REST service](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/API.md); api [idm capability manifest](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/capabilities.json); package [idm Python package](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/pyproject.toml) (see `SURFACES.md`)
-- **Lens source (Step 0):** [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md)
+- **Surfaces:** plugin [information-discrete-math plugin](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/.claude-plugin/marketplace.json); skill [information-discrete-math skill](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md); api [idm library and REST service](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/API.md); api [idm capability manifest](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/capabilities.json); package [idm Python package](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/pyproject.toml) (see `SURFACES.md`)
+- **Lens source (Step 0):** [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md)
 
 ## Read in this order
 
-1. [`AI_START_HERE.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/AI_START_HERE.md)
-2. [`llms.txt`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/llms.txt)
-3. [`AGENTS.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/AGENTS.md)
-4. [`INDEX.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/INDEX.md)
-5. [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/docs/TOLEDO_CODES.md)
-6. [`textbook/INFORMATION_DISCRETE_MATHEMATICS.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/textbook/INFORMATION_DISCRETE_MATHEMATICS.md)
+1. [`AI_START_HERE.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/AI_START_HERE.md)
+2. [`llms.txt`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/llms.txt)
+3. [`AGENTS.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/AGENTS.md)
+4. [`INDEX.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/INDEX.md)
+5. [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/docs/TOLEDO_CODES.md)
+6. [`textbook/INFORMATION_DISCRETE_MATHEMATICS.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/textbook/INFORMATION_DISCRETE_MATHEMATICS.md)
 
 ## Verified edges
 
 - `information-discrete-math` **authority-for** `axis:mathematical-floor` - evidence: `glosa` / [`docs/ECOSYSTEM.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/docs/ECOSYSTEM.md) contains "| Mathematical floor (readout-first number ladder, Coq) | **information-discrete-math"
-- `information-discrete-math` **requires-gate** `gate:TG-RFG-01` - evidence: `information-discrete-math` / [`AGENTS.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/AGENTS.md) contains "## Mandatory Toledo-Genesis reuse-first gate"
-- `information-discrete-math` **registers-into** `toledo` - evidence: `information-discrete-math` / [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/docs/TOLEDO_CODES.md) contains "was registered into Toledo"
+- `information-discrete-math` **requires-gate** `gate:TG-RFG-01` - evidence: `information-discrete-math` / [`AGENTS.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/AGENTS.md) contains "## Mandatory Toledo-Genesis reuse-first gate"
+- `information-discrete-math` **registers-into** `toledo` - evidence: `information-discrete-math` / [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/docs/TOLEDO_CODES.md) contains "was registered into Toledo"
 - `readout-problem-navier-stokes` **reads-shared-math-from** `information-discrete-math` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md) contains "If working on shared bridge mathematics, read"
 - `readout_genesis` **delegates-proof-to** `information-discrete-math` - evidence: `readout_genesis` / [`AGENTS.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/AGENTS.md) contains "IDM proves generic finite kernels"
 - `readout_universe` **builds-on** `information-discrete-math` - evidence: `readout_universe` / [`philosophy.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/philosophy.md) contains "The mandatory floor for this"

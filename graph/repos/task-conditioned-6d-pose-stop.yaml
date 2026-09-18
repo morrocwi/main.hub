@@ -1,0 +1,24 @@
+# task-conditioned-6d-pose-stop - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: task-conditioned-6d-pose-stop
+class: linked
+role: "Coverage-qualified stopping for iterative 6D pose refinement: an observable readout goes through a calibrated completion envelope and a task reader to ACT, CONTINUE or HOLD - never a bare pose estimate."
+is:
+- "implementation-first research repository (public)"
+- "a working ACT/CONTINUE/HOLD readout gate: HOLD when no certificate exists, never relabelled"
+- "instrumented with real BOP LM-O RGB-D runs, not only synthetic ones"
+is_not:
+- "a claim that quotienting or coverage-qualified stopping is faster or non-inferior in general (several such claims are refuted or unsupported in its own CLAIMS.md)"
+- "a claim that split-conformal marginal coverage is a deterministic safety guarantee"
+- "a claim that any ACT-licensing mechanism in this repository has been shown safe on real sensor data (its own native-sensitivity mechanism was found unsafe on 92.5-100% of real test episodes, reported as a safety finding, not a success)"
+enter:
+- README.md
+- CLAIMS.md
+- RESEARCH_QUESTION.md
+- CONTRIBUTING.md
+edges:
+  - type: cites-proposal-from
+    to: toledo
+    evidence: {path: README.md, match: "Toledo proposal `PROP-DECAY-01`"}
+  - type: logged-diagnosis-in
+    to: glosa
+    evidence: {path: README.md, match: "A diagnosis recorded in glosa"}

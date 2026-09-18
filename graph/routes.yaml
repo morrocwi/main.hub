@@ -90,6 +90,15 @@ routes:
     gates: [TG-RFG-01, TIER-TAGGING]
     then: "The Clay problem stays open; never phrase a finite result as a resolution."
 
+  - id: pose-stop
+    when: "The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act."
+    steps:
+      - {repo: task-conditioned-6d-pose-stop, path: README.md, why: "the ACT / CONTINUE / HOLD rule and the certificate-hitting-time distinction from a bare pose estimate"}
+      - {repo: task-conditioned-6d-pose-stop, path: CLAIMS.md, why: "which of its own claims are supported, refuted or still open - several real-sensor claims here are refuted"}
+      - {repo: task-conditioned-6d-pose-stop, path: RESEARCH_QUESTION.md, why: "the single testable question, and the falsifiers that would settle it"}
+    gates: [TIER-TAGGING]
+    then: "HOLD when no certificate exists within budget; a terminal HOLD is never relabelled as a certificate. Read CLAIMS.md before repeating any of this repository's own numbers as settled."
+
   - id: issue-analysis
     when: "You are analysing an incident, complaint, conflict, anomaly or decision."
     steps:

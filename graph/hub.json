@@ -54,7 +54,7 @@
    "axis": "mathematical-floor",
    "role": "Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor.",
    "url": "https://github.com/morrocwi/information-discrete-math",
-   "commit": "6e03a46f434a5ea878a9266a31200fb74c4ed55e",
+   "commit": "33c54bb2512cf2c129feef928eb64977bb420b57",
    "tag": "v1.6.0",
    "enter": [
     "AI_START_HERE.md",
@@ -177,6 +177,22 @@
     "AI_START_HERE.md",
     "llms.txt",
     "SKILLME.md"
+   ]
+  },
+  {
+   "id": "task-conditioned-6d-pose-stop",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Coverage-qualified stopping for iterative 6D pose refinement: an observable readout goes through a calibrated completion envelope and a task reader to ACT, CONTINUE or HOLD - never a bare pose estimate.",
+   "url": "https://github.com/morrocwi/task-conditioned-6d-pose-stop",
+   "commit": "be2d7f28878df20f00291a944f12fe28a443d79f",
+   "tag": "v0.7.0",
+   "enter": [
+    "README.md",
+    "CLAIMS.md",
+    "RESEARCH_QUESTION.md",
+    "CONTRIBUTING.md"
    ]
   },
   {
@@ -625,6 +641,11 @@
    "when": "The task touches the Navier-Stokes readout problem or the finite-bridge programme."
   },
   {
+   "id": "route:pose-stop",
+   "kind": "ROUTE",
+   "when": "The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act."
+  },
+  {
    "id": "route:issue-analysis",
    "kind": "ROUTE",
    "when": "You are analysing an incident, complaint, conflict, anomaly or decision."
@@ -819,6 +840,26 @@
     "repo": "skillme",
     "path": "README.md",
     "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
+   }
+  },
+  {
+   "source": "task-conditioned-6d-pose-stop",
+   "target": "toledo",
+   "type": "cites-proposal-from",
+   "evidence": {
+    "repo": "task-conditioned-6d-pose-stop",
+    "path": "README.md",
+    "match": "Toledo proposal `PROP-DECAY-01`"
+   }
+  },
+  {
+   "source": "task-conditioned-6d-pose-stop",
+   "target": "glosa",
+   "type": "logged-diagnosis-in",
+   "evidence": {
+    "repo": "task-conditioned-6d-pose-stop",
+    "path": "README.md",
+    "match": "A diagnosis recorded in glosa"
    }
   },
   {
@@ -1478,6 +1519,37 @@
   },
   {
    "source": "route:navier-stokes",
+   "target": "gate:TIER-TAGGING",
+   "type": "passes"
+  },
+  {
+   "source": "route:pose-stop",
+   "target": "lens:READOUT-LENS",
+   "type": "preceded-by"
+  },
+  {
+   "source": "route:pose-stop",
+   "target": "task-conditioned-6d-pose-stop",
+   "type": "reads",
+   "order": 1,
+   "path": "README.md"
+  },
+  {
+   "source": "route:pose-stop",
+   "target": "task-conditioned-6d-pose-stop",
+   "type": "reads",
+   "order": 2,
+   "path": "CLAIMS.md"
+  },
+  {
+   "source": "route:pose-stop",
+   "target": "task-conditioned-6d-pose-stop",
+   "type": "reads",
+   "order": 3,
+   "path": "RESEARCH_QUESTION.md"
+  },
+  {
+   "source": "route:pose-stop",
    "target": "gate:TIER-TAGGING",
    "type": "passes"
   },

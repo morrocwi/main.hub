@@ -33,9 +33,9 @@ repos:
   information-discrete-math:
     url: https://github.com/morrocwi/information-discrete-math
     branch: main
-    commit: 6e03a46f434a5ea878a9266a31200fb74c4ed55e
+    commit: 33c54bb2512cf2c129feef928eb64977bb420b57
     tag: v1.6.0
-    commits_after_tag: 120
+    commits_after_tag: 121
     paths:
       .claude-plugin/marketplace.json: ec6c3c4dc7d96da25900c66d620fd07aa4addd91
       AGENTS.md: 638b26741d117cf57ae3c1f6aed9181ef15988a5
@@ -147,6 +147,17 @@ repos:
       llms.txt: 3ae3208cd9c3d501054fc096de9e322dd09336f3
       plugins/skillme/skills/skillme/SKILL.md: 7c709a5a3a9037c846e98ca5693482e7b654b456
       skillme_protocol_kernel.py: a063ae2decec8da782c6a23147b0946810f7cfa7
+  task-conditioned-6d-pose-stop:
+    url: https://github.com/morrocwi/task-conditioned-6d-pose-stop
+    branch: main
+    commit: be2d7f28878df20f00291a944f12fe28a443d79f
+    tag: v0.7.0
+    commits_after_tag: 29
+    paths:
+      CLAIMS.md: 33455bf95e0cd9de52cc63a1bfc767d64600ee4c
+      CONTRIBUTING.md: 8bc157227452e5be619738c7d2641305b81d530c
+      README.md: 9cf7e55e082320f7f6b4fa4938b906c0dc7ba99c
+      RESEARCH_QUESTION.md: 5a42a25adcd171ef11f2463f6f192bb525c8acc2
   zero-readout-certifies:
     url: https://github.com/morrocwi/zero-readout-certifies
     branch: main

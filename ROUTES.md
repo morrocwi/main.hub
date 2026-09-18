@@ -17,6 +17,7 @@ A pin is a readout of one moment: compare it with the live default branch before
 | You want the prose map of who holds which role and who calls whom. | [`glosa`](ROUTES.md#map-of-the-programme) | - |
 | You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.) | [`birca`](ROUTES.md#health) | BIRCA-SAFETY-GATE |
 | The task touches the Navier-Stokes readout problem or the finite-bridge programme. | [`readout-problem-navier-stokes`](ROUTES.md#navier-stokes) | TG-RFG-01, TIER-TAGGING |
+| The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act. | [`task-conditioned-6d-pose-stop`](ROUTES.md#pose-stop) | TIER-TAGGING |
 | You are analysing an incident, complaint, conflict, anomaly or decision. | [`skillme`](ROUTES.md#issue-analysis) | - |
 
 ## Step 0
@@ -40,8 +41,8 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **Also stated in (read the passage around the quoted phrase)**
 
-1. `information-discrete-math` / [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md) - everything an agency reads is a finite retained difference - a readout (stated there as a stance, tier Dr): "Everything an agency ever reads is a finite retained difference"  
-   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/6e03a46f434a5ea878a9266a31200fb74c4ed55e/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md>
+1. `information-discrete-math` / [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md) - everything an agency reads is a finite retained difference - a readout (stated there as a stance, tier Dr): "Everything an agency ever reads is a finite retained difference"  
+   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md>
 2. `readout_genesis` / [`README.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/README.md) - readout-not-truth - verified structure is not physical truth, and every claim carries a tier: "Verified structure is not physical truth"  
    raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/864bb85950deec943517b102bd33cf8ff101da15/README.md>
 3. `glosa` / [`plugins/glosa/skills/glosa-blackbox-note/SKILL.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/plugins/glosa/skills/glosa-blackbox-note/SKILL.md) - every hypothesis statement carries a signature line naming the lens its lens_ref points at: "Every hypothesis statement carries a signature line naming the lens `lens_ref` points at"  
@@ -106,14 +107,14 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** You are about to use a number, limit, continuum object, angle, derivative or operator.
 
-1. `information-discrete-math` / [`AI_START_HERE.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/AI_START_HERE.md) - shortest orientation  
-   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/6e03a46f434a5ea878a9266a31200fb74c4ed55e/AI_START_HERE.md>
-2. `information-discrete-math` / [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md) - the operational floor: contaminated-concept table, pre-write checklist, number ladder  
-   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/6e03a46f434a5ea878a9266a31200fb74c4ed55e/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md>
-3. `information-discrete-math` / [`llms.txt`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/llms.txt) - file map for agents  
-   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/6e03a46f434a5ea878a9266a31200fb74c4ed55e/llms.txt>
-4. `information-discrete-math` / [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/6e03a46f434a5ea878a9266a31200fb74c4ed55e/docs/TOLEDO_CODES.md) - which Toledo codes this repository carries  
-   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/6e03a46f434a5ea878a9266a31200fb74c4ed55e/docs/TOLEDO_CODES.md>
+1. `information-discrete-math` / [`AI_START_HERE.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/AI_START_HERE.md) - shortest orientation  
+   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/33c54bb2512cf2c129feef928eb64977bb420b57/AI_START_HERE.md>
+2. `information-discrete-math` / [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md) - the operational floor: contaminated-concept table, pre-write checklist, number ladder  
+   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md>
+3. `information-discrete-math` / [`llms.txt`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/llms.txt) - file map for agents  
+   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/33c54bb2512cf2c129feef928eb64977bb420b57/llms.txt>
+4. `information-discrete-math` / [`docs/TOLEDO_CODES.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/docs/TOLEDO_CODES.md) - which Toledo codes this repository carries  
+   raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/33c54bb2512cf2c129feef928eb64977bb420b57/docs/TOLEDO_CODES.md>
 
 **Gates:** TG-RFG-01
 
@@ -197,6 +198,21 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 **Gates:** TG-RFG-01, TIER-TAGGING
 
 **Then:** The Clay problem stays open; never phrase a finite result as a resolution.
+
+## pose-stop
+
+**When:** The task touches reading a sensor estimate (pose, or anything read out step by step toward a threshold) and asks when it is safe to stop reading and act.
+
+1. `task-conditioned-6d-pose-stop` / [`README.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/README.md) - the ACT / CONTINUE / HOLD rule and the certificate-hitting-time distinction from a bare pose estimate  
+   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/be2d7f28878df20f00291a944f12fe28a443d79f/README.md>
+2. `task-conditioned-6d-pose-stop` / [`CLAIMS.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/CLAIMS.md) - which of its own claims are supported, refuted or still open - several real-sensor claims here are refuted  
+   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/be2d7f28878df20f00291a944f12fe28a443d79f/CLAIMS.md>
+3. `task-conditioned-6d-pose-stop` / [`RESEARCH_QUESTION.md`](https://github.com/morrocwi/task-conditioned-6d-pose-stop/blob/be2d7f28878df20f00291a944f12fe28a443d79f/RESEARCH_QUESTION.md) - the single testable question, and the falsifiers that would settle it  
+   raw: <https://raw.githubusercontent.com/morrocwi/task-conditioned-6d-pose-stop/be2d7f28878df20f00291a944f12fe28a443d79f/RESEARCH_QUESTION.md>
+
+**Gates:** TIER-TAGGING
+
+**Then:** HOLD when no certificate exists within budget; a terminal HOLD is never relabelled as a certificate. Read CLAIMS.md before repeating any of this repository's own numbers as settled.
 
 ## issue-analysis
 

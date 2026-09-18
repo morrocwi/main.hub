@@ -21,6 +21,7 @@
 - finite-readout-acceleration (linked) : Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy. https://github.com/morrocwi/finite-readout-acceleration
 - readout-problem-navier-stokes (linked) : Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem. https://github.com/morrocwi/readout-problem-navier-stokes
 - skillme (linked) : Philosophy-first protocol for analysing any reported issue without naming a cause before it is found. https://github.com/morrocwi/skillme
+- task-conditioned-6d-pose-stop (linked) : Coverage-qualified stopping for iterative 6D pose refinement: an observable readout goes through a calibrated completion envelope and a task reader to ACT, CONTINUE or HOLD - never a bare pose estimate. https://github.com/morrocwi/task-conditioned-6d-pose-stop
 - zero-readout-certifies (linked) : Machine-checked characterisation of the zero fibre of a finite retained-difference operator. https://github.com/morrocwi/zero-readout-certifies
 - retained-sturm (catalog) : Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator. https://github.com/morrocwi/retained-sturm
 - seth-skill (catalog) : AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis. https://github.com/morrocwi/seth-skill

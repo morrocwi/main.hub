@@ -18,6 +18,7 @@
 <node id="finite-readout-acceleration"><data key="kind">REPO</data></node>
 <node id="readout-problem-navier-stokes"><data key="kind">REPO</data></node>
 <node id="skillme"><data key="kind">REPO</data></node>
+<node id="task-conditioned-6d-pose-stop"><data key="kind">REPO</data></node>
 <node id="zero-readout-certifies"><data key="kind">REPO</data></node>
 <node id="retained-sturm"><data key="kind">REPO</data></node>
 <node id="seth-skill"><data key="kind">REPO</data></node>
@@ -69,6 +70,7 @@
 <node id="route:map-of-the-programme"><data key="kind">ROUTE</data></node>
 <node id="route:health"><data key="kind">ROUTE</data></node>
 <node id="route:navier-stokes"><data key="kind">ROUTE</data></node>
+<node id="route:pose-stop"><data key="kind">ROUTE</data></node>
 <node id="route:issue-analysis"><data key="kind">ROUTE</data></node>
 <edge source="birca" target="readout_genesis"><data key="type">declares-lineage-from</data></edge>
 <edge source="glosa" target="axis:method"><data key="type">authority-for</data></edge>
@@ -89,6 +91,8 @@
 <edge source="readout_universe" target="readout_genesis"><data key="type">holds-synced-copy-from</data></edge>
 <edge source="skillme" target="information-discrete-math"><data key="type">builds-on</data></edge>
 <edge source="skillme" target="readout_genesis"><data key="type">builds-on</data></edge>
+<edge source="task-conditioned-6d-pose-stop" target="toledo"><data key="type">cites-proposal-from</data></edge>
+<edge source="task-conditioned-6d-pose-stop" target="glosa"><data key="type">logged-diagnosis-in</data></edge>
 <edge source="toledo" target="axis:mathematics"><data key="type">authority-for</data></edge>
 <edge source="toledo" target="readout_genesis"><data key="type">imports-coq-from</data></edge>
 <edge source="toledo" target="readout_universe"><data key="type">imports-coq-from</data></edge>
@@ -192,6 +196,11 @@
 <edge source="route:navier-stokes" target="readout-problem-navier-stokes"><data key="type">reads</data></edge>
 <edge source="route:navier-stokes" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
 <edge source="route:navier-stokes" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
+<edge source="route:pose-stop" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
+<edge source="route:pose-stop" target="task-conditioned-6d-pose-stop"><data key="type">reads</data></edge>
+<edge source="route:pose-stop" target="task-conditioned-6d-pose-stop"><data key="type">reads</data></edge>
+<edge source="route:pose-stop" target="task-conditioned-6d-pose-stop"><data key="type">reads</data></edge>
+<edge source="route:pose-stop" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
 <edge source="route:issue-analysis" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>
 <edge source="route:issue-analysis" target="skillme"><data key="type">reads</data></edge>
 <edge source="route:issue-analysis" target="skillme"><data key="type">reads</data></edge>
