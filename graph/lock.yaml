@@ -5,12 +5,12 @@ repos:
   glosa:
     url: https://github.com/morrocwi/glosa
     branch: main
-    commit: 106acb3ee985f91511a61f31840e046fb1e76034
+    commit: cf1c96a433dda38878ec8a85ca099657d761ec64
     tag: v0.4.1
-    commits_after_tag: 120
+    commits_after_tag: 122
     paths:
       .claude-plugin/marketplace.json: ca95810af8e807fa0f09675258a89451be9e3d2d
-      AGENTS.md: 4aa065fe156fadaadbcb98a3db46787d7b004a5b
+      AGENTS.md: 34b7bb7915e06b4dfdc6be84e538750ff390a516
       CLAIM_BOUNDARY.md: 2e27b1320c589fc2e5e2542e5d67d9ad97e6cf0c
       cli/README.md: 95a0705172a61bc8ef3730acc5a5fba9037db491
       docs/ECOSYSTEM.md: 2b1a7a592f9264895038448cd04e55102040117e
@@ -33,12 +33,12 @@ repos:
   information-discrete-math:
     url: https://github.com/morrocwi/information-discrete-math
     branch: main
-    commit: e4932afee144484759f0f3275e69fc923b80d091
+    commit: 6e03a46f434a5ea878a9266a31200fb74c4ed55e
     tag: v1.6.0
-    commits_after_tag: 118
+    commits_after_tag: 120
     paths:
       .claude-plugin/marketplace.json: ec6c3c4dc7d96da25900c66d620fd07aa4addd91
-      AGENTS.md: 3cdad6013c9113dfd7998a504f78300e0bd4640e
+      AGENTS.md: 638b26741d117cf57ae3c1f6aed9181ef15988a5
       AI_START_HERE.md: 78683e7bf4a0311cd6f387fa3aa888db05950585
       API.md: 5ab779c8b2700d18a95f7e02ebe9a74324f58115
       INDEX.md: d66afcf0cb8bd1c792641d20d6b03c170e94e29e
@@ -51,20 +51,20 @@ repos:
   readout_genesis:
     url: https://github.com/morrocwi/readout_genesis
     branch: main
-    commit: 1ca99bacc77624f75dd4c5752cbe20a0c9907618
+    commit: 864bb85950deec943517b102bd33cf8ff101da15
     tag: null
     commits_after_tag: null
     paths:
-      AGENTS.md: 803e509e74f5753e56ebb73f89553e97b2032819
+      AGENTS.md: e4c49055b27eb4932b6381c04b85ebfbc74c2f5f
       APPLICATIONS.md: 6e936df950f201fb34dd82055d4d7f9ed22a655e
       README.md: 37f96e24f452bcdc68a6ac0b2a3a48c6d0b16c8a
       READOUT_GENESIS_CORE.md: 5cf400056a6d87d495ebb013cc646d7c3e22c7a8
   readout_universe:
     url: https://github.com/morrocwi/readout_universe
     branch: main
-    commit: 68863dfefc32cdbc4d97871633e36aec3c8b8018
+    commit: 1a72ccd13c7a07d10fe519037132fcb44e426084
     tag: v1.11.0
-    commits_after_tag: 31
+    commits_after_tag: 33
     paths:
       .claude-plugin/marketplace.json: a460a12d2b11bce7c922e1a2b52b18c24392dd89
       EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md: c89bafa0c859efdd7a1c5a4272a905d9ef549fb8
@@ -77,12 +77,12 @@ repos:
   toledo:
     url: https://github.com/morrocwi/toledo
     branch: main
-    commit: d46a9aab6c22be391fc8b2486d9b101443ae158e
+    commit: a21d76461a9ca64259e830d5456312e9b1e2e686
     tag: v1.8.0
-    commits_after_tag: 147
+    commits_after_tag: 150
     paths:
       .mcp.json: 18f9479c26772831fc46d10de2fb00c8ba14088e
-      AGENTS.md: 31d80fe6613a6c78c145b7319416b46315401215
+      AGENTS.md: fe68906ba8d7df78ddbdc60e31c9d87f02495b35
       EQUATION_SOURCE_POLICY.md: 9d17197ee84d5fb04dd5a959e4c48df6b9f64f56
       README.md: 0ba48c64a90816f15264542918b5d0fb50155ee6
       coq/finite-readout-acceleration/PROVENANCE.json: 1b4f6f39d59b4ba747677d971b5861c3ca3569bb
@@ -100,9 +100,9 @@ repos:
   birca:
     url: https://github.com/morrocwi/birca
     branch: main
-    commit: 4459977909911d5faadec778c460d3acfdda170c
+    commit: 225c3f57bd9972cab0d01e42f55517352b490a61
     tag: birca-v1.10.6
-    commits_after_tag: 7
+    commits_after_tag: 9
     paths:
       LEGAL_DISCLAIMER.md: 0c5606c09be6e1aabd6a92f8e057e95cfd529b7f
       README.md: e1c2f1dbe0eef3179e0691ac5bb6782e9c2d08ed
@@ -113,9 +113,9 @@ repos:
   finite-readout-acceleration:
     url: https://github.com/morrocwi/finite-readout-acceleration
     branch: main
-    commit: 82bd6f307a34916241190b5fe86d588ed6789dd0
+    commit: 22c4089ff5133105601a136016e059f199bf9abe
     tag: v0.1.0
-    commits_after_tag: 2
+    commits_after_tag: 3
     paths:
       DESIGN_NOTES.md: 29dee69b2dfe9a576eea7ffd0fa9dd205549129b
       README.md: 79fbd037ffa7ef6094fb0ac1ac39b45b2ae3a1e4
@@ -123,11 +123,11 @@ repos:
   readout-problem-navier-stokes:
     url: https://github.com/morrocwi/readout-problem-navier-stokes
     branch: main
-    commit: e2027c98edf94f5eee04119aeacad9dbcd9378f5
+    commit: 82262e19c85eebaafba3bc8391e8ac953aa2f704
     tag: v0.1.0
-    commits_after_tag: 440
+    commits_after_tag: 442
     paths:
-      AGENTS.md: 53eca6501c5687dde3eb3f9276f2bda871a8d46e
+      AGENTS.md: 6a3ec977995ada4e4b10c91ccd8d0e296ae3614a
       CLAIMS.md: 51e032e6aae30320743e9e0cdbb3467f376a0c7f
       CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md: 691a5c8efe86ccd63d5667960ab63b6e082cb4d4
       CLAY_READ_FIRST.md: c5ac2e081b320b443ae8022be4502b9dc8e2cceb
@@ -136,9 +136,9 @@ repos:
   skillme:
     url: https://github.com/morrocwi/skillme
     branch: main
-    commit: 232cc8d2025cdec64cc77ad8ec2fceb17639f0e0
+    commit: 208e76dfae692396fbf54ae64119978020275044
     tag: v0.4.10
-    commits_after_tag: 9
+    commits_after_tag: 11
     paths:
       .claude-plugin/marketplace.json: bc550c9992b0f834a97c926d2b0990fdd5c311eb
       AI_START_HERE.md: 64c9d7d8280d351d4a704f70a25c48c01efc5d82
@@ -150,7 +150,7 @@ repos:
   zero-readout-certifies:
     url: https://github.com/morrocwi/zero-readout-certifies
     branch: main
-    commit: adfd25a26f78d0568739c364ef2fa416dab881de
+    commit: e9523c9a995fd170fdcf5af5af707eb1a0be7369
     tag: null
     commits_after_tag: null
     paths:
@@ -159,7 +159,7 @@ repos:
   retained-sturm:
     url: https://github.com/morrocwi/retained-sturm
     branch: main
-    commit: a2a99d4ff9d080518003a3d90a7800add55a9957
+    commit: 7a0d3d3d65de393ec6b0520075fb03975b02f64e
     tag: null
     commits_after_tag: null
     paths:
@@ -167,9 +167,9 @@ repos:
   seth-skill:
     url: https://github.com/morrocwi/seth-skill
     branch: main
-    commit: 4e8e9e7708078aec672304f46c99b946e13fc43c
+    commit: ab5ccf804a41f48b479ee7d0672d539b0db3ea4c
     tag: v0.2.0
-    commits_after_tag: 0
+    commits_after_tag: 2
     paths:
       .claude-plugin/marketplace.json: bae52aaff58ecca6c26b3acbef701f844e32c434
       README.md: e430f5075df430ba3cc071217e7d6c749faf1cac

@@ -37,7 +37,7 @@
    "axis": "method",
    "role": "Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production.",
    "url": "https://github.com/morrocwi/glosa",
-   "commit": "106acb3ee985f91511a61f31840e046fb1e76034",
+   "commit": "cf1c96a433dda38878ec8a85ca099657d761ec64",
    "tag": "v0.4.1",
    "enter": [
     "llms.txt",
@@ -54,7 +54,7 @@
    "axis": "mathematical-floor",
    "role": "Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor.",
    "url": "https://github.com/morrocwi/information-discrete-math",
-   "commit": "e4932afee144484759f0f3275e69fc923b80d091",
+   "commit": "6e03a46f434a5ea878a9266a31200fb74c4ed55e",
    "tag": "v1.6.0",
    "enter": [
     "AI_START_HERE.md",
@@ -72,7 +72,7 @@
    "axis": "ontology",
    "role": "One-root, information-first canon whose thesis is that every domain is a translation of one retained structure; tiered claims.",
    "url": "https://github.com/morrocwi/readout_genesis",
-   "commit": "1ca99bacc77624f75dd4c5752cbe20a0c9907618",
+   "commit": "864bb85950deec943517b102bd33cf8ff101da15",
    "tag": null,
    "enter": [
     "AGENTS.md",
@@ -88,7 +88,7 @@
    "axis": "epistemology",
    "role": "Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier.",
    "url": "https://github.com/morrocwi/readout_universe",
-   "commit": "68863dfefc32cdbc4d97871633e36aec3c8b8018",
+   "commit": "1a72ccd13c7a07d10fe519037132fcb44e426084",
    "tag": "v1.11.0",
    "enter": [
     "README.md",
@@ -105,7 +105,7 @@
    "axis": "mathematics",
    "role": "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists.",
    "url": "https://github.com/morrocwi/toledo",
-   "commit": "d46a9aab6c22be391fc8b2486d9b101443ae158e",
+   "commit": "a21d76461a9ca64259e830d5456312e9b1e2e686",
    "tag": "v1.8.0",
    "enter": [
     "AGENTS.md",
@@ -124,7 +124,7 @@
    "axis": null,
    "role": "Educational and research-only (non-commercial) theoretical framework packaged as a safety-gated, context-bound health-information skill; not a medical service, not diagnostic, no clinical-safety audit yet.",
    "url": "https://github.com/morrocwi/birca",
-   "commit": "4459977909911d5faadec778c460d3acfdda170c",
+   "commit": "225c3f57bd9972cab0d01e42f55517352b490a61",
    "tag": "birca-v1.10.6",
    "enter": [
     "README.md",
@@ -141,7 +141,7 @@
    "axis": null,
    "role": "Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy.",
    "url": "https://github.com/morrocwi/finite-readout-acceleration",
-   "commit": "82bd6f307a34916241190b5fe86d588ed6789dd0",
+   "commit": "22c4089ff5133105601a136016e059f199bf9abe",
    "tag": "v0.1.0",
    "enter": [
     "README.md",
@@ -155,7 +155,7 @@
    "axis": null,
    "role": "Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem.",
    "url": "https://github.com/morrocwi/readout-problem-navier-stokes",
-   "commit": "e2027c98edf94f5eee04119aeacad9dbcd9378f5",
+   "commit": "82262e19c85eebaafba3bc8391e8ac953aa2f704",
    "tag": "v0.1.0",
    "enter": [
     "CLAY_READ_FIRST.md",
@@ -171,7 +171,7 @@
    "axis": null,
    "role": "Philosophy-first protocol for analysing any reported issue without naming a cause before it is found.",
    "url": "https://github.com/morrocwi/skillme",
-   "commit": "232cc8d2025cdec64cc77ad8ec2fceb17639f0e0",
+   "commit": "208e76dfae692396fbf54ae64119978020275044",
    "tag": "v0.4.10",
    "enter": [
     "AI_START_HERE.md",
@@ -186,7 +186,7 @@
    "axis": null,
    "role": "Machine-checked characterisation of the zero fibre of a finite retained-difference operator.",
    "url": "https://github.com/morrocwi/zero-readout-certifies",
-   "commit": "adfd25a26f78d0568739c364ef2fa416dab881de",
+   "commit": "e9523c9a995fd170fdcf5af5af707eb1a0be7369",
    "tag": null,
    "enter": [
     "README.md",
@@ -200,7 +200,7 @@
    "axis": null,
    "role": "Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator.",
    "url": "https://github.com/morrocwi/retained-sturm",
-   "commit": "a2a99d4ff9d080518003a3d90a7800add55a9957",
+   "commit": "7a0d3d3d65de393ec6b0520075fb03975b02f64e",
    "tag": null,
    "enter": [
     "README.md"
@@ -213,7 +213,7 @@
    "axis": null,
    "role": "AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis.",
    "url": "https://github.com/morrocwi/seth-skill",
-   "commit": "4e8e9e7708078aec672304f46c99b946e13fc43c",
+   "commit": "ab5ccf804a41f48b479ee7d0672d539b0db3ea4c",
    "tag": "v0.2.0",
    "enter": [
     "README.md"

@@ -7,22 +7,22 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 - **Role:** Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem.
 - **Is:** domain instantiation of the finite-bridge programme; deposited paper + finite lanes
 - **Is not:** a proof of global regularity or blow-up
-- **Pinned:** `e2027c98edf9` on `main`, 440 commits after tag `v0.1.0`
+- **Pinned:** `82262e19c85e` on `main`, 442 commits after tag `v0.1.0`
 - **Gates:** TG-RFG-01
 
 ## Read in this order
 
-1. [`CLAY_READ_FIRST.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/CLAY_READ_FIRST.md)
-2. [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/AGENTS.md)
-3. [`CLAIMS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/CLAIMS.md)
-4. [`README.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/README.md)
+1. [`CLAY_READ_FIRST.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_READ_FIRST.md)
+2. [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md)
+3. [`CLAIMS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAIMS.md)
+4. [`README.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/README.md)
 
 ## Verified edges
 
-- `readout-problem-navier-stokes` **requires-gate** `gate:TG-RFG-01` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/AGENTS.md) contains "before introducing or renaming a mathematical object"
-- `readout-problem-navier-stokes` **defers-status-to** `toledo` - evidence: `readout-problem-navier-stokes` / [`README.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/README.md) contains "proposal/equation provenance and tier/status"
-- `readout-problem-navier-stokes` **reads-shared-math-from** `information-discrete-math` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/AGENTS.md) contains "If working on shared bridge mathematics, read"
-- `readout-problem-navier-stokes` **checks-ontology-against** `readout_genesis` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/e2027c98edf94f5eee04119aeacad9dbcd9378f5/AGENTS.md) contains "is checked next for ontology"
+- `readout-problem-navier-stokes` **requires-gate** `gate:TG-RFG-01` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md) contains "before introducing or renaming a mathematical object"
+- `readout-problem-navier-stokes` **defers-status-to** `toledo` - evidence: `readout-problem-navier-stokes` / [`README.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/README.md) contains "proposal/equation provenance and tier/status"
+- `readout-problem-navier-stokes` **reads-shared-math-from** `information-discrete-math` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md) contains "If working on shared bridge mathematics, read"
+- `readout-problem-navier-stokes` **checks-ontology-against** `readout_genesis` - evidence: `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md) contains "is checked next for ontology"
 
 ## Neighbour cards
 

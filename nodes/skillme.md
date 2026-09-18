@@ -7,20 +7,20 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 - **Role:** Philosophy-first protocol for analysing any reported issue without naming a cause before it is found.
 - **Is:** method-family sibling (issue analysis)
 - **Is not:** a source of equations
-- **Pinned:** `232cc8d2025c` on `main`, 9 commits after tag `v0.4.10`
-- **Surfaces:** plugin [skillme plugin](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/.claude-plugin/marketplace.json); skill [skillme skill](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/plugins/skillme/skills/skillme/SKILL.md); cli [skillme protocol kernel](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/skillme_protocol_kernel.py) (see `SURFACES.md`)
-- **Lens source (Step 0):** [`plugins/skillme/skills/skillme/SKILL.md`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/plugins/skillme/skills/skillme/SKILL.md)
+- **Pinned:** `208e76dfae69` on `main`, 11 commits after tag `v0.4.10`
+- **Surfaces:** plugin [skillme plugin](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/.claude-plugin/marketplace.json); skill [skillme skill](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/plugins/skillme/skills/skillme/SKILL.md); cli [skillme protocol kernel](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/skillme_protocol_kernel.py) (see `SURFACES.md`)
+- **Lens source (Step 0):** [`plugins/skillme/skills/skillme/SKILL.md`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/plugins/skillme/skills/skillme/SKILL.md)
 
 ## Read in this order
 
-1. [`AI_START_HERE.md`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/AI_START_HERE.md)
-2. [`llms.txt`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/llms.txt)
-3. [`SKILLME.md`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/SKILLME.md)
+1. [`AI_START_HERE.md`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/AI_START_HERE.md)
+2. [`llms.txt`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/llms.txt)
+3. [`SKILLME.md`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/SKILLME.md)
 
 ## Verified edges
 
-- `skillme` **builds-on** `information-discrete-math` - evidence: `skillme` / [`README.md`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/README.md) contains "building on the Readout Genesis / Information Discrete Mathematics foundation"
-- `skillme` **builds-on** `readout_genesis` - evidence: `skillme` / [`README.md`](https://github.com/morrocwi/skillme/blob/232cc8d2025cdec64cc77ad8ec2fceb17639f0e0/README.md) contains "building on the Readout Genesis / Information Discrete Mathematics foundation"
+- `skillme` **builds-on** `information-discrete-math` - evidence: `skillme` / [`README.md`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/README.md) contains "building on the Readout Genesis / Information Discrete Mathematics foundation"
+- `skillme` **builds-on** `readout_genesis` - evidence: `skillme` / [`README.md`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/README.md) contains "building on the Readout Genesis / Information Discrete Mathematics foundation"
 
 ## Neighbour cards
 
