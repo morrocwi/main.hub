@@ -31,22 +31,20 @@
    "question": "How do a human and an AI produce, check and release this piece of knowledge?"
   },
   {
-   "id": "toledo",
+   "id": "glosa",
    "kind": "REPO",
    "class": "axis",
-   "axis": "mathematics",
-   "role": "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists.",
-   "url": "https://github.com/morrocwi/toledo",
-   "commit": "d46a9aab6c22be391fc8b2486d9b101443ae158e",
-   "tag": "v1.8.0",
+   "axis": "method",
+   "role": "Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production.",
+   "url": "https://github.com/morrocwi/glosa",
+   "commit": "106acb3ee985f91511a61f31840e046fb1e76034",
+   "tag": "v0.4.1",
    "enter": [
+    "llms.txt",
     "AGENTS.md",
-    "EQUATION_SOURCE_POLICY.md",
-    "registry/SCHEMA.md",
-    "registry/CANONICAL.json",
-    "registry/genesis_root.json",
-    "scripts/toledo_build.py",
-    "scripts/toledo"
+    "plugins/glosa/skills/glosa/SKILL.md",
+    "docs/ECOSYSTEM.md",
+    "CLAIM_BOUNDARY.md"
    ]
   },
   {
@@ -101,20 +99,22 @@
    ]
   },
   {
-   "id": "glosa",
+   "id": "toledo",
    "kind": "REPO",
    "class": "axis",
-   "axis": "method",
-   "role": "Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production.",
-   "url": "https://github.com/morrocwi/glosa",
-   "commit": "106acb3ee985f91511a61f31840e046fb1e76034",
-   "tag": "v0.4.1",
+   "axis": "mathematics",
+   "role": "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists.",
+   "url": "https://github.com/morrocwi/toledo",
+   "commit": "d46a9aab6c22be391fc8b2486d9b101443ae158e",
+   "tag": "v1.8.0",
    "enter": [
-    "llms.txt",
     "AGENTS.md",
-    "plugins/glosa/skills/glosa/SKILL.md",
-    "docs/ECOSYSTEM.md",
-    "CLAIM_BOUNDARY.md"
+    "EQUATION_SOURCE_POLICY.md",
+    "registry/SCHEMA.md",
+    "registry/CANONICAL.json",
+    "registry/genesis_root.json",
+    "scripts/toledo_build.py",
+    "scripts/toledo"
    ]
   },
   {
@@ -132,6 +132,20 @@
     "SKILL.md",
     "SYSTEM_PROMPT.md",
     "compute/README.md"
+   ]
+  },
+  {
+   "id": "finite-readout-acceleration",
+   "kind": "REPO",
+   "class": "linked",
+   "axis": null,
+   "role": "Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy.",
+   "url": "https://github.com/morrocwi/finite-readout-acceleration",
+   "commit": "82bd6f307a34916241190b5fe86d588ed6789dd0",
+   "tag": "v0.1.0",
+   "enter": [
+    "README.md",
+    "DESIGN_NOTES.md"
    ]
   },
   {
@@ -180,17 +194,16 @@
    ]
   },
   {
-   "id": "finite-readout-acceleration",
+   "id": "retained-sturm",
    "kind": "REPO",
-   "class": "linked",
+   "class": "catalog",
    "axis": null,
-   "role": "Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy.",
-   "url": "https://github.com/morrocwi/finite-readout-acceleration",
-   "commit": "82bd6f307a34916241190b5fe86d588ed6789dd0",
-   "tag": "v0.1.0",
+   "role": "Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator.",
+   "url": "https://github.com/morrocwi/retained-sturm",
+   "commit": "a2a99d4ff9d080518003a3d90a7800add55a9957",
+   "tag": null,
    "enter": [
-    "README.md",
-    "DESIGN_NOTES.md"
+    "README.md"
    ]
   },
   {
@@ -202,19 +215,6 @@
    "url": "https://github.com/morrocwi/seth-skill",
    "commit": "4e8e9e7708078aec672304f46c99b946e13fc43c",
    "tag": "v0.2.0",
-   "enter": [
-    "README.md"
-   ]
-  },
-  {
-   "id": "retained-sturm",
-   "kind": "REPO",
-   "class": "catalog",
-   "axis": null,
-   "role": "Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator.",
-   "url": "https://github.com/morrocwi/retained-sturm",
-   "commit": "a2a99d4ff9d080518003a3d90a7800add55a9957",
-   "tag": null,
    "enter": [
     "README.md"
    ]
@@ -248,96 +248,6 @@
    "id": "lens:READOUT-LENS",
    "kind": "LENS",
    "name": "Lens first - an ordering rule"
-  },
-  {
-   "id": "surface:toledo:mcp:mcp/README.md",
-   "kind": "SURFACE",
-   "surface": "mcp",
-   "name": "Toledo MCP server",
-   "path": "mcp/README.md",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
-  },
-  {
-   "id": "surface:toledo:static-api:mcp/docs/STATIC_API.md",
-   "kind": "SURFACE",
-   "surface": "static-api",
-   "name": "Toledo static read API",
-   "path": "mcp/docs/STATIC_API.md",
-   "marketplace": null,
-   "plugin": null,
-   "url": "https://morrocwi.github.io/toledo/"
-  },
-  {
-   "id": "surface:toledo:cli:scripts/toledo",
-   "kind": "SURFACE",
-   "surface": "cli",
-   "name": "toledo CLI",
-   "path": "scripts/toledo",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
-  },
-  {
-   "id": "surface:information-discrete-math:plugin:.claude-plugin/marketplace.json",
-   "kind": "SURFACE",
-   "surface": "plugin",
-   "name": "information-discrete-math plugin",
-   "path": ".claude-plugin/marketplace.json",
-   "marketplace": "yaoharee-lahtee-math",
-   "plugin": "information-discrete-math",
-   "url": null
-  },
-  {
-   "id": "surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
-   "kind": "SURFACE",
-   "surface": "skill",
-   "name": "information-discrete-math skill",
-   "path": "plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
-  },
-  {
-   "id": "surface:information-discrete-math:api:API.md",
-   "kind": "SURFACE",
-   "surface": "api",
-   "name": "idm library and REST service",
-   "path": "API.md",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
-  },
-  {
-   "id": "surface:information-discrete-math:api:capabilities.json",
-   "kind": "SURFACE",
-   "surface": "api",
-   "name": "idm capability manifest",
-   "path": "capabilities.json",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
-  },
-  {
-   "id": "surface:readout_universe:plugin:.claude-plugin/marketplace.json",
-   "kind": "SURFACE",
-   "surface": "plugin",
-   "name": "readout-universe plugin",
-   "path": ".claude-plugin/marketplace.json",
-   "marketplace": "yaoharee-lahtee-readout",
-   "plugin": "readout-universe",
-   "url": null
-  },
-  {
-   "id": "surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md",
-   "kind": "SURFACE",
-   "surface": "skill",
-   "name": "readout-universe skill",
-   "path": "plugins/readout-universe/skills/readout-universe/SKILL.md",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
   },
   {
    "id": "surface:glosa:plugin:.claude-plugin/marketplace.json",
@@ -390,6 +300,196 @@
    "url": null
   },
   {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-blackbox-note/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-blackbox-note skill",
+   "path": "plugins/glosa/skills/glosa-blackbox-note/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-claim-card/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-claim-card skill",
+   "path": "plugins/glosa/skills/glosa-claim-card/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-deliver/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-deliver skill",
+   "path": "plugins/glosa/skills/glosa-deliver/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-independent-check/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-independent-check skill",
+   "path": "plugins/glosa/skills/glosa-independent-check/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-literature-review/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-literature-review skill",
+   "path": "plugins/glosa/skills/glosa-literature-review/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-obsidian/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-obsidian skill",
+   "path": "plugins/glosa/skills/glosa-obsidian/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-project-advisor/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-project-advisor skill",
+   "path": "plugins/glosa/skills/glosa-project-advisor/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-publish-gate/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-publish-gate skill",
+   "path": "plugins/glosa/skills/glosa-publish-gate/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:glosa:skill:plugins/glosa/skills/glosa-render/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "glosa-render skill",
+   "path": "plugins/glosa/skills/glosa-render/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "information-discrete-math plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-math",
+   "plugin": "information-discrete-math",
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "information-discrete-math skill",
+   "path": "plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:api:API.md",
+   "kind": "SURFACE",
+   "surface": "api",
+   "name": "idm library and REST service",
+   "path": "API.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:api:capabilities.json",
+   "kind": "SURFACE",
+   "surface": "api",
+   "name": "idm capability manifest",
+   "path": "capabilities.json",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:information-discrete-math:package:pyproject.toml",
+   "kind": "SURFACE",
+   "surface": "package",
+   "name": "idm Python package",
+   "path": "pyproject.toml",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:readout_universe:plugin:.claude-plugin/marketplace.json",
+   "kind": "SURFACE",
+   "surface": "plugin",
+   "name": "readout-universe plugin",
+   "path": ".claude-plugin/marketplace.json",
+   "marketplace": "yaoharee-lahtee-readout",
+   "plugin": "readout-universe",
+   "url": null
+  },
+  {
+   "id": "surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md",
+   "kind": "SURFACE",
+   "surface": "skill",
+   "name": "readout-universe skill",
+   "path": "plugins/readout-universe/skills/readout-universe/SKILL.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:toledo:mcp:mcp/README.md",
+   "kind": "SURFACE",
+   "surface": "mcp",
+   "name": "Toledo MCP server",
+   "path": "mcp/README.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
+   "id": "surface:toledo:static-api:mcp/docs/STATIC_API.md",
+   "kind": "SURFACE",
+   "surface": "static-api",
+   "name": "Toledo static read API",
+   "path": "mcp/docs/STATIC_API.md",
+   "marketplace": null,
+   "plugin": null,
+   "url": "https://morrocwi.github.io/toledo/"
+  },
+  {
+   "id": "surface:toledo:cli:scripts/toledo",
+   "kind": "SURFACE",
+   "surface": "cli",
+   "name": "toledo CLI",
+   "path": "scripts/toledo",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
    "id": "surface:birca:skill:SKILL.md",
    "kind": "SURFACE",
    "surface": "skill",
@@ -420,6 +520,16 @@
    "url": null
   },
   {
+   "id": "surface:finite-readout-acceleration:package:pyproject.toml",
+   "kind": "SURFACE",
+   "surface": "package",
+   "name": "fra Python package",
+   "path": "pyproject.toml",
+   "marketplace": null,
+   "plugin": null,
+   "url": null
+  },
+  {
    "id": "surface:skillme:plugin:.claude-plugin/marketplace.json",
    "kind": "SURFACE",
    "surface": "plugin",
@@ -445,16 +555,6 @@
    "surface": "cli",
    "name": "skillme protocol kernel",
    "path": "skillme_protocol_kernel.py",
-   "marketplace": null,
-   "plugin": null,
-   "url": null
-  },
-  {
-   "id": "surface:finite-readout-acceleration:package:pyproject.toml",
-   "kind": "SURFACE",
-   "surface": "package",
-   "name": "fra Python package",
-   "path": "pyproject.toml",
    "marketplace": null,
    "plugin": null,
    "url": null
@@ -532,33 +632,13 @@
  ],
  "edges": [
   {
-   "source": "toledo",
-   "target": "axis:mathematics",
-   "type": "authority-for",
+   "source": "birca",
+   "target": "readout_genesis",
+   "type": "declares-lineage-from",
    "evidence": {
-    "repo": "glosa",
-    "path": "docs/ECOSYSTEM.md",
-    "match": "| Equation source of record + lookup gate"
-   }
-  },
-  {
-   "source": "readout_genesis",
-   "target": "axis:ontology",
-   "type": "authority-for",
-   "evidence": {
-    "repo": "toledo",
-    "path": "EQUATION_SOURCE_POLICY.md",
-    "match": "Readout Genesis is the primary ontology lens"
-   }
-  },
-  {
-   "source": "readout_universe",
-   "target": "axis:epistemology",
-   "type": "authority-for",
-   "evidence": {
-    "repo": "toledo",
-    "path": "EQUATION_SOURCE_POLICY.md",
-    "match": "Readout Universe is the primary epistemology lens"
+    "repo": "birca",
+    "path": "compute/README.md",
+    "match": "`morrocwi/readout_genesis`, pinned commit"
    }
   },
   {
@@ -572,6 +652,16 @@
    }
   },
   {
+   "source": "glosa",
+   "target": "toledo",
+   "type": "prescribes-registration-in",
+   "evidence": {
+    "repo": "glosa",
+    "path": "methodology/P19_registration.md",
+    "match": "| An **equation** (new, revised, or reused in a new domain) | **Toledo**"
+   }
+  },
+  {
    "source": "information-discrete-math",
    "target": "axis:mathematical-floor",
    "type": "authority-for",
@@ -579,6 +669,76 @@
     "repo": "glosa",
     "path": "docs/ECOSYSTEM.md",
     "match": "| Mathematical floor (readout-first number ladder, Coq) | **information-discrete-math"
+   }
+  },
+  {
+   "source": "information-discrete-math",
+   "target": "gate:TG-RFG-01",
+   "type": "requires-gate",
+   "evidence": {
+    "repo": "information-discrete-math",
+    "path": "AGENTS.md",
+    "match": "## Mandatory Toledo-Genesis reuse-first gate"
+   }
+  },
+  {
+   "source": "information-discrete-math",
+   "target": "toledo",
+   "type": "registers-into",
+   "evidence": {
+    "repo": "information-discrete-math",
+    "path": "docs/TOLEDO_CODES.md",
+    "match": "was registered into Toledo"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "gate:TG-RFG-01",
+   "type": "requires-gate",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "AGENTS.md",
+    "match": "before introducing or renaming a mathematical object"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "toledo",
+   "type": "defers-status-to",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "README.md",
+    "match": "proposal/equation provenance and tier/status"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "information-discrete-math",
+   "type": "reads-shared-math-from",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "AGENTS.md",
+    "match": "If working on shared bridge mathematics, read"
+   }
+  },
+  {
+   "source": "readout-problem-navier-stokes",
+   "target": "readout_genesis",
+   "type": "checks-ontology-against",
+   "evidence": {
+    "repo": "readout-problem-navier-stokes",
+    "path": "AGENTS.md",
+    "match": "is checked next for ontology"
+   }
+  },
+  {
+   "source": "readout_genesis",
+   "target": "axis:ontology",
+   "type": "authority-for",
+   "evidence": {
+    "repo": "toledo",
+    "path": "EQUATION_SOURCE_POLICY.md",
+    "match": "Readout Genesis is the primary ontology lens"
    }
   },
   {
@@ -612,43 +772,63 @@
    }
   },
   {
-   "source": "information-discrete-math",
-   "target": "gate:TG-RFG-01",
-   "type": "requires-gate",
+   "source": "readout_universe",
+   "target": "axis:epistemology",
+   "type": "authority-for",
    "evidence": {
-    "repo": "information-discrete-math",
-    "path": "AGENTS.md",
-    "match": "## Mandatory Toledo-Genesis reuse-first gate"
+    "repo": "toledo",
+    "path": "EQUATION_SOURCE_POLICY.md",
+    "match": "Readout Universe is the primary epistemology lens"
    }
   },
   {
-   "source": "readout-problem-navier-stokes",
-   "target": "gate:TG-RFG-01",
-   "type": "requires-gate",
+   "source": "readout_universe",
+   "target": "information-discrete-math",
+   "type": "builds-on",
    "evidence": {
-    "repo": "readout-problem-navier-stokes",
-    "path": "AGENTS.md",
-    "match": "before introducing or renaming a mathematical object"
+    "repo": "readout_universe",
+    "path": "philosophy.md",
+    "match": "The mandatory floor for this"
    }
   },
   {
-   "source": "information-discrete-math",
-   "target": "toledo",
-   "type": "registers-into",
+   "source": "readout_universe",
+   "target": "readout_genesis",
+   "type": "holds-synced-copy-from",
    "evidence": {
-    "repo": "information-discrete-math",
-    "path": "docs/TOLEDO_CODES.md",
-    "match": "was registered into Toledo"
+    "repo": "readout_universe",
+    "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md",
+    "match": "if a mismatch is ever found, Appendix C wins"
    }
   },
   {
-   "source": "glosa",
-   "target": "toledo",
-   "type": "prescribes-registration-in",
+   "source": "skillme",
+   "target": "information-discrete-math",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "skillme",
+    "path": "README.md",
+    "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
+   }
+  },
+  {
+   "source": "skillme",
+   "target": "readout_genesis",
+   "type": "builds-on",
+   "evidence": {
+    "repo": "skillme",
+    "path": "README.md",
+    "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
+   }
+  },
+  {
+   "source": "toledo",
+   "target": "axis:mathematics",
+   "type": "authority-for",
    "evidence": {
     "repo": "glosa",
-    "path": "methodology/P19_registration.md",
-    "match": "| An **equation** (new, revised, or reused in a new domain) | **Toledo**"
+    "path": "docs/ECOSYSTEM.md",
+    "match": "| Equation source of record + lookup gate"
    }
   },
   {
@@ -702,36 +882,6 @@
    }
   },
   {
-   "source": "readout_universe",
-   "target": "information-discrete-math",
-   "type": "builds-on",
-   "evidence": {
-    "repo": "readout_universe",
-    "path": "philosophy.md",
-    "match": "The mandatory floor for this"
-   }
-  },
-  {
-   "source": "skillme",
-   "target": "information-discrete-math",
-   "type": "builds-on",
-   "evidence": {
-    "repo": "skillme",
-    "path": "README.md",
-    "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
-   }
-  },
-  {
-   "source": "skillme",
-   "target": "readout_genesis",
-   "type": "builds-on",
-   "evidence": {
-    "repo": "skillme",
-    "path": "README.md",
-    "match": "building on the Readout Genesis / Information Discrete Mathematics foundation"
-   }
-  },
-  {
    "source": "zero-readout-certifies",
    "target": "information-discrete-math",
    "type": "companion-of",
@@ -740,101 +890,6 @@
     "path": "docs/ECOSYSTEM.md",
     "match": "zero-readout-certifies (public)<br/>Coq companion to IDM"
    }
-  },
-  {
-   "source": "readout-problem-navier-stokes",
-   "target": "toledo",
-   "type": "defers-status-to",
-   "evidence": {
-    "repo": "readout-problem-navier-stokes",
-    "path": "README.md",
-    "match": "proposal/equation provenance and tier/status"
-   }
-  },
-  {
-   "source": "readout-problem-navier-stokes",
-   "target": "information-discrete-math",
-   "type": "reads-shared-math-from",
-   "evidence": {
-    "repo": "readout-problem-navier-stokes",
-    "path": "AGENTS.md",
-    "match": "If working on shared bridge mathematics, read"
-   }
-  },
-  {
-   "source": "readout-problem-navier-stokes",
-   "target": "readout_genesis",
-   "type": "checks-ontology-against",
-   "evidence": {
-    "repo": "readout-problem-navier-stokes",
-    "path": "AGENTS.md",
-    "match": "is checked next for ontology"
-   }
-  },
-  {
-   "source": "birca",
-   "target": "readout_genesis",
-   "type": "declares-lineage-from",
-   "evidence": {
-    "repo": "birca",
-    "path": "compute/README.md",
-    "match": "`morrocwi/readout_genesis`, pinned commit"
-   }
-  },
-  {
-   "source": "readout_universe",
-   "target": "readout_genesis",
-   "type": "holds-synced-copy-from",
-   "evidence": {
-    "repo": "readout_universe",
-    "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md",
-    "match": "if a mismatch is ever found, Appendix C wins"
-   }
-  },
-  {
-   "source": "surface:toledo:mcp:mcp/README.md",
-   "target": "toledo",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:toledo:static-api:mcp/docs/STATIC_API.md",
-   "target": "toledo",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:toledo:cli:scripts/toledo",
-   "target": "toledo",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:information-discrete-math:plugin:.claude-plugin/marketplace.json",
-   "target": "information-discrete-math",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
-   "target": "information-discrete-math",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:information-discrete-math:api:API.md",
-   "target": "information-discrete-math",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:information-discrete-math:api:capabilities.json",
-   "target": "information-discrete-math",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:readout_universe:plugin:.claude-plugin/marketplace.json",
-   "target": "readout_universe",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md",
-   "target": "readout_universe",
-   "type": "provided-by"
   },
   {
    "source": "surface:glosa:plugin:.claude-plugin/marketplace.json",
@@ -862,6 +917,101 @@
    "type": "provided-by"
   },
   {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-blackbox-note/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-claim-card/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-deliver/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-independent-check/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-literature-review/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-obsidian/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-project-advisor/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-publish-gate/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:glosa:skill:plugins/glosa/skills/glosa-render/SKILL.md",
+   "target": "glosa",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:plugin:.claude-plugin/marketplace.json",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:skill:plugins/information-discrete-math/skills/information-discrete-math/SKILL.md",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:api:API.md",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:api:capabilities.json",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:information-discrete-math:package:pyproject.toml",
+   "target": "information-discrete-math",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:readout_universe:plugin:.claude-plugin/marketplace.json",
+   "target": "readout_universe",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:readout_universe:skill:plugins/readout-universe/skills/readout-universe/SKILL.md",
+   "target": "readout_universe",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:toledo:mcp:mcp/README.md",
+   "target": "toledo",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:toledo:static-api:mcp/docs/STATIC_API.md",
+   "target": "toledo",
+   "type": "provided-by"
+  },
+  {
+   "source": "surface:toledo:cli:scripts/toledo",
+   "target": "toledo",
+   "type": "provided-by"
+  },
+  {
    "source": "surface:birca:skill:SKILL.md",
    "target": "birca",
    "type": "provided-by"
@@ -877,6 +1027,11 @@
    "type": "provided-by"
   },
   {
+   "source": "surface:finite-readout-acceleration:package:pyproject.toml",
+   "target": "finite-readout-acceleration",
+   "type": "provided-by"
+  },
+  {
    "source": "surface:skillme:plugin:.claude-plugin/marketplace.json",
    "target": "skillme",
    "type": "provided-by"
@@ -889,11 +1044,6 @@
   {
    "source": "surface:skillme:cli:skillme_protocol_kernel.py",
    "target": "skillme",
-   "type": "provided-by"
-  },
-  {
-   "source": "surface:finite-readout-acceleration:package:pyproject.toml",
-   "target": "finite-readout-acceleration",
    "type": "provided-by"
   },
   {

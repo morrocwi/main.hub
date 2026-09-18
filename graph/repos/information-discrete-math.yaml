@@ -1,0 +1,62 @@
+# information-discrete-math - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: information-discrete-math
+class: axis
+axis: mathematical-floor
+role: 'Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq
+  floor.'
+is:
+- number ladder and finite-kernel proofs
+- installable skill + solver API
+is_not:
+- the equation registry (codes live in Toledo)
+- an ontology
+surfaces:
+- kind: plugin
+  name: information-discrete-math plugin
+  path: .claude-plugin/marketplace.json
+  marketplace: yaoharee-lahtee-math
+  plugin: information-discrete-math
+  use: Installs the discrete-math skill.
+- kind: skill
+  name: information-discrete-math skill
+  path: plugins/information-discrete-math/skills/information-discrete-math/SKILL.md
+  use: The operational floor to load before writing mathematics, physics or geometry.
+- kind: api
+  name: idm library and REST service
+  path: API.md
+  use: Python library, REST service and CLI entry point; every answer is a tier-tagged finite readout.
+- kind: api
+  name: idm capability manifest
+  path: capabilities.json
+  use: Machine-readable list of interfaces and problem kinds.
+- kind: package
+  name: idm Python package
+  path: pyproject.toml
+  use: Installable package behind the idm library, REST service and CLI; install from the repository.
+enter:
+- AI_START_HERE.md
+- llms.txt
+- AGENTS.md
+- INDEX.md
+- docs/TOLEDO_CODES.md
+- textbook/INFORMATION_DISCRETE_MATHEMATICS.md
+gates:
+- TG-RFG-01
+doi: 10.5281/zenodo.22644130
+edges:
+- type: authority-for
+  to: axis:mathematical-floor
+  evidence:
+    in: glosa
+    path: docs/ECOSYSTEM.md
+    match: '| Mathematical floor (readout-first number ladder, Coq) | **information-discrete-math'
+- type: requires-gate
+  to: gate:TG-RFG-01
+  evidence:
+    path: AGENTS.md
+    match: '## Mandatory Toledo-Genesis reuse-first gate'
+- type: registers-into
+  to: toledo
+  evidence:
+    path: docs/TOLEDO_CODES.md
+    match: was registered into Toledo

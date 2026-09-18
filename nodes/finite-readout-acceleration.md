@@ -1,6 +1,6 @@
 # finite-readout-acceleration
 
-GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.
+GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 - **Repository:** <https://github.com/morrocwi/finite-readout-acceleration>
 - **Class:** linked

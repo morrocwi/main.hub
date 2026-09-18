@@ -1,0 +1,41 @@
+# readout_genesis - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: readout_genesis
+class: axis
+axis: ontology
+role: One-root, information-first canon whose thesis is that every domain is a translation of one retained structure;
+  tiered claims.
+is:
+- ontology lens
+- interpretation / application map across domains
+is_not:
+- an independent source of theorem status (Toledo records that)
+- a registry
+enter:
+- AGENTS.md
+- README.md
+- READOUT_GENESIS_CORE.md
+- APPLICATIONS.md
+gates:
+- TG-RFG-01
+edges:
+- type: authority-for
+  to: axis:ontology
+  evidence:
+    in: toledo
+    path: EQUATION_SOURCE_POLICY.md
+    match: Readout Genesis is the primary ontology lens
+- type: defers-status-to
+  to: toledo
+  evidence:
+    path: AGENTS.md
+    match: Toledo records status/provenance
+- type: delegates-proof-to
+  to: information-discrete-math
+  evidence:
+    path: AGENTS.md
+    match: IDM proves generic finite kernels
+- type: requires-gate
+  to: gate:TG-RFG-01
+  evidence:
+    path: AGENTS.md
+    match: MUST NOT replace, the canonical Toledo provenance gate

@@ -1,29 +1,34 @@
 generated_on: '2026-09-18'
 note: Pins are the PUBLIC default-branch state (origin/<branch>), never local work.
 repos:
-  toledo:
-    url: https://github.com/morrocwi/toledo
+  glosa:
+    url: https://github.com/morrocwi/glosa
     branch: main
-    commit: d46a9aab6c22be391fc8b2486d9b101443ae158e
-    tag: v1.8.0
-    commits_after_tag: 147
+    commit: 106acb3ee985f91511a61f31840e046fb1e76034
+    tag: v0.4.1
+    commits_after_tag: 120
     paths:
-      .mcp.json: 18f9479c26772831fc46d10de2fb00c8ba14088e
-      AGENTS.md: 31d80fe6613a6c78c145b7319416b46315401215
-      EQUATION_SOURCE_POLICY.md: 9d17197ee84d5fb04dd5a959e4c48df6b9f64f56
-      README.md: 0ba48c64a90816f15264542918b5d0fb50155ee6
-      coq/finite-readout-acceleration/PROVENANCE.json: 1b4f6f39d59b4ba747677d971b5861c3ca3569bb
-      coq/information-discrete-math/PROVENANCE.json: 59e78096bf62080ed61c365292c4dc1a2ef8fcbd
-      coq/readout_genesis/PROVENANCE.json: 934c5aae9a438d87316a1b41d53cbf8b385bb7de
-      coq/readout_universe/PROVENANCE.json: c521b093ad6a1472a3a9a62f53428b0be2b95620
-      coq/zero-readout-certifies/PROVENANCE.json: 69ccf0bba4e66ea55a3b9ce753499af6f08072e2
-      mcp/README.md: ee321fddbcd43e9ae5ce6c87e8be19ee0fb113cd
-      mcp/docs/STATIC_API.md: cc92b845d940f4179f97e16a85354a62b28be898
-      registry/CANONICAL.json: b6ce6dc603c07352b1eb81f774d6aa86a7b280eb
-      registry/SCHEMA.md: 7c3803c3d42cbe98e31882b1e37fced3e6041e2f
-      registry/genesis_root.json: eff83749f4a34dd5c7cc0f52f3d11375153a32b0
-      scripts/toledo: 380cbe2eee06acfe23cf8a3498b69e2edf7d7fed
-      scripts/toledo_build.py: 3af4db3405b85e8e6009a56868d940a578e680c7
+      .claude-plugin/marketplace.json: ca95810af8e807fa0f09675258a89451be9e3d2d
+      AGENTS.md: 4aa065fe156fadaadbcb98a3db46787d7b004a5b
+      CLAIM_BOUNDARY.md: 2e27b1320c589fc2e5e2542e5d67d9ad97e6cf0c
+      cli/README.md: 95a0705172a61bc8ef3730acc5a5fba9037db491
+      docs/ECOSYSTEM.md: 2b1a7a592f9264895038448cd04e55102040117e
+      llms.txt: b072504d89a7ae6ec336a3bae30d6e0fe0ecd8de
+      mcp/README.md: 5136fbe7b51fef3601e0d707c6d34b61eec92fbe
+      methodology/P00_lens.md: 6ee7b130768f0090989f6cf4e3833c246247f084
+      methodology/P10_publish_gate.md: 7aa97fd4f542cafcbf24e4f607bea2205904200b
+      methodology/P19_registration.md: c0b778a266149e4217856400180badae3d61e3a2
+      plugins/glosa/PROMPT_PACKET.md: 7b5b26ff6b77688edf02a80957a97538b24d3712
+      plugins/glosa/skills/glosa-blackbox-note/SKILL.md: 8e7dd1150956a7e63c7ab4612a487e85a299cc9c
+      plugins/glosa/skills/glosa-claim-card/SKILL.md: a0fa89856127e852a9bc2c28ab6990d979385589
+      plugins/glosa/skills/glosa-deliver/SKILL.md: 75948b0db6b9c89e746e6dea39c34fbe27537078
+      plugins/glosa/skills/glosa-independent-check/SKILL.md: 596e762b1d4b6c9cb9d4d3ff6fdfe1ae030b5144
+      plugins/glosa/skills/glosa-literature-review/SKILL.md: 8a6145aa89b43e425e5aa63df0e5aa620327de8b
+      plugins/glosa/skills/glosa-obsidian/SKILL.md: 798859c6add97c7e6ef3c4a62f936347f7d72c06
+      plugins/glosa/skills/glosa-project-advisor/SKILL.md: 2a60fdde1363c7be9f62c4d6af7e3eea6330e290
+      plugins/glosa/skills/glosa-publish-gate/SKILL.md: eb258e7f5c45e4a9eb499fe905b8da534e21d457
+      plugins/glosa/skills/glosa-render/SKILL.md: 80cfa8ca47bacbb08af7df268522dff621d629b5
+      plugins/glosa/skills/glosa/SKILL.md: c149d05c20ddd1aa2311cb2e3bf97b34911f87e0
   information-discrete-math:
     url: https://github.com/morrocwi/information-discrete-math
     branch: main
@@ -40,6 +45,7 @@ repos:
       docs/TOLEDO_CODES.md: c07c8be7cc43be6ef540b4bd2d0d2db94ae5dd6c
       llms.txt: 6eaeab68a7d4470ec3f2d708a8e77746c22cc8d5
       plugins/information-discrete-math/skills/information-discrete-math/SKILL.md: cd1cdef1a50e99587d40e8cddde99b417ab0fc3c
+      pyproject.toml: 9d8b072e8b0a07fa22410ebc732132195a1d3905
       textbook/INFORMATION_DISCRETE_MATHEMATICS.md: bfe7bc64a618c293745ee80125b3049900b1a2bb
   readout_genesis:
     url: https://github.com/morrocwi/readout_genesis
@@ -67,27 +73,29 @@ repos:
       philosophy.md: d208103daf47853ad0d716f42b03da896517c995
       plugins/readout-universe/skills/readout-universe/SKILL.md: 29df46be803fce1f743c509c38cec30977a32cf4
       scope_correction.md: ac8603620533682bfeebc88152d78c767785f55c
-  glosa:
-    url: https://github.com/morrocwi/glosa
+  toledo:
+    url: https://github.com/morrocwi/toledo
     branch: main
-    commit: 106acb3ee985f91511a61f31840e046fb1e76034
-    tag: v0.4.1
-    commits_after_tag: 120
+    commit: d46a9aab6c22be391fc8b2486d9b101443ae158e
+    tag: v1.8.0
+    commits_after_tag: 147
     paths:
-      .claude-plugin/marketplace.json: ca95810af8e807fa0f09675258a89451be9e3d2d
-      AGENTS.md: 4aa065fe156fadaadbcb98a3db46787d7b004a5b
-      CLAIM_BOUNDARY.md: 2e27b1320c589fc2e5e2542e5d67d9ad97e6cf0c
-      cli/README.md: 95a0705172a61bc8ef3730acc5a5fba9037db491
-      docs/ECOSYSTEM.md: 2b1a7a592f9264895038448cd04e55102040117e
-      llms.txt: b072504d89a7ae6ec336a3bae30d6e0fe0ecd8de
-      mcp/README.md: 5136fbe7b51fef3601e0d707c6d34b61eec92fbe
-      methodology/P00_lens.md: 6ee7b130768f0090989f6cf4e3833c246247f084
-      methodology/P10_publish_gate.md: 7aa97fd4f542cafcbf24e4f607bea2205904200b
-      methodology/P19_registration.md: c0b778a266149e4217856400180badae3d61e3a2
-      plugins/glosa/PROMPT_PACKET.md: 7b5b26ff6b77688edf02a80957a97538b24d3712
-      plugins/glosa/skills/glosa-blackbox-note/SKILL.md: 8e7dd1150956a7e63c7ab4612a487e85a299cc9c
-      plugins/glosa/skills/glosa-publish-gate/SKILL.md: eb258e7f5c45e4a9eb499fe905b8da534e21d457
-      plugins/glosa/skills/glosa/SKILL.md: c149d05c20ddd1aa2311cb2e3bf97b34911f87e0
+      .mcp.json: 18f9479c26772831fc46d10de2fb00c8ba14088e
+      AGENTS.md: 31d80fe6613a6c78c145b7319416b46315401215
+      EQUATION_SOURCE_POLICY.md: 9d17197ee84d5fb04dd5a959e4c48df6b9f64f56
+      README.md: 0ba48c64a90816f15264542918b5d0fb50155ee6
+      coq/finite-readout-acceleration/PROVENANCE.json: 1b4f6f39d59b4ba747677d971b5861c3ca3569bb
+      coq/information-discrete-math/PROVENANCE.json: 59e78096bf62080ed61c365292c4dc1a2ef8fcbd
+      coq/readout_genesis/PROVENANCE.json: 934c5aae9a438d87316a1b41d53cbf8b385bb7de
+      coq/readout_universe/PROVENANCE.json: c521b093ad6a1472a3a9a62f53428b0be2b95620
+      coq/zero-readout-certifies/PROVENANCE.json: 69ccf0bba4e66ea55a3b9ce753499af6f08072e2
+      mcp/README.md: ee321fddbcd43e9ae5ce6c87e8be19ee0fb113cd
+      mcp/docs/STATIC_API.md: cc92b845d940f4179f97e16a85354a62b28be898
+      registry/CANONICAL.json: b6ce6dc603c07352b1eb81f774d6aa86a7b280eb
+      registry/SCHEMA.md: 7c3803c3d42cbe98e31882b1e37fced3e6041e2f
+      registry/genesis_root.json: eff83749f4a34dd5c7cc0f52f3d11375153a32b0
+      scripts/toledo: 380cbe2eee06acfe23cf8a3498b69e2edf7d7fed
+      scripts/toledo_build.py: 3af4db3405b85e8e6009a56868d940a578e680c7
   birca:
     url: https://github.com/morrocwi/birca
     branch: main
@@ -101,6 +109,16 @@ repos:
       SYSTEM_PROMPT.md: 0ff64d421df42641debe216b7e7b0c9c87231ea9
       compute/README.md: 8c90f9241f01a59713f53789cd97d0cae3199918
       mcp_server/README.md: 2ebafb717c83d84e3259f809fb56be626fc55313
+  finite-readout-acceleration:
+    url: https://github.com/morrocwi/finite-readout-acceleration
+    branch: main
+    commit: 82bd6f307a34916241190b5fe86d588ed6789dd0
+    tag: v0.1.0
+    commits_after_tag: 2
+    paths:
+      DESIGN_NOTES.md: 29dee69b2dfe9a576eea7ffd0fa9dd205549129b
+      README.md: 79fbd037ffa7ef6094fb0ac1ac39b45b2ae3a1e4
+      pyproject.toml: d80daae0ffc87bb7dce0ed9d9cb4be9acea2030c
   readout-problem-navier-stokes:
     url: https://github.com/morrocwi/readout-problem-navier-stokes
     branch: main
@@ -137,16 +155,14 @@ repos:
     paths:
       README.md: 8a8a209497410f04f520bd7e76160899f5c1e987
       REPRODUCE.md: 1fcd7f1e9e9a93084dfadc2f89c56cfecf8020f0
-  finite-readout-acceleration:
-    url: https://github.com/morrocwi/finite-readout-acceleration
+  retained-sturm:
+    url: https://github.com/morrocwi/retained-sturm
     branch: main
-    commit: 82bd6f307a34916241190b5fe86d588ed6789dd0
-    tag: v0.1.0
-    commits_after_tag: 2
+    commit: a2a99d4ff9d080518003a3d90a7800add55a9957
+    tag: null
+    commits_after_tag: null
     paths:
-      DESIGN_NOTES.md: 29dee69b2dfe9a576eea7ffd0fa9dd205549129b
-      README.md: 79fbd037ffa7ef6094fb0ac1ac39b45b2ae3a1e4
-      pyproject.toml: d80daae0ffc87bb7dce0ed9d9cb4be9acea2030c
+      README.md: b298470e74706d7852afdb9af68f3ec963a2fe4f
   seth-skill:
     url: https://github.com/morrocwi/seth-skill
     branch: main
@@ -157,11 +173,3 @@ repos:
       .claude-plugin/marketplace.json: bae52aaff58ecca6c26b3acbef701f844e32c434
       README.md: e430f5075df430ba3cc071217e7d6c749faf1cac
       plugins/seth/skills/seth/SKILL.md: 660d5b6a370bd466fc47815046f840ad03f89b7b
-  retained-sturm:
-    url: https://github.com/morrocwi/retained-sturm
-    branch: main
-    commit: a2a99d4ff9d080518003a3d90a7800add55a9957
-    tag: null
-    commits_after_tag: null
-    paths:
-      README.md: b298470e74706d7852afdb9af68f3ec963a2fe4f

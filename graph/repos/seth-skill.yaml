@@ -1,0 +1,21 @@
+# seth-skill - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: seth-skill
+class: catalog
+role: AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis.
+is:
+- application skill (social enterprise)
+is_not:
+- wired into the equation / ontology graph by any verified edge
+surfaces:
+- kind: plugin
+  name: seth plugin
+  path: .claude-plugin/marketplace.json
+  marketplace: yaoharee-lahtee-seth
+  plugin: seth
+  use: Installs the social-enterprise analysis skill.
+- kind: skill
+  name: seth skill
+  path: plugins/seth/skills/seth/SKILL.md
+  use: Non-negotiable rules, workflow and failure codes of the calculation contract.
+enter:
+- README.md

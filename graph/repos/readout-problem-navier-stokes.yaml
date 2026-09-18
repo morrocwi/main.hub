@@ -1,0 +1,38 @@
+# readout-problem-navier-stokes - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: readout-problem-navier-stokes
+class: linked
+role: Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the
+  Clay problem.
+is:
+- domain instantiation of the finite-bridge programme
+- deposited paper + finite lanes
+is_not:
+- a proof of global regularity or blow-up
+enter:
+- CLAY_READ_FIRST.md
+- AGENTS.md
+- CLAIMS.md
+- README.md
+gates:
+- TG-RFG-01
+edges:
+- type: requires-gate
+  to: gate:TG-RFG-01
+  evidence:
+    path: AGENTS.md
+    match: before introducing or renaming a mathematical object
+- type: defers-status-to
+  to: toledo
+  evidence:
+    path: README.md
+    match: proposal/equation provenance and tier/status
+- type: reads-shared-math-from
+  to: information-discrete-math
+  evidence:
+    path: AGENTS.md
+    match: If working on shared bridge mathematics, read
+- type: checks-ontology-against
+  to: readout_genesis
+  evidence:
+    path: AGENTS.md
+    match: is checked next for ontology

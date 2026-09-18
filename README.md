@@ -22,10 +22,11 @@ machine-checkable answer to *"I am about to do X - where do I go, and what do I 
 | one card per repository: role, is / is not, reading order, verified edges | [`nodes/`](nodes/) |
 | the whole graph, machine-readable | [`graph/hub.json`](graph/hub.json), [`graph/hub.graphml`](graph/hub.graphml) |
 | commit + blob pins of every referenced file | [`graph/lock.yaml`](graph/lock.yaml) |
+| the same graph as MCP tools | [`mcp/server.py`](mcp/server.py), [`.mcp.json`](.mcp.json) |
 
 ## What makes an edge true here
 
-Every edge in [`graph/edges.yaml`](graph/edges.yaml) names a file in a public repository and a
+Every edge (key `edges` in [`graph/repos/<id>.yaml`](graph/repos/); edge types are in [`graph/edges.yaml`](graph/edges.yaml)) names a file in a public repository and a
 literal text that file must contain. `scripts/hub.py check` re-reads the pinned blob and fails if
 the text is gone or no longer unique. Each edge is therefore a quotation of what a repository says
 about itself or about a neighbour. What the hub does author - one-line role strings, route wording,
@@ -63,6 +64,30 @@ reproducible snapshot of all of them together.
 
 **Obsidian.** The repository opens as a vault as it is: every card in `nodes/` links its neighbour
 cards, so the graph view shows the verified edges between repositories. `.obsidian/` stays local.
+
+## Add, remove, register - one command each
+
+One repository is one file, `graph/repos/<id>.yaml` (node, surfaces, outgoing edges).
+
+```bash
+python scripts/hub.py add <repo> --workspace ..        # public repos only; writes a DRAFT catalog node with discovered surfaces
+python scripts/hub.py remove <repo> --workspace ..     # deletes the file and every edge and route step that names it
+python scripts/hub.py surfaces [<repo>] --workspace .. # registers newly shipped skills, plugins, MCP servers, APIs
+```
+
+Each command is all-or-nothing: it pins, renders and validates, and if any step raises, every file is put
+back as it was (a killed process is not covered - `git status` will show it). `add` refuses anything GitHub does not report as public; `remove`
+refuses an axis holder and changes nothing while the lens, a gate or an artifact still names the
+repository. A draft node shows as DRAFT until its role / is / is_not are written from the repository's
+own README; to make it `linked`, add `edges:` with evidence. Then `check`, review the diff, commit.
+
+## As an MCP server
+
+`.mcp.json` registers `mcp/server.py` (stdio; needs PyYAML, and `git` for `hub_check` and the write tools). Read tools: `hub_start` (call first - Step 0),
+`hub_routes`, `hub_route`, `hub_repos`, `hub_repo`, `hub_surfaces`, `hub_search`, `hub_check`. Write tools
+`hub_add_repo`, `hub_remove_repo`, `hub_register_surfaces` are **off** unless the server is started with
+`MAIN_HUB_ALLOW_WRITE=1` and `MAIN_HUB_WORKSPACE=<dir of sibling clones>`; they edit the working tree
+only and never commit or push. `python mcp/test_stdio.py` is a real stdio round trip.
 
 ## Lineage
 

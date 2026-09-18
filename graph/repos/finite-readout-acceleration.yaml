@@ -1,0 +1,17 @@
+# finite-readout-acceleration - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: finite-readout-acceleration
+class: linked
+role: 'Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy.'
+is:
+- engineering application leaf (web / cache / database)
+is_not:
+- a research canon
+surfaces:
+- kind: package
+  name: fra Python package
+  path: pyproject.toml
+  use: Stdlib-only library - cost model, break-even guard, cache-safety audit, eviction policy; install from the
+    repository.
+enter:
+- README.md
+- DESIGN_NOTES.md

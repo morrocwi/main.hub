@@ -1,0 +1,71 @@
+# toledo - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: toledo
+class: axis
+axis: mathematics
+role: Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one
+  exists.
+is:
+- equation source of record
+- lookup gate (registry JSON, CLI, MCP, static site)
+is_not:
+- a home for papers, prose or ontology
+- a place where a proposal counts as a theorem
+surfaces:
+- kind: mcp
+  name: Toledo MCP server
+  path: mcp/README.md
+  config: .mcp.json
+  use: Verdict-aware equation lookup, lineage and status over stdio; the lookup tool the source policy prefers.
+- kind: static-api
+  name: Toledo static read API
+  path: mcp/docs/STATIC_API.md
+  url: https://morrocwi.github.io/toledo/
+  use: Periodic JSON mirror for callers with no MCP or stdio access; it can lag the registry and is corroboration,
+    never a substitute for a live lookup.
+- kind: cli
+  name: toledo CLI
+  path: scripts/toledo
+  use: find, show and ancestry over the built library; run scripts/toledo_build.py first.
+enter:
+- AGENTS.md
+- EQUATION_SOURCE_POLICY.md
+- registry/SCHEMA.md
+- registry/CANONICAL.json
+- registry/genesis_root.json
+- scripts/toledo_build.py
+- scripts/toledo
+gates:
+- TG-RFG-01
+doi: 10.5281/zenodo.22537318
+edges:
+- type: authority-for
+  to: axis:mathematics
+  evidence:
+    in: glosa
+    path: docs/ECOSYSTEM.md
+    match: '| Equation source of record + lookup gate'
+- type: imports-coq-from
+  to: readout_genesis
+  evidence:
+    path: coq/readout_genesis/PROVENANCE.json
+    match: Files are imported as public GitHub source
+- type: imports-coq-from
+  to: readout_universe
+  evidence:
+    path: coq/readout_universe/PROVENANCE.json
+    match: Imported under the MIT terms already granted by the upstream repository
+- type: imports-coq-from
+  to: information-discrete-math
+  evidence:
+    path: coq/information-discrete-math/PROVENANCE.json
+    match: Copied verbatim (byte-for-byte diff against the upstream commit above is empty
+- type: imports-coq-from
+  to: zero-readout-certifies
+  evidence:
+    path: coq/zero-readout-certifies/PROVENANCE.json
+    match: Copied verbatim (byte-for-byte diff against the upstream commit above is empty
+- type: imports-coq-from
+  to: finite-readout-acceleration
+  evidence:
+    path: coq/finite-readout-acceleration/PROVENANCE.json
+    match: Copied verbatim (byte-for-byte diff against the upstream commit above is empty

@@ -63,8 +63,10 @@ that kind of question is answered, nothing more. One card per repository: `nodes
 
 ## Rules for changing this hub
 
-- Edit only `graph/nodes.yaml`, `graph/edges.yaml`, `graph/routes.yaml` and the hand-written
-  prose files. `ROUTES.md`, `llms.txt`, `nodes/`, `graph/hub.*` and the table above are generated.
+- One repository is one file: `graph/repos/<id>.yaml` (node, surfaces, outgoing edges). Use
+  `python scripts/hub.py add | remove | surfaces` rather than editing by hand where you can. Axes, lens,
+  gates and artifacts are in `graph/nodes.yaml`, edge types in `graph/edges.yaml`, routes in
+  `graph/routes.yaml`. Edit only those and the hand-written prose files. `ROUTES.md`, `llms.txt`, `nodes/`, `graph/hub.*` and the table above are generated.
 - **An edge is admitted only with evidence**: a file in a public repository that contains the
   literal `match` text. The checker re-reads the pinned blob. No evidence, no edge.
 - A repository with no verified edge is `class: catalog` - listed for discovery, not claimed to

@@ -1,0 +1,38 @@
+# skillme - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: skillme
+class: linked
+role: Philosophy-first protocol for analysing any reported issue without naming a cause before it is found.
+is:
+- method-family sibling (issue analysis)
+is_not:
+- a source of equations
+surfaces:
+- kind: plugin
+  name: skillme plugin
+  path: .claude-plugin/marketplace.json
+  marketplace: yaoharee-lahtee-skillme
+  plugin: skillme
+  use: Installs the issue-analysis skill.
+- kind: skill
+  name: skillme skill
+  path: plugins/skillme/skills/skillme/SKILL.md
+  use: The operational protocol - two-question intake gate, moves in order, hard invariants.
+- kind: cli
+  name: skillme protocol kernel
+  path: skillme_protocol_kernel.py
+  use: Stdlib-only validator of a run record; VALID means well-formed, not correct.
+enter:
+- AI_START_HERE.md
+- llms.txt
+- SKILLME.md
+edges:
+- type: builds-on
+  to: information-discrete-math
+  evidence:
+    path: README.md
+    match: building on the Readout Genesis / Information Discrete Mathematics foundation
+- type: builds-on
+  to: readout_genesis
+  evidence:
+    path: README.md
+    match: building on the Readout Genesis / Information Discrete Mathematics foundation

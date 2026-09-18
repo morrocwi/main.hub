@@ -1,0 +1,18 @@
+# zero-readout-certifies - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: zero-readout-certifies
+class: linked
+role: Machine-checked characterisation of the zero fibre of a finite retained-difference operator.
+is:
+- Coq companion paper + reproduction
+is_not:
+- a general solver
+enter:
+- README.md
+- REPRODUCE.md
+edges:
+- type: companion-of
+  to: information-discrete-math
+  evidence:
+    in: glosa
+    path: docs/ECOSYSTEM.md
+    match: zero-readout-certifies (public)<br/>Coq companion to IDM

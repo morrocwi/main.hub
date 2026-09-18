@@ -1,0 +1,43 @@
+# birca - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: birca
+class: linked
+role: Educational and research-only (non-commercial) theoretical framework packaged as a safety-gated, context-bound
+  health-information skill; not a medical service, not diagnostic, no clinical-safety audit yet.
+is:
+- application leaf (health information)
+- licensed CC BY-NC-SA 4.0 with a mandatory-preservation condition; LICENSE.md states the licence is in effect (one
+  README table row still calls it pending - LICENSE.md governs)
+is_not:
+- a medical product
+- diagnostic or treatment selection
+- clinically safety-audited (its README lists that audit as still open)
+gates:
+- BIRCA-SAFETY-GATE
+surface_note: educational and research use only; not diagnostic, no treatment selection, and not clinically safety-audited
+surfaces:
+- kind: skill
+  name: birca skill
+  path: SKILL.md
+  use: Discovery surface of the health-information skill; the skill names SYSTEM_PROMPT.md as its single source
+    of truth.
+- kind: prompt
+  name: birca system prompt
+  path: SYSTEM_PROMPT.md
+  use: The instruction block itself; follow it exactly and in full, with LEGAL_DISCLAIMER.md shipped unmodified.
+- kind: mcp
+  name: birca MCP server
+  path: mcp_server/README.md
+  use: Serves the prompt, spec and disclaimer and a deterministic English-only regex check that narrows but does
+    not close the gap; also exposes research-mode compute tools; calls no model itself.
+enter:
+- README.md
+- LEGAL_DISCLAIMER.md
+- SKILL.md
+- SYSTEM_PROMPT.md
+- compute/README.md
+edges:
+- type: declares-lineage-from
+  to: readout_genesis
+  evidence:
+    path: compute/README.md
+    match: '`morrocwi/readout_genesis`, pinned commit'

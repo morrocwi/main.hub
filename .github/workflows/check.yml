@@ -28,3 +28,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/hub.py check --remote --heads
+      - name: MCP server stdio round trip
+        run: python mcp/test_stdio.py

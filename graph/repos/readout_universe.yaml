@@ -1,0 +1,47 @@
+# readout_universe - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: readout_universe
+class: axis
+axis: epistemology
+role: 'Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier.'
+is:
+- epistemology lens
+- tier vocabulary, claims register, companion tools and plugin
+is_not:
+- the equation registry
+- the ontology canon
+surfaces:
+- kind: plugin
+  name: readout-universe plugin
+  path: .claude-plugin/marketplace.json
+  marketplace: yaoharee-lahtee-readout
+  plugin: readout-universe
+  use: Installs the evidence-tier tagging skill.
+- kind: skill
+  name: readout-universe skill
+  path: plugins/readout-universe/skills/readout-universe/SKILL.md
+  use: Tag every claim with the tier its evidence earns; usable in any domain.
+enter:
+- README.md
+- claims.md
+- philosophy.md
+- logic.md
+- scope_correction.md
+gates:
+- TIER-TAGGING
+edges:
+- type: authority-for
+  to: axis:epistemology
+  evidence:
+    in: toledo
+    path: EQUATION_SOURCE_POLICY.md
+    match: Readout Universe is the primary epistemology lens
+- type: builds-on
+  to: information-discrete-math
+  evidence:
+    path: philosophy.md
+    match: The mandatory floor for this
+- type: holds-synced-copy-from
+  to: readout_genesis
+  evidence:
+    path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md
+    match: if a mismatch is ever found, Appendix C wins

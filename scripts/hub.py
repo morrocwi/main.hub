@@ -6,12 +6,14 @@
     python scripts/hub.py check [--workspace DIR | --remote] [--heads]
     python scripts/hub.py materialize --dest DIR  partial + sparse clone of the pinned entry files
 
-Source of truth: graph/nodes.yaml, graph/edges.yaml, graph/routes.yaml (hand-edited) and
+Source of truth: graph/repos/<id>.yaml (one repository per file), graph/nodes.yaml, graph/edges.yaml,
+graph/routes.yaml (hand-edited, or written by add / remove / surfaces) and
 graph/lock.yaml (written by `lock`). Everything else is generated; `check` fails when a generated
 file is out of date, when a pinned blob no longer matches, or when an edge's evidence text is gone.
 Only dependency: PyYAML.
 """
 import argparse
+import contextlib
 import json
 import os
 import re
@@ -68,7 +70,7 @@ def safe_graph(d):
              + [("route", r.get("id")) for r in routes["routes"]] + [("lens", lens.get("id"))]
              + [("lens facet", f.get("id")) for f in lens["facets"]])
     for kind, i in every:
-        need(isinstance(i, str) and ID_RE.fullmatch(i) and ".." not in i, f"unsafe {kind} id {i!r}")
+        need(isinstance(i, str) and len(i) <= 100 and ID_RE.fullmatch(i) and ".." not in i, f"unsafe {kind} id {i!r}")
     for kind in ("repository", "route", "lens facet", "gate", "axis", "artifact"):
         ids_k = [i for k, i in every if k == kind]
         need(len(ids_k) == len(set(ids_k)), f"duplicate {kind} id")
@@ -77,6 +79,7 @@ def safe_graph(d):
     axis_ids = {a["id"] for a in n["axes"]}
     for r in n["repos"]:
         need(r.get("class") in CLASSES, f"{r['id']}: class must be one of {sorted(CLASSES)}")
+        need(r.get("draft") in (None, True, False), f"{r['id']}: draft must be true or false")
         need(r.get("axis") is None or r["axis"] in axis_ids, f"{r['id']}: unknown axis {r.get('axis')!r}")
         need(isinstance(r.get("gates", []), list) and all(isinstance(g, str) and ID_RE.fullmatch(g) for g in r.get("gates", [])), f"{r['id']}: gates malformed")
     ed = d["edges"]
@@ -111,7 +114,7 @@ def safe_graph(d):
             need(isinstance(sf, dict) and sf.get("kind") in SURFACE_KINDS, f"{r['id']} surface kind must be one of {sorted(SURFACE_KINDS)}")
             texts += [(f"{r['id']} surface name", sf.get("name")), (f"{r['id']} surface use", sf.get("use"))]
             for key in ("marketplace", "plugin", "config"):
-                need(sf.get(key) is None or (key == "config" and ok_path(sf[key])) or (key != "config" and isinstance(sf[key], str) and ID_RE.fullmatch(sf[key])),
+                need(sf.get(key) is None or (key == "config" and ok_path(sf[key])) or (key != "config" and isinstance(sf[key], str) and len(sf[key]) <= 100 and ID_RE.fullmatch(sf[key])),
                      f"{r['id']} surface {key} malformed")
             need(sf.get("url") is None or (isinstance(sf["url"], str) and re.fullmatch(rf"https://{OWNER}\.github\.io/{re.escape(r['id'])}/", sf["url"])),
                  f"{r['id']} surface url must be the repository's own pages site")
@@ -167,19 +170,44 @@ def no_symlinks():
 
 
 # ---------------------------------------------------------------- loading
-def load():
+def repo_files():
+    return sorted((GRAPH / "repos").glob("*.yaml"))
+
+
+def load(with_lock=True):
     no_symlinks()
     d = {n: yaml.safe_load((GRAPH / f"{n}.yaml").read_text(encoding="utf-8"))
          for n in ("nodes", "edges", "routes")}
     lock_file = GRAPH / "lock.yaml"
     d["lock"] = yaml.safe_load(lock_file.read_text(encoding="utf-8")) if lock_file.exists() else None
+    if not isinstance(d["nodes"], dict) or not isinstance(d["edges"], dict):
+        sys.exit("graph: nodes.yaml and edges.yaml must be mappings")
+    repos, edges = [], []
+    stray = [p.name for p in (GRAPH / "repos").iterdir() if p.suffix != ".yaml" or not p.is_file()]
+    if stray:
+        sys.exit(f"graph/repos: only <id>.yaml files belong here, found {stray}")
+    for f in repo_files():                      # one repository = one file: node, surfaces, outgoing edges
+        r = yaml.safe_load(f.read_text(encoding="utf-8"))
+        if not isinstance(r, dict) or r.get("id") != f.stem:
+            sys.exit(f"graph/repos/{f.name}: must be a mapping whose id equals the file name")
+        own = r.pop("edges", None)
+        own = [] if own is None else own
+        if not isinstance(own, list) or not all(isinstance(e, dict) and "from" not in e for e in own):
+            sys.exit(f"graph/repos/{f.name}: edges must be a list of mappings without a `from` key (the file's repository is the source)")
+        edges += [{**e, "from": r["id"]} for e in own]
+        repos.append(r)
+    rank = {"axis": 0, "linked": 1, "catalog": 2}
+    d["nodes"]["repos"] = sorted(repos, key=lambda r: (rank.get(r.get("class"), 9), str(r.get("id"))))
+    d["edges"]["edges"] = edges
     for e in d["edges"]["edges"]:
         if not all(isinstance(e.get(k), str) for k in ("from", "type", "to")) \
                 or not isinstance(e.get("evidence"), dict) or not {"path", "match"} <= set(e["evidence"]):
-            sys.exit(f"edges.yaml: edge without evidence path/match: {e.get('from')} {e.get('type')} {e.get('to')}")
+            sys.exit(f"graph/repos: edge without evidence path/match: {e.get('from')} {e.get('type')} {e.get('to')}")
     safe_graph(d)
-    if d["lock"]:
+    if d["lock"] and with_lock:
         safe_lock(d)
+    elif not with_lock:
+        d["lock"] = None                       # `lock` rewrites it from scratch; a stale one must not block that
     return d
 
 
@@ -233,7 +261,7 @@ def http(url, raw=False):
 
 # ---------------------------------------------------------------- lock
 def cmd_lock(args):
-    d = load()
+    d = load(with_lock=False)
     ws = Path(args.workspace).resolve()
     wanted = {}
     for repo, path, _m, _l in references(d):
@@ -323,9 +351,9 @@ def render(d):
     for r in nodes["repos"]:
         L = lock["repos"][r["id"]]
         mine = [e for e in edges if e["from"] == r["id"] or e["to"] == r["id"]]
-        c = [f"# {r['id']}", "", "GENERATED from `graph/nodes.yaml` and `graph/edges.yaml` - do not hand-edit.", "",
+        c = [f"# {r['id']}", "", "GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.", "",
              f"- **Repository:** <{L['url']}>",
-             f"- **Class:** {r['class']}" + (f" - axis `{r['axis']}`" if r.get("axis") else ""),
+             f"- **Class:** {r['class']}" + (f" - axis `{r['axis']}`" if r.get("axis") else "") + (" - DRAFT, not yet reviewed" if r.get("draft") else ""),
              f"- **Role:** {r['role']}",
              f"- **Is:** {'; '.join(r['is'])}",
              f"- **Is not:** {'; '.join(r['is_not'])}",
@@ -361,7 +389,7 @@ def render(d):
     title = {"plugin": "Installable plugins (skill bundles)", "skill": "Skill files (plain Markdown, any agent can read them)",
              "prompt": "Vendor-neutral prompt packets", "mcp": "MCP servers", "api": "Library and service APIs",
              "static-api": "Static read APIs (no MCP client needed)", "cli": "Command-line tools", "package": "Installable packages"}
-    sv = ["# Surfaces", "", "GENERATED from `graph/nodes.yaml` by `python scripts/hub.py build` - do not hand-edit.",
+    sv = ["# Surfaces", "", "GENERATED from `graph/repos/` by `python scripts/hub.py build` - do not hand-edit.",
           "Callable and loadable things the public repositories already ship. Every entry is a pinned file in its",
           "repository; plugin and marketplace names are checked against the pinned marketplace manifest. The hub ships",
           "none of these itself: install and run them from their own repository, under that repository's licence and rules.",
@@ -409,7 +437,8 @@ def render(d):
     gn.append({"id": f"lens:{lens['id']}", "kind": "LENS", "name": lens["name"]})
     for r in nodes["repos"]:
         for sf in r.get("surfaces") or []:
-            sid = f"surface:{r['id']}:{sf['kind']}:{sf['path']}"
+            same = [x for x in r["surfaces"] if (x["kind"], x["path"]) == (sf["kind"], sf["path"])]
+            sid = f"surface:{r['id']}:{sf['kind']}:{sf['path']}" + (f":{sf['plugin']}" if len(same) > 1 and sf.get("plugin") else "")
             gn.append({"id": sid, "kind": "SURFACE", "surface": sf["kind"], "name": sf["name"], "path": sf["path"],
                        "marketplace": sf.get("marketplace"), "plugin": sf.get("plugin"), "url": sf.get("url")})
             ge_surface.append({"source": sid, "target": r["id"], "type": "provided-by"})
@@ -534,6 +563,10 @@ def check_structure(d, err):
     for rid in ids:
         if not ID_RE.match(rid):
             err(f"repository id not safe as a directory name: {rid}")
+    for r in nodes["repos"]:
+        keys = [(sf["kind"], sf["path"], sf.get("plugin")) for sf in r.get("surfaces") or []]
+        if len(keys) != len(set(keys)):
+            err(f"{r['id']}: duplicate surface entries")
     lens = nodes.get("lens") or {}
     facets = {f["id"] for f in lens.get("facets", [])}
     srcs = lens.get("sources", [])
@@ -712,6 +745,9 @@ def cmd_check(args):
         sys.exit("check: run `lock` first")
     safe_lock(d)
     check_structure(d, errors.append)
+    for r in d["nodes"]["repos"]:
+        if r.get("draft"):
+            warnings.append(f"{r['id']}: draft node - role / is / is_not still need writing from the repository's README")
     check_pins(d, errors.append, warnings.append, args.workspace, args.remote, args.heads)
     check_plugins(d, errors.append, args.workspace, args.remote)
     check_generated(d, errors.append)
@@ -749,6 +785,204 @@ def cmd_materialize(args):
         print(f"materialize: {repo} @ {L['commit'][:12]} ({len(L['paths'])} paths)")
 
 
+# ---------------------------------------------------------------- add / remove / surfaces
+REPO_HEAD = "# {id} - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.\n"
+ENTER_CANDIDATES = ["AGENTS.md", "AI_START_HERE.md", "llms.txt", "README.md", "CLAIMS.md", "REPRODUCE.md"]
+
+
+def write_repo(r, edges):
+    out = {k: v for k, v in r.items() if v not in (None, [], {})}
+    if edges:
+        out["edges"] = [{k: v for k, v in e.items() if k != "from"} for e in edges]
+    p = GRAPH / "repos" / f"{r['id']}.yaml"
+    p.write_text(REPO_HEAD.format(id=r["id"]) + yaml.safe_dump(out, sort_keys=False, width=110, allow_unicode=True), encoding="utf-8")
+
+
+@contextlib.contextmanager
+def transaction():
+    """All or nothing: if anything below fails, every graph and generated file is put back exactly as it was."""
+    def files():
+        out = [p for base in ("graph", "nodes") for p in (ROOT / base).rglob("*") if p.is_file()]
+        return out + [ROOT / x for x in ("ROUTES.md", "SURFACES.md", "llms.txt", "AGENTS.md") if (ROOT / x).is_file()]
+    snap = {p: p.read_bytes() for p in files()}
+    try:
+        yield
+    except BaseException:
+        for p in files():
+            if p not in snap:
+                p.unlink()
+        for p, b in snap.items():
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_bytes(b)
+        print("rolled back: no file was changed")
+        raise
+
+
+def clone_state(ws, rid):
+    """A sibling clone whose origin is the public URL; returns (dir, commit of the public default branch, file list)."""
+    rdir = Path(ws).resolve() / rid
+    origin = (git(rdir, "remote", "get-url", "origin", check=False) or "").removesuffix(".git").rstrip("/")
+    if origin != f"{HOST}/{OWNER}/{rid}":
+        sys.exit(f"{rid}: no clone at {rdir} whose origin is {HOST}/{OWNER}/{rid}")
+    head = git(rdir, "symbolic-ref", "--short", "refs/remotes/origin/HEAD", check=False) or "origin/main"
+    commit = git(rdir, "rev-parse", head)
+    return rdir, commit, (git(rdir, "ls-tree", "-r", "--name-only", commit) or "").splitlines()
+
+
+def discover_surfaces(rdir, commit, files):
+    """Surfaces a repository visibly ships, found from well-known file names only. Descriptions stay generic on purpose."""
+    found, fs = [], set(files)
+    if ".claude-plugin/marketplace.json" in fs:
+        try:
+            m = json.loads(git(rdir, "show", f"{commit}:.claude-plugin/marketplace.json"))
+            m = m if isinstance(m, dict) else {}
+            mname = m.get("name")
+            short = lambda x: isinstance(x, str) and len(x) <= 100 and ID_RE.fullmatch(x)      # noqa: E731
+            for p in m.get("plugins", []) if isinstance(m.get("plugins"), list) and short(mname) else []:
+                if isinstance(p, dict) and short(p.get("name")):
+                    found.append({"kind": "plugin", "name": f"{p['name']} plugin", "path": ".claude-plugin/marketplace.json",
+                                  "marketplace": m["name"], "plugin": p["name"], "use": "Installs the skills this repository ships."})
+        except (ValueError, TypeError):
+            pass
+    for f in files:
+        if f == "SKILL.md" or re.fullmatch(r"plugins/[^/]+/skills/[^/]+/SKILL\.md", f):
+            name = "skill" if f == "SKILL.md" else f.split("/")[3] + " skill"
+            if not ok_text(name, 100):
+                continue
+            found.append({"kind": "skill", "name": name, "path": f, "use": "Skill file; read it in the repository before use."})
+    for f in ("mcp/README.md", "mcp_server/README.md"):
+        if f in fs:
+            sf = {"kind": "mcp", "name": "MCP server", "path": f, "use": "MCP server shipped by the repository; see the file for its tools."}
+            if ".mcp.json" in fs:
+                sf["config"] = ".mcp.json"
+            found.append(sf)
+    if "API.md" in fs:
+        found.append({"kind": "api", "name": "API", "path": "API.md", "use": "Library or service API described by the repository."})
+    if "cli/README.md" in fs:
+        found.append({"kind": "cli", "name": "CLI", "path": "cli/README.md", "use": "Command-line tool shipped by the repository."})
+    if "pyproject.toml" in fs:
+        found.append({"kind": "package", "name": "Python package", "path": "pyproject.toml", "use": "Installable package; install from the repository."})
+    return [sf for sf in found if ok_path(sf["path"]) and ok_text(sf["name"], 120)]
+
+
+def after_change(args):
+    """Every structural change ends the same way: pin, render, verify - inside the caller's transaction."""
+    cmd_lock(args)
+    cmd_build(args)
+    problems = []
+    check_structure(load(), problems.append)
+    if problems:
+        sys.exit("refused - the graph would be invalid:\n  " + "\n  ".join(problems))
+    print("now run: python scripts/hub.py check --workspace", args.workspace, "- then review the diff before committing")
+
+
+def cmd_add(args):
+    with transaction():
+        _add(args)
+
+
+def _add(args):
+    rid = args.repo
+    if not ID_RE.fullmatch(rid) or ".." in rid:
+        sys.exit(f"add: unsafe repository id {rid!r}")
+    if (GRAPH / "repos" / f"{rid}.yaml").exists():
+        sys.exit(f"add: {rid} is already a node - edit graph/repos/{rid}.yaml")
+    try:                                        # fail-closed: only a repository GitHub reports as public becomes a node
+        info = http(f"https://api.github.com/repos/{OWNER}/{rid}")
+    except Exception as e:                       # noqa: BLE001
+        sys.exit(f"add: cannot confirm {OWNER}/{rid} is public ({e}) - nothing written")
+    if not isinstance(info, dict) or str(info.get("full_name", "")) != f"{OWNER}/{rid}":
+        sys.exit(f"add: GitHub answered for a different repository than {OWNER}/{rid} - nothing written")
+    if info.get("private") is not False or info.get("archived"):
+        sys.exit(f"add: {OWNER}/{rid} is not a public, active repository - nothing written")
+    rdir, commit, files = clone_state(args.workspace, rid)
+    enter = [f for f in ENTER_CANDIDATES if f in files][:4] or ["README.md"]
+    desc = " ".join(str(info.get("description") or "").split())
+    clean = ok_text(desc) and not any(re.search(p, desc) for p in LEAKS)      # never import a leak or a credit line
+    role = desc if clean else "DRAFT - write one line from the repository's own README"
+    node = {"id": rid, "class": "catalog", "draft": True, "role": role,
+            "is": ["DRAFT - say what it is, in the repository's own words"],
+            "is_not": ["wired into the graph by any verified edge"], "enter": enter,
+            "surfaces": discover_surfaces(rdir, commit, files)}
+    write_repo(node, [])
+    print(f"add: wrote graph/repos/{rid}.yaml (class catalog, draft, {len(node['surfaces'])} surfaces found, enter {enter})")
+    print("     edit role / is / is_not from the repository's README, add `edges:` with evidence to make it linked, then delete `draft: true`")
+    after_change(args)
+
+
+def cmd_remove(args):
+    with transaction():
+        _remove(args)
+
+
+def _remove(args):
+    rid = args.repo
+    f = GRAPH / "repos" / f"{rid}.yaml"
+    if not ID_RE.fullmatch(rid) or not f.exists():
+        sys.exit(f"remove: {rid} is not a node")
+    d = load()
+    if any(r["id"] == rid and r.get("class") == "axis" for r in d["nodes"]["repos"]):
+        sys.exit(f"remove: {rid} holds an axis; hand the axis to another repository first")
+    n = d["nodes"]
+    hard = ([f"lens source {s['path']}" for s in n["lens"]["sources"] if s["repo"] == rid]
+            + [f"gate {g['id']}" for g in n["gates"] if g["defined_in"]["repo"] == rid]
+            + [f"artifact {a['id']}" for a in n["artifacts"]
+               if rid in [a["source_of_truth"]["repo"], a["codes_in"]["repo"], *[m["repo"] for m in a.get("mirrors", [])]]])
+    if hard:
+        sys.exit(f"remove: {rid} is still named by {hard} in graph/nodes.yaml - edit those by hand first; nothing was changed")
+    dropped = []
+    for other in d["nodes"]["repos"]:
+        if other["id"] == rid:
+            continue
+        mine = [e for e in d["edges"]["edges"] if e["from"] == other["id"]]
+        keep = [e for e in mine if e["to"] != rid and e["evidence"].get("in") != rid]
+        if len(keep) != len(mine):
+            dropped.append(f"{len(mine) - len(keep)} edge(s) of {other['id']}")
+            write_repo(other, keep)
+    routes, touched = d["routes"], False
+    for r in list(routes["routes"]):
+        before = len(r["steps"])
+        r["steps"] = [s for s in r["steps"] if s["repo"] != rid]
+        if not r["steps"]:
+            routes["routes"].remove(r)
+            dropped.append(f"route {r['id']}")
+        elif len(r["steps"]) != before:
+            dropped.append(f"{before - len(r['steps'])} step(s) of route {r['id']}")
+        touched = touched or len(r["steps"]) != before
+    if touched:
+        (GRAPH / "routes.yaml").write_text("# main.hub - routes: intent -> ordered reads -> gates (rewritten by `hub.py remove`).\n"
+                                           + yaml.safe_dump(routes, sort_keys=False, width=110, allow_unicode=True), encoding="utf-8")
+    f.unlink()
+    print(f"remove: deleted graph/repos/{rid}.yaml" + (f"; also dropped {', '.join(dropped)}" if dropped else ""))
+    after_change(args)
+
+
+def cmd_surfaces(args):
+    with transaction():
+        _surfaces(args)
+
+
+def _surfaces(args):
+    """Register whatever the repository newly ships (skills, plugins, MCP servers, APIs) without touching existing entries."""
+    d = load()
+    todo = [r for r in d["nodes"]["repos"] if args.repo in (None, r["id"])]
+    if not todo:
+        sys.exit(f"surfaces: {args.repo} is not a node")
+    total = 0
+    for r in todo:
+        rdir, commit, files = clone_state(args.workspace, r["id"])
+        have = {(sf["kind"], sf["path"], sf.get("plugin")) for sf in r.get("surfaces") or []}
+        new = [sf for sf in discover_surfaces(rdir, commit, files) if (sf["kind"], sf["path"], sf.get("plugin")) not in have]
+        if new:
+            r["surfaces"] = (r.get("surfaces") or []) + new
+            write_repo(r, [e for e in d["edges"]["edges"] if e["from"] == r["id"]])
+            total += len(new)
+            print(f"surfaces: {r['id']} +{len(new)}: " + ", ".join(f"{sf['kind']}:{sf['path']}" for sf in new))
+    print(f"surfaces: {total} new entries" + (" - their `use` text is generic; sharpen it from the repository's own files" if total else ""))
+    if total:
+        after_change(args)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -759,8 +993,17 @@ def main():
     p.add_argument("--strict", action="store_true", help="treat warnings as failures")
     p.set_defaults(fn=cmd_check)
     p = sub.add_parser("materialize"); p.add_argument("--dest", required=True); p.set_defaults(fn=cmd_materialize)
+    p = sub.add_parser("add", help="add a public repository as a draft catalog node, with discovered surfaces")
+    p.add_argument("repo"); p.add_argument("--workspace", required=True); p.set_defaults(fn=cmd_add)
+    p = sub.add_parser("remove", help="remove a repository and every edge and route step that names it")
+    p.add_argument("repo"); p.add_argument("--workspace", required=True); p.set_defaults(fn=cmd_remove)
+    p = sub.add_parser("surfaces", help="register newly shipped skills, plugins, MCP servers, APIs of one or all repositories")
+    p.add_argument("repo", nargs="?"); p.add_argument("--workspace", required=True); p.set_defaults(fn=cmd_surfaces)
     args = ap.parse_args()
-    args.fn(args)
+    try:
+        args.fn(args)
+    except RuntimeError as e:                    # a git call failed: say so plainly, no traceback
+        sys.exit(f"{args.cmd}: {e}")
 
 
 if __name__ == "__main__":

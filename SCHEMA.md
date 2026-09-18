@@ -4,9 +4,10 @@
 
 | File | Written by | Holds |
 |---|---|---|
-| `graph/nodes.yaml` | hand | axes, repositories, gates, artifacts |
-| `graph/edges.yaml` | hand | edge types and edges, each with evidence |
-| `graph/routes.yaml` | hand | intent -> ordered reads -> gates |
+| `graph/repos/<id>.yaml` | hand or `hub.py add / remove / surfaces` | one repository: node, surfaces, outgoing edges with evidence (no `from` key: the file's repository is the source). The commands rewrite the file canonically, so comments inside it are not kept |
+| `graph/nodes.yaml` | hand | axes, lens, gates, artifacts |
+| `graph/edges.yaml` | hand | edge types |
+| `graph/routes.yaml` | hand; rewritten canonically by `hub.py remove` when a route loses a step | intent -> ordered reads -> gates |
 | `graph/lock.yaml` | `hub.py lock` | per repository: url, branch, commit, nearest tag, blob of every referenced path |
 | `ROUTES.md`, `SURFACES.md`, `llms.txt`, `nodes/*.md`, `graph/hub.json`, `graph/hub.graphml`, route table in `AGENTS.md` | `hub.py build` | renderings; never hand-edited |
 
@@ -23,9 +24,12 @@ One fact has one home. If a fact appears in a generated file and is wrong, fix t
 | `ARTIFACT` | `artifact:<id>` | one thing with more than one public copy; names its source of truth |
 | `ROUTE` | `route:<id>` | an intent and the reading path that serves it |
 | `LENS` | `lens:<id>` | Step 0: the reading every route is preceded by. Each facet must be stated by a source file with a checked quotation; the facet label is the hub's paraphrase of that sentence and is not machine-verified. The ordering itself is the hub's own rule |
-| `SURFACE` | `surface:<repo>:<kind>:<path>` | a skill, plugin, prompt packet, MCP server, API, CLI or package a repository ships, as a pinned file; plugin and marketplace names are verified against the pinned manifest |
+| `SURFACE` | `surface:<repo>:<kind>:<path>` (plus `:<plugin>` only when one manifest carries several plugins) | a skill, plugin, prompt packet, MCP server, API, CLI or package a repository ships, as a pinned file; plugin and marketplace names are verified against the pinned manifest |
 
 ## Admission rule for a repository
+
+`hub.py add` writes a repository as `catalog` with `draft: true`: `check` warns until a person has
+written its role / is / is_not from the repository's own README and removed the flag.
 
 A repository becomes a node only if it is public. Its class follows from evidence, not opinion:
 
@@ -39,10 +43,11 @@ node with an edge fails.
 ## Edge evidence
 
 ```yaml
-- from: <node id>
-  type: <one of edges.yaml `types`>
-  to: <node id>
-  evidence: {in: <repo, defaults to `from`>, path: <file>, match: "<literal text in that file>"}
+# in graph/repos/<from>.yaml - the file's repository is the source, so there is no `from` key
+edges:
+  - type: <one of edges.yaml `types`>
+    to: <node id>
+    evidence: {in: <repo, defaults to this file's repository>, path: <file>, match: "<literal text in that file>"}
 ```
 
 `match` is a case-sensitive substring that must occur **exactly once** in the pinned blob, be at

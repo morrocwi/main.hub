@@ -12,15 +12,15 @@
 - graph/lock.yaml : commit and blob pins
 
 ## Repositories
-- toledo (axis) : Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists. https://github.com/morrocwi/toledo
+- glosa (axis) : Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production. https://github.com/morrocwi/glosa
 - information-discrete-math (axis) : Readout-first mathematical foundation: the continuum computed as a readout of the discrete; solver and Coq floor. https://github.com/morrocwi/information-discrete-math
 - readout_genesis (axis) : One-root, information-first canon whose thesis is that every domain is a translation of one retained structure; tiered claims. https://github.com/morrocwi/readout_genesis
 - readout_universe (axis) : Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier. https://github.com/morrocwi/readout_universe
-- glosa (axis) : Rigour Without Infrastructure: standalone-scholar methodology for human-AI knowledge co-production. https://github.com/morrocwi/glosa
+- toledo (axis) : Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists. https://github.com/morrocwi/toledo
 - birca (linked) : Educational and research-only (non-commercial) theoretical framework packaged as a safety-gated, context-bound health-information skill; not a medical service, not diagnostic, no clinical-safety audit yet. https://github.com/morrocwi/birca
+- finite-readout-acceleration (linked) : Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy. https://github.com/morrocwi/finite-readout-acceleration
 - readout-problem-navier-stokes (linked) : Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem. https://github.com/morrocwi/readout-problem-navier-stokes
 - skillme (linked) : Philosophy-first protocol for analysing any reported issue without naming a cause before it is found. https://github.com/morrocwi/skillme
 - zero-readout-certifies (linked) : Machine-checked characterisation of the zero fibre of a finite retained-difference operator. https://github.com/morrocwi/zero-readout-certifies
-- finite-readout-acceleration (linked) : Engineering library for Finite Readout Acceleration: quotient cost model, cache-safety audit, eviction policy. https://github.com/morrocwi/finite-readout-acceleration
-- seth-skill (catalog) : AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis. https://github.com/morrocwi/seth-skill
 - retained-sturm (catalog) : Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger operator. https://github.com/morrocwi/retained-sturm
+- seth-skill (catalog) : AI skill executing the Mission Opportunity-Constraint Architecture for social-enterprise analysis. https://github.com/morrocwi/seth-skill

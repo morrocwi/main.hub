@@ -1,0 +1,11 @@
+# retained-sturm - one repository = one file. Add or remove with `python scripts/hub.py add|remove`.
+id: retained-sturm
+class: catalog
+role: 'Retained Multilevel Sturm: diagnostic-gated architecture and benchmark for low eigenvalues of a 1-D Schroedinger
+  operator.'
+is:
+- numerical-method paper + benchmark
+is_not:
+- wired into the equation / ontology graph by any verified edge
+enter:
+- README.md
