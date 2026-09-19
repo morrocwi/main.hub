@@ -1,5 +1,5 @@
 {
- "generated_from_lock": "2026-09-18",
+ "generated_from_lock": "2026-09-19",
  "nodes": [
   {
    "id": "hub:main.hub",
@@ -72,7 +72,7 @@
    "axis": "ontology",
    "role": "One-root, information-first canon whose thesis is that every domain is a translation of one retained structure; tiered claims.",
    "url": "https://github.com/morrocwi/readout_genesis",
-   "commit": "864bb85950deec943517b102bd33cf8ff101da15",
+   "commit": "416fd7b9de0f056d82d078dcc2232e9b36498f3a",
    "tag": null,
    "enter": [
     "AGENTS.md",
@@ -88,7 +88,7 @@
    "axis": "epistemology",
    "role": "Philosophy and logic for grounding claims: a small machine-checkable vocabulary that gives each claim a tier.",
    "url": "https://github.com/morrocwi/readout_universe",
-   "commit": "1a72ccd13c7a07d10fe519037132fcb44e426084",
+   "commit": "eafbf2e4ada7f6cd61a7d85b5203368af0d46a65",
    "tag": "v1.11.0",
    "enter": [
     "README.md",
@@ -105,7 +105,7 @@
    "axis": "mathematics",
    "role": "Permanent coded registry of the programme's equations, with parents, tier, lineage and a Coq file where one exists.",
    "url": "https://github.com/morrocwi/toledo",
-   "commit": "a21d76461a9ca64259e830d5456312e9b1e2e686",
+   "commit": "ada5edd783fde58d9478b2ef3bcd9520b967270a",
    "tag": "v1.8.0",
    "enter": [
     "AGENTS.md",
@@ -141,7 +141,7 @@
    "axis": null,
    "role": "A control architecture for generative AI under evidence gaps: verification status and generation class stay independent, so a HOLD claim may still emit an explicitly labelled Imagined Proposal - imagination alone can never authorize itself.",
    "url": "https://github.com/morrocwi/dual-lane-epistemic-harness",
-   "commit": "579d670f93499c3596f8127a868f40b3350fba9e",
+   "commit": "1507931b96456e4dd983adfde0637b1c6bc48fca",
    "tag": null,
    "enter": [
     "AGENTS.md",
@@ -171,7 +171,7 @@
    "axis": null,
    "role": "Poses a readout dichotomy for the Navier-Stokes problem and studies finite lanes; proves nothing about the Clay problem.",
    "url": "https://github.com/morrocwi/readout-problem-navier-stokes",
-   "commit": "82262e19c85eebaafba3bc8391e8ac953aa2f704",
+   "commit": "a048171bcfbd805b453cbcd1c31f8623d64ac698",
    "tag": "v0.1.0",
    "enter": [
     "CLAY_READ_FIRST.md",
@@ -218,7 +218,7 @@
    "axis": null,
    "role": "Machine-checked characterisation of the zero fibre of a finite retained-difference operator.",
    "url": "https://github.com/morrocwi/zero-readout-certifies",
-   "commit": "e9523c9a995fd170fdcf5af5af707eb1a0be7369",
+   "commit": "7fc0b7b2a8546a9f0703fb94dd27f08e0478642e",
    "tag": null,
    "enter": [
     "README.md",
@@ -639,7 +639,7 @@
   {
    "id": "route:universe-step-by-step",
    "kind": "ROUTE",
-   "when": "You want the root to Standard-Model stream, the universe read out step by step."
+   "when": "You want the root to Standard-Model AND society/ethics/inter-religious stream, the universe read out step by step."
   },
   {
    "id": "route:map-of-the-programme",
@@ -869,7 +869,7 @@
    "type": "holds-synced-copy-from",
    "evidence": {
     "repo": "readout_universe",
-    "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md",
+    "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md",
     "match": "if a mismatch is ever found, Appendix C wins"
    }
   },
@@ -1461,7 +1461,14 @@
    "target": "readout_universe",
    "type": "reads",
    "order": 3,
-   "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md"
+   "path": "EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md"
+  },
+  {
+   "source": "route:universe-step-by-step",
+   "target": "readout_universe",
+   "type": "reads",
+   "order": 4,
+   "path": "SOCIETY_ETHICS_RELIGION_STREAM.md"
   },
   {
    "source": "route:universe-step-by-step",

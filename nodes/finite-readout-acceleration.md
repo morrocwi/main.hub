@@ -17,7 +17,7 @@ GENERATED from `graph/repos/` and `graph/nodes.yaml` - do not hand-edit.
 
 ## Verified edges
 
-- `toledo` **imports-coq-from** `finite-readout-acceleration` - evidence: `toledo` / [`coq/finite-readout-acceleration/PROVENANCE.json`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/coq/finite-readout-acceleration/PROVENANCE.json) contains "Copied verbatim (byte-for-byte diff against the upstream commit above is empty"
+- `toledo` **imports-coq-from** `finite-readout-acceleration` - evidence: `toledo` / [`coq/finite-readout-acceleration/PROVENANCE.json`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/coq/finite-readout-acceleration/PROVENANCE.json) contains "Copied verbatim (byte-for-byte diff against the upstream commit above is empty"
 
 ## Neighbour cards
 

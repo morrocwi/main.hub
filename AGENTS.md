@@ -41,7 +41,7 @@ tells you where to go; the repository you arrive at tells you what is true there
 | You are about to call something proven, verified, settled, open or hard. | [`readout_universe`](ROUTES.md#claim-strength) | TIER-TAGGING |
 | You are about to use a number, limit, continuum object, angle, derivative or operator. | [`information-discrete-math`](ROUTES.md#discrete-math) | TG-RFG-01 |
 | You are producing a claim, a paper, a review, or anything that will be released. | [`glosa`](ROUTES.md#write-and-release) | GLOSA-PUBLISH-GATE, TIER-TAGGING |
-| You want the root to Standard-Model stream, the universe read out step by step. | [`readout_genesis`](ROUTES.md#universe-step-by-step) | TG-RFG-01, TIER-TAGGING |
+| You want the root to Standard-Model AND society/ethics/inter-religious stream, the universe read out step by step. | [`readout_genesis`](ROUTES.md#universe-step-by-step) | TG-RFG-01, TIER-TAGGING |
 | You want the prose map of who holds which role and who calls whom. | [`glosa`](ROUTES.md#map-of-the-programme) | - |
 | You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.) | [`birca`](ROUTES.md#health) | BIRCA-SAFETY-GATE |
 | The task touches the Navier-Stokes readout problem or the finite-bridge programme. | [`readout-problem-navier-stokes`](ROUTES.md#navier-stokes) | TG-RFG-01, TIER-TAGGING |

@@ -54,13 +54,14 @@ routes:
     then: "Maker is not checker: obtain an independent check before release."
 
   - id: universe-step-by-step
-    when: "You want the root to Standard-Model stream, the universe read out step by step."
+    when: "You want the root to Standard-Model AND society/ethics/inter-religious stream, the universe read out step by step."
     steps:
       - {repo: readout_genesis, path: READOUT_GENESIS_CORE.md, why: "source of truth for the stream: the LAST appendix lettered C, titled APPENDIX C (SM DOMAIN EQUATION STREAM ...), near the end of a file of about half a megabyte - use materialize, not a truncating fetch; an earlier Appendix C (reading order) is a different section"}
       - {repo: toledo, path: registry/genesis_root.json, why: "the root codes every other code descends from"}
-      - {repo: readout_universe, path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md, why: "synced mirror; on mismatch the source of truth wins"}
+      - {repo: readout_universe, path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md, why: "synced mirror; on mismatch the source of truth wins (renamed 2026-09-19 from a form of the name that leaked a private sibling repo's real slug)"}
+      - {repo: readout_universe, path: SOCIETY_ETHICS_RELIGION_STREAM.md, why: "the stream's extension past Standard-Model physics into human agency, society/ethics, and inter-religious attribution, sourced from public Toledo codes and two public Zenodo papers"}
     gates: [TG-RFG-01, TIER-TAGGING]
-    then: "Cite stream items by Toledo code and carry the tier the source states."
+    then: "Cite stream items by Toledo code and carry the tier the source states. Physics closes on public machine-checked/finite_diagnostic ground; the society/ethics/religion layer is largely Definition/Dr/Open tier - never state it more strongly than that."
 
   - id: map-of-the-programme
     when: "You want the prose map of who holds which role and who calls whom."
