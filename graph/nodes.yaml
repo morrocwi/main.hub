@@ -82,5 +82,5 @@ artifacts:
     note: "One stream, more than one public copy. When copies disagree the source of truth wins."
     source_of_truth: {repo: readout_genesis, path: READOUT_GENESIS_CORE.md, match: "APPENDIX C (SM DOMAIN EQUATION STREAM"}
     mirrors:
-      - {repo: readout_universe, path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md, match: "Appendix C wins"}
+      - {repo: readout_universe, path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md, match: "Appendix C wins"}
     codes_in: {repo: toledo, path: registry/genesis_root.json}

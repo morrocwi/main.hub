@@ -1,4 +1,4 @@
-generated_on: '2026-09-18'
+generated_on: '2026-09-19'
 note: "Pins are the PUBLIC default-branch state (origin/<branch>), never local work. Every pinned path\n  was confirmed to\
   \ be a regular file, not a symbolic link, in that repository."
 repos:
@@ -51,35 +51,36 @@ repos:
   readout_genesis:
     url: https://github.com/morrocwi/readout_genesis
     branch: main
-    commit: 864bb85950deec943517b102bd33cf8ff101da15
+    commit: 416fd7b9de0f056d82d078dcc2232e9b36498f3a
     tag: null
     commits_after_tag: null
     paths:
       AGENTS.md: e4c49055b27eb4932b6381c04b85ebfbc74c2f5f
-      APPLICATIONS.md: 6e936df950f201fb34dd82055d4d7f9ed22a655e
+      APPLICATIONS.md: 2514aaf0852162920d29b83a093ad4efd3eb7459
       README.md: 37f96e24f452bcdc68a6ac0b2a3a48c6d0b16c8a
-      READOUT_GENESIS_CORE.md: 5cf400056a6d87d495ebb013cc646d7c3e22c7a8
+      READOUT_GENESIS_CORE.md: 60ca951f5decbc36e69b9a6f553b847cc34a4f4c
   readout_universe:
     url: https://github.com/morrocwi/readout_universe
     branch: main
-    commit: 1a72ccd13c7a07d10fe519037132fcb44e426084
+    commit: eafbf2e4ada7f6cd61a7d85b5203368af0d46a65
     tag: v1.11.0
-    commits_after_tag: 33
+    commits_after_tag: 35
     paths:
       .claude-plugin/marketplace.json: a460a12d2b11bce7c922e1a2b52b18c24392dd89
-      EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md: c89bafa0c859efdd7a1c5a4272a905d9ef549fb8
-      README.md: a8db552cd8d213f85cc7a08ca88e4223e359072f
+      EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md: 0eb83e6d0a06a4b321b6a8710493fe76c2180ffd
+      README.md: bd750ee9f7c781a5d6a6653880fa6a5bb48da32d
+      SOCIETY_ETHICS_RELIGION_STREAM.md: 2351f6e4b4f38ffe1a5532b816b85dbd2aab8384
       claims.md: 702bb89bad6f000304141afdd88e8995a9d49a5e
-      logic.md: e93fa284beb7cf395321276ceb7b5406866a029d
-      philosophy.md: d208103daf47853ad0d716f42b03da896517c995
+      logic.md: b546fb1f0e4fffcbd27f7c18e9406661cae9cd3a
+      philosophy.md: 7a806ba882f5adde7b3086c9b6efcab728bb23c0
       plugins/readout-universe/skills/readout-universe/SKILL.md: 29df46be803fce1f743c509c38cec30977a32cf4
       scope_correction.md: ac8603620533682bfeebc88152d78c767785f55c
   toledo:
     url: https://github.com/morrocwi/toledo
     branch: main
-    commit: a21d76461a9ca64259e830d5456312e9b1e2e686
+    commit: ada5edd783fde58d9478b2ef3bcd9520b967270a
     tag: v1.8.0
-    commits_after_tag: 150
+    commits_after_tag: 155
     paths:
       .mcp.json: 18f9479c26772831fc46d10de2fb00c8ba14088e
       AGENTS.md: fe68906ba8d7df78ddbdc60e31c9d87f02495b35
@@ -113,15 +114,15 @@ repos:
   dual-lane-epistemic-harness:
     url: https://github.com/morrocwi/dual-lane-epistemic-harness
     branch: main
-    commit: 579d670f93499c3596f8127a868f40b3350fba9e
+    commit: 1507931b96456e4dd983adfde0637b1c6bc48fca
     tag: null
     commits_after_tag: null
     paths:
       AGENTS.md: 73ab1c67432c76f8919e92c6d32500eb0a4e0276
-      CLAIMS.md: bd99043cd48e2367bb707e127dfae40e0c4b4fc6
-      README.md: e9870f7ae868b243d64846aad85a88dd4cf657c8
+      CLAIMS.md: 76dfc4a2d874bca8e2fed8c6c1bbe34075c664ea
+      README.md: 3d4f21cf931f92f35b50a8a7b8148de86bf71179
       REPRODUCE.md: 405391cc41d53bbb4993ae871e15b6e9c9edfa56
-      docs/CORRECTIONS.md: 9048297f162488dd69c344d0a80d5f5b7c5c9288
+      docs/CORRECTIONS.md: 3b9ddcf410a25a964cc80f6498930c22cc6ff4db
   finite-readout-acceleration:
     url: https://github.com/morrocwi/finite-readout-acceleration
     branch: main
@@ -135,9 +136,9 @@ repos:
   readout-problem-navier-stokes:
     url: https://github.com/morrocwi/readout-problem-navier-stokes
     branch: main
-    commit: 82262e19c85eebaafba3bc8391e8ac953aa2f704
+    commit: a048171bcfbd805b453cbcd1c31f8623d64ac698
     tag: v0.1.0
-    commits_after_tag: 442
+    commits_after_tag: 444
     paths:
       AGENTS.md: 6a3ec977995ada4e4b10c91ccd8d0e296ae3614a
       CLAIMS.md: 51e032e6aae30320743e9e0cdbb3467f376a0c7f
@@ -173,7 +174,7 @@ repos:
   zero-readout-certifies:
     url: https://github.com/morrocwi/zero-readout-certifies
     branch: main
-    commit: e9523c9a995fd170fdcf5af5af707eb1a0be7369
+    commit: 7fc0b7b2a8546a9f0703fb94dd27f08e0478642e
     tag: null
     commits_after_tag: null
     paths:

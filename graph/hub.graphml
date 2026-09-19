@@ -183,6 +183,7 @@
 <edge source="route:universe-step-by-step" target="readout_genesis"><data key="type">reads</data></edge>
 <edge source="route:universe-step-by-step" target="toledo"><data key="type">reads</data></edge>
 <edge source="route:universe-step-by-step" target="readout_universe"><data key="type">reads</data></edge>
+<edge source="route:universe-step-by-step" target="readout_universe"><data key="type">reads</data></edge>
 <edge source="route:universe-step-by-step" target="gate:TG-RFG-01"><data key="type">passes</data></edge>
 <edge source="route:universe-step-by-step" target="gate:TIER-TAGGING"><data key="type">passes</data></edge>
 <edge source="route:map-of-the-programme" target="lens:READOUT-LENS"><data key="type">preceded-by</data></edge>

@@ -43,5 +43,5 @@ edges:
 - type: holds-synced-copy-from
   to: readout_genesis
   evidence:
-    path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md
+    path: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md
     match: if a mismatch is ever found, Appendix C wins

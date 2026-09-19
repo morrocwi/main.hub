@@ -1,7 +1,7 @@
 # Routes
 
 GENERATED from `graph/routes.yaml` by `python scripts/hub.py build` - do not hand-edit.
-Every link is pinned to the public commit recorded in `graph/lock.yaml` (2026-09-18).
+Every link is pinned to the public commit recorded in `graph/lock.yaml` (2026-09-19).
 A pin is a readout of one moment: compare it with the live default branch before relying on it.
 
 | If you are about to... | Go to | Gates |
@@ -13,7 +13,7 @@ A pin is a readout of one moment: compare it with the live default branch before
 | You are about to call something proven, verified, settled, open or hard. | [`readout_universe`](ROUTES.md#claim-strength) | TIER-TAGGING |
 | You are about to use a number, limit, continuum object, angle, derivative or operator. | [`information-discrete-math`](ROUTES.md#discrete-math) | TG-RFG-01 |
 | You are producing a claim, a paper, a review, or anything that will be released. | [`glosa`](ROUTES.md#write-and-release) | GLOSA-PUBLISH-GATE, TIER-TAGGING |
-| You want the root to Standard-Model stream, the universe read out step by step. | [`readout_genesis`](ROUTES.md#universe-step-by-step) | TG-RFG-01, TIER-TAGGING |
+| You want the root to Standard-Model AND society/ethics/inter-religious stream, the universe read out step by step. | [`readout_genesis`](ROUTES.md#universe-step-by-step) | TG-RFG-01, TIER-TAGGING |
 | You want the prose map of who holds which role and who calls whom. | [`glosa`](ROUTES.md#map-of-the-programme) | - |
 | You are evaluating or installing the birca health-information skill. (A person in an emergency needs emergency services, not a repository.) | [`birca`](ROUTES.md#health) | BIRCA-SAFETY-GATE |
 | The task touches the Navier-Stokes readout problem or the finite-bridge programme. | [`readout-problem-navier-stokes`](ROUTES.md#navier-stokes) | TG-RFG-01, TIER-TAGGING |
@@ -31,10 +31,10 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **Read first**
 
-1. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md) - there is no truth-behind-the-claim to read off directly; what you have, when you assert something, is a finite readout (stated there as a stance, tier Dr): "There is no truth-behind-the-claim waiting to be read off directly"  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md>
-2. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md) - name which kind of readout you have, and never let the label creep stronger than its evidence: "name which kind of readout you have"  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md>
+1. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md) - there is no truth-behind-the-claim to read off directly; what you have, when you assert something, is a finite readout (stated there as a stance, tier Dr): "There is no truth-behind-the-claim waiting to be read off directly"  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md>
+2. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md) - name which kind of readout you have, and never let the label creep stronger than its evidence: "name which kind of readout you have"  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md>
 3. `glosa` / [`methodology/P00_lens.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/methodology/P00_lens.md) - before touching evidence for any claim, translate the problem into the readout vocabulary, analyse there, then translate back (a rule that file marks tier Dr): "never analyse a problem directly in world-language and call the result rigorous"  
    raw: <https://raw.githubusercontent.com/morrocwi/glosa/cf1c96a433dda38878ec8a85ca099657d761ec64/methodology/P00_lens.md>
 4. `skillme` / [`plugins/skillme/skills/skillme/SKILL.md`](https://github.com/morrocwi/skillme/blob/208e76dfae692396fbf54ae64119978020275044/plugins/skillme/skills/skillme/SKILL.md) - separate what difference is retained, from what state, under what context/query/resolution: "what difference is retained, from what state"  
@@ -44,8 +44,8 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 1. `information-discrete-math` / [`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`](https://github.com/morrocwi/information-discrete-math/blob/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md) - everything an agency reads is a finite retained difference - a readout (stated there as a stance, tier Dr): "Everything an agency ever reads is a finite retained difference"  
    raw: <https://raw.githubusercontent.com/morrocwi/information-discrete-math/33c54bb2512cf2c129feef928eb64977bb420b57/plugins/information-discrete-math/skills/information-discrete-math/SKILL.md>
-2. `readout_genesis` / [`README.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/README.md) - readout-not-truth - verified structure is not physical truth, and every claim carries a tier: "Verified structure is not physical truth"  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/864bb85950deec943517b102bd33cf8ff101da15/README.md>
+2. `readout_genesis` / [`README.md`](https://github.com/morrocwi/readout_genesis/blob/416fd7b9de0f056d82d078dcc2232e9b36498f3a/README.md) - readout-not-truth - verified structure is not physical truth, and every claim carries a tier: "Verified structure is not physical truth"  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/416fd7b9de0f056d82d078dcc2232e9b36498f3a/README.md>
 3. `glosa` / [`plugins/glosa/skills/glosa-blackbox-note/SKILL.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/plugins/glosa/skills/glosa-blackbox-note/SKILL.md) - every hypothesis statement carries a signature line naming the lens its lens_ref points at: "Every hypothesis statement carries a signature line naming the lens `lens_ref` points at"  
    raw: <https://raw.githubusercontent.com/morrocwi/glosa/cf1c96a433dda38878ec8a85ca099657d761ec64/plugins/glosa/skills/glosa-blackbox-note/SKILL.md>
 
@@ -55,18 +55,18 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** You are about to write, derive, cite or reuse ANY equation, definition or theorem.
 
-1. `toledo` / [`EQUATION_SOURCE_POLICY.md`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/EQUATION_SOURCE_POLICY.md) - the binding order of work  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/EQUATION_SOURCE_POLICY.md>
-2. `toledo` / [`README.md`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/README.md) - the lookup surfaces: MCP server (toledo_check, the verdict-aware tool the policy prefers), CLI (find / show / ancestry), static read API for callers that cannot clone, static site, registry files  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/README.md>
-3. `toledo` / [`scripts/toledo_build.py`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/scripts/toledo_build.py) - lookup needs a full clone of toledo (the one route where reading three files is not enough): run this build script first, it generates the library the CLI reads  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/scripts/toledo_build.py>
-4. `toledo` / [`scripts/toledo`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/scripts/toledo) - then look the object up with the CLI: find / show / ancestry  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/scripts/toledo>
-5. `toledo` / [`registry/SCHEMA.md`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/registry/SCHEMA.md) - how a code, parents and tier are read  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/registry/SCHEMA.md>
-6. `toledo` / [`registry/CANONICAL.json`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/registry/CANONICAL.json) - fallback only: the full registry is several megabytes, fetch it when a clone and build are not possible  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/registry/CANONICAL.json>
+1. `toledo` / [`EQUATION_SOURCE_POLICY.md`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/EQUATION_SOURCE_POLICY.md) - the binding order of work  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/EQUATION_SOURCE_POLICY.md>
+2. `toledo` / [`README.md`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/README.md) - the lookup surfaces: MCP server (toledo_check, the verdict-aware tool the policy prefers), CLI (find / show / ancestry), static read API for callers that cannot clone, static site, registry files  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/README.md>
+3. `toledo` / [`scripts/toledo_build.py`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/scripts/toledo_build.py) - lookup needs a full clone of toledo (the one route where reading three files is not enough): run this build script first, it generates the library the CLI reads  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/scripts/toledo_build.py>
+4. `toledo` / [`scripts/toledo`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/scripts/toledo) - then look the object up with the CLI: find / show / ancestry  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/scripts/toledo>
+5. `toledo` / [`registry/SCHEMA.md`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/registry/SCHEMA.md) - how a code, parents and tier are read  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/registry/SCHEMA.md>
+6. `toledo` / [`registry/CANONICAL.json`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/registry/CANONICAL.json) - fallback only: the full registry is several megabytes, fetch it when a clone and build are not possible  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/registry/CANONICAL.json>
 
 **Gates:** TG-RFG-01
 
@@ -76,12 +76,12 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** You need to say what an object IS, which domain it belongs to, or how two domains relate.
 
-1. `readout_genesis` / [`AGENTS.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/AGENTS.md) - what Genesis may and may not decide  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/864bb85950deec943517b102bd33cf8ff101da15/AGENTS.md>
-2. `readout_genesis` / [`README.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/README.md) - knowledge-graph map of the canon  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/864bb85950deec943517b102bd33cf8ff101da15/README.md>
-3. `readout_genesis` / [`READOUT_GENESIS_CORE.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/READOUT_GENESIS_CORE.md) - the canon; contains its own reading order for a fresh session  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/864bb85950deec943517b102bd33cf8ff101da15/READOUT_GENESIS_CORE.md>
+1. `readout_genesis` / [`AGENTS.md`](https://github.com/morrocwi/readout_genesis/blob/416fd7b9de0f056d82d078dcc2232e9b36498f3a/AGENTS.md) - what Genesis may and may not decide  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/416fd7b9de0f056d82d078dcc2232e9b36498f3a/AGENTS.md>
+2. `readout_genesis` / [`README.md`](https://github.com/morrocwi/readout_genesis/blob/416fd7b9de0f056d82d078dcc2232e9b36498f3a/README.md) - knowledge-graph map of the canon  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/416fd7b9de0f056d82d078dcc2232e9b36498f3a/README.md>
+3. `readout_genesis` / [`READOUT_GENESIS_CORE.md`](https://github.com/morrocwi/readout_genesis/blob/416fd7b9de0f056d82d078dcc2232e9b36498f3a/READOUT_GENESIS_CORE.md) - the canon; contains its own reading order for a fresh session  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/416fd7b9de0f056d82d078dcc2232e9b36498f3a/READOUT_GENESIS_CORE.md>
 
 **Gates:** TG-RFG-01
 
@@ -91,14 +91,14 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** You are about to call something proven, verified, settled, open or hard.
 
-1. `readout_universe` / [`README.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/README.md) - the tier vocabulary  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/README.md>
-2. `readout_universe` / [`claims.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/claims.md) - how a claims register is kept  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/claims.md>
-3. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md) - the operational tier-tagging discipline, where the gate is defined  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md>
-4. `readout_universe` / [`scope_correction.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/scope_correction.md) - worked example: a proposed (not applied) correction that brings an overstated pull-request title down to what the file actually shows  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/scope_correction.md>
+1. `readout_universe` / [`README.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/README.md) - the tier vocabulary  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/README.md>
+2. `readout_universe` / [`claims.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/claims.md) - how a claims register is kept  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/claims.md>
+3. `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md) - the operational tier-tagging discipline, where the gate is defined  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md>
+4. `readout_universe` / [`scope_correction.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/scope_correction.md) - worked example: a proposed (not applied) correction that brings an overstated pull-request title down to what the file actually shows  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/scope_correction.md>
 
 **Gates:** TIER-TAGGING
 
@@ -140,18 +140,20 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 ## universe-step-by-step
 
-**When:** You want the root to Standard-Model stream, the universe read out step by step.
+**When:** You want the root to Standard-Model AND society/ethics/inter-religious stream, the universe read out step by step.
 
-1. `readout_genesis` / [`READOUT_GENESIS_CORE.md`](https://github.com/morrocwi/readout_genesis/blob/864bb85950deec943517b102bd33cf8ff101da15/READOUT_GENESIS_CORE.md) - source of truth for the stream: the LAST appendix lettered C, titled APPENDIX C (SM DOMAIN EQUATION STREAM ...), near the end of a file of about half a megabyte - use materialize, not a truncating fetch; an earlier Appendix C (reading order) is a different section  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/864bb85950deec943517b102bd33cf8ff101da15/READOUT_GENESIS_CORE.md>
-2. `toledo` / [`registry/genesis_root.json`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/registry/genesis_root.json) - the root codes every other code descends from  
-   raw: <https://raw.githubusercontent.com/morrocwi/toledo/a21d76461a9ca64259e830d5456312e9b1e2e686/registry/genesis_root.json>
-3. `readout_universe` / [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md) - synced mirror; on mismatch the source of truth wins  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/1a72ccd13c7a07d10fe519037132fcb44e426084/EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver_arc_private.md>
+1. `readout_genesis` / [`READOUT_GENESIS_CORE.md`](https://github.com/morrocwi/readout_genesis/blob/416fd7b9de0f056d82d078dcc2232e9b36498f3a/READOUT_GENESIS_CORE.md) - source of truth for the stream: the LAST appendix lettered C, titled APPENDIX C (SM DOMAIN EQUATION STREAM ...), near the end of a file of about half a megabyte - use materialize, not a truncating fetch; an earlier Appendix C (reading order) is a different section  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_genesis/416fd7b9de0f056d82d078dcc2232e9b36498f3a/READOUT_GENESIS_CORE.md>
+2. `toledo` / [`registry/genesis_root.json`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/registry/genesis_root.json) - the root codes every other code descends from  
+   raw: <https://raw.githubusercontent.com/morrocwi/toledo/ada5edd783fde58d9478b2ef3bcd9520b967270a/registry/genesis_root.json>
+3. `readout_universe` / [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md) - synced mirror; on mismatch the source of truth wins (renamed 2026-09-19 from a form of the name that leaked a private sibling repo's real slug)  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md>
+4. `readout_universe` / [`SOCIETY_ETHICS_RELIGION_STREAM.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/SOCIETY_ETHICS_RELIGION_STREAM.md) - the stream's extension past Standard-Model physics into human agency, society/ethics, and inter-religious attribution, sourced from public Toledo codes and two public Zenodo papers  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout_universe/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/SOCIETY_ETHICS_RELIGION_STREAM.md>
 
 **Gates:** TG-RFG-01, TIER-TAGGING
 
-**Then:** Cite stream items by Toledo code and carry the tier the source states.
+**Then:** Cite stream items by Toledo code and carry the tier the source states. Physics closes on public machine-checked/finite_diagnostic ground; the society/ethics/religion layer is largely Definition/Dr/Open tier - never state it more strongly than that.
 
 ## map-of-the-programme
 
@@ -185,16 +187,16 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** The task touches the Navier-Stokes readout problem or the finite-bridge programme.
 
-1. `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md) - the mandatory reading order and the non-negotiable rules  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/82262e19c85eebaafba3bc8391e8ac953aa2f704/AGENTS.md>
-2. `readout-problem-navier-stokes` / [`CLAY_READ_FIRST.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_READ_FIRST.md) - first item of that reading order  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_READ_FIRST.md>
-3. `readout-problem-navier-stokes` / [`CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md) - second item of that order  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md>
-4. `readout-problem-navier-stokes` / [`CLAY_RESEARCH_TODO.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_RESEARCH_TODO.md) - third item of that order  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAY_RESEARCH_TODO.md>
-5. `readout-problem-navier-stokes` / [`CLAIMS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAIMS.md) - fourth item: what is and is not claimed  
-   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/82262e19c85eebaafba3bc8391e8ac953aa2f704/CLAIMS.md>
+1. `readout-problem-navier-stokes` / [`AGENTS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/a048171bcfbd805b453cbcd1c31f8623d64ac698/AGENTS.md) - the mandatory reading order and the non-negotiable rules  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/a048171bcfbd805b453cbcd1c31f8623d64ac698/AGENTS.md>
+2. `readout-problem-navier-stokes` / [`CLAY_READ_FIRST.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAY_READ_FIRST.md) - first item of that reading order  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAY_READ_FIRST.md>
+3. `readout-problem-navier-stokes` / [`CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md) - second item of that order  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAY_MULTI_PROBLEM_FINITE_BRIDGE_PROGRAM.md>
+4. `readout-problem-navier-stokes` / [`CLAY_RESEARCH_TODO.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAY_RESEARCH_TODO.md) - third item of that order  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAY_RESEARCH_TODO.md>
+5. `readout-problem-navier-stokes` / [`CLAIMS.md`](https://github.com/morrocwi/readout-problem-navier-stokes/blob/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAIMS.md) - fourth item: what is and is not claimed  
+   raw: <https://raw.githubusercontent.com/morrocwi/readout-problem-navier-stokes/a048171bcfbd805b453cbcd1c31f8623d64ac698/CLAIMS.md>
 
 **Gates:** TG-RFG-01, TIER-TAGGING
 
@@ -219,12 +221,12 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 **When:** The task must decide what a system may generate versus what it may present as established, especially when evidence is currently insufficient.
 
-1. `dual-lane-epistemic-harness` / [`README.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/README.md) - the rule: HOLD blocks authorization, not imagination - a typed Imagined Proposal may exist while a claim stays unauthorized  
-   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/579d670f93499c3596f8127a868f40b3350fba9e/README.md>
-2. `dual-lane-epistemic-harness` / [`CLAIMS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/CLAIMS.md) - what is established here and what is not, including the paper's own unreproduced Table 3 counts and which formal objects are not yet in Toledo  
-   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/579d670f93499c3596f8127a868f40b3350fba9e/CLAIMS.md>
-3. `dual-lane-epistemic-harness` / [`docs/CORRECTIONS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/579d670f93499c3596f8127a868f40b3350fba9e/docs/CORRECTIONS.md) - a worked example of catching, and then re-checking, a citation error - including a case where the correction itself needed correcting  
-   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/579d670f93499c3596f8127a868f40b3350fba9e/docs/CORRECTIONS.md>
+1. `dual-lane-epistemic-harness` / [`README.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/1507931b96456e4dd983adfde0637b1c6bc48fca/README.md) - the rule: HOLD blocks authorization, not imagination - a typed Imagined Proposal may exist while a claim stays unauthorized  
+   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/1507931b96456e4dd983adfde0637b1c6bc48fca/README.md>
+2. `dual-lane-epistemic-harness` / [`CLAIMS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/1507931b96456e4dd983adfde0637b1c6bc48fca/CLAIMS.md) - what is established here and what is not, including the paper's own unreproduced Table 3 counts and which formal objects are not yet in Toledo  
+   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/1507931b96456e4dd983adfde0637b1c6bc48fca/CLAIMS.md>
+3. `dual-lane-epistemic-harness` / [`docs/CORRECTIONS.md`](https://github.com/morrocwi/dual-lane-epistemic-harness/blob/1507931b96456e4dd983adfde0637b1c6bc48fca/docs/CORRECTIONS.md) - a worked example of catching, and then re-checking, a citation error - including a case where the correction itself needed correcting  
+   raw: <https://raw.githubusercontent.com/morrocwi/dual-lane-epistemic-harness/1507931b96456e4dd983adfde0637b1c6bc48fca/docs/CORRECTIONS.md>
 
 **Gates:** TIER-TAGGING, TG-RFG-01
 
@@ -245,7 +247,7 @@ not machine-verified. Applying the lens before every route is this hub's orderin
 
 ## Gates
 
-- **TG-RFG-01** - Toledo-Genesis reuse-first gate: Toledo lookup, Genesis compatibility, reuse the existing object, derive only the missing piece, mark PROPOSAL. Defined in `toledo` / [`EQUATION_SOURCE_POLICY.md`](https://github.com/morrocwi/toledo/blob/a21d76461a9ca64259e830d5456312e9b1e2e686/EQUATION_SOURCE_POLICY.md).
-- **TIER-TAGGING** - Evidence-tier tagging: A claim's stated strength never exceeds what was actually checked, measured or declared. Defined in `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/1a72ccd13c7a07d10fe519037132fcb44e426084/plugins/readout-universe/skills/readout-universe/SKILL.md).
+- **TG-RFG-01** - Toledo-Genesis reuse-first gate: Toledo lookup, Genesis compatibility, reuse the existing object, derive only the missing piece, mark PROPOSAL. Defined in `toledo` / [`EQUATION_SOURCE_POLICY.md`](https://github.com/morrocwi/toledo/blob/ada5edd783fde58d9478b2ef3bcd9520b967270a/EQUATION_SOURCE_POLICY.md).
+- **TIER-TAGGING** - Evidence-tier tagging: A claim's stated strength never exceeds what was actually checked, measured or declared. Defined in `readout_universe` / [`plugins/readout-universe/skills/readout-universe/SKILL.md`](https://github.com/morrocwi/readout_universe/blob/eafbf2e4ada7f6cd61a7d85b5203368af0d46a65/plugins/readout-universe/skills/readout-universe/SKILL.md).
 - **GLOSA-PUBLISH-GATE** - glosa publish gate: Release gate with leak scan and knowledge-state semantics; maker is not checker. Defined in `glosa` / [`methodology/P10_publish_gate.md`](https://github.com/morrocwi/glosa/blob/cf1c96a433dda38878ec8a85ca099657d761ec64/methodology/P10_publish_gate.md).
 - **BIRCA-SAFETY-GATE** - birca immediate safety gate: An emergency and red-flag screen runs before any interpretation, cannot be skipped by user request or claimed consent; unknown safety status counts as unresolved; the skill's system prompt adds that it must not be delayed by extensive history-taking. The skill is not a substitute for emergency services or a clinician. Defined in `birca` / [`SKILL.md`](https://github.com/morrocwi/birca/blob/225c3f57bd9972cab0d01e42f55517352b490a61/SKILL.md).
