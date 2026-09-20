@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/morrocwi/main.hub/blob/main/logbook.schema.json",
+  "title": "main.hub logbook entry",
+  "description": "One line of logbook.jsonl. Keyed on `kind`, following this workspace's doc-ecosystem logbook convention (a KINDS / REQUIRED_BY_KIND table shared by other repositories in the same programme). Every kind requires ts, kind and what; each kind then adds the fields that make its own claim checkable. `scripts/hub.py check` re-implements these same rules by hand (no external schema-validator dependency, consistent with the rest of the file's hand-written graph validation) and validates every real line of logbook.jsonl against them.",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/observe" },
+    { "$ref": "#/$defs/measure" },
+    { "$ref": "#/$defs/attempt" },
+    { "$ref": "#/$defs/hypothesis" },
+    { "$ref": "#/$defs/decision" },
+    { "$ref": "#/$defs/negative_result" },
+    { "$ref": "#/$defs/positive_result" },
+    { "$ref": "#/$defs/correction" },
+    { "$ref": "#/$defs/lesson" }
+  ],
+  "$defs": {
+    "ts": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "DISCREPANCY (noted, not force-fit): the doc-ecosystem checker (check_logbook.mjs) requires full ISO 8601 with a time and a timezone offset. Every line actually written in this repository's own logbook.jsonl (all 41 entries, 2026-09-18 and 2026-09-20) uses a bare calendar date instead. This schema validates the file as it REALLY is, not the stricter convention; a future session that wants full timestamps should change the data and this pattern together, not just one of them."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["observe", "measure", "attempt", "hypothesis", "decision", "negative_result", "positive_result", "correction", "lesson"]
+    },
+    "what": { "type": "string", "minLength": 1 },
+    "by": {
+      "type": "string",
+      "enum": ["human", "ai"],
+      "description": "Who made the decision. Only decision entries carry this field in the real file."
+    },
+
+    "observe": {
+      "type": "object",
+      "description": "Noticed something, not measured yet. No extra required fields beyond ts/kind/what -- matches every observe line actually in logbook.jsonl (6 entries, e.g. lines 5, 16, 30, 32).",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "observe" },
+        "what": { "$ref": "#/$defs/what" }
+      },
+      "required": ["ts", "kind", "what"],
+      "additionalProperties": false
+    },
+
+    "measure": {
+      "type": "object",
+      "description": "Got a number -- needs value + unit. Not yet used in this repository's logbook.jsonl (0 entries as of 2026-09-20); kept because it is a known kind of the doc-ecosystem convention this file otherwise follows.",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "measure" },
+        "what": { "$ref": "#/$defs/what" },
+        "value": { "type": ["number", "string"] },
+        "unit": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "value", "unit"],
+      "additionalProperties": false
+    },
+
+    "attempt": {
+      "type": "object",
+      "description": "Tried something, outcome not yet known. No extra required fields. Not yet used in this repository's logbook.jsonl (0 entries as of 2026-09-20); kept because it is a known kind of the doc-ecosystem convention.",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "attempt" },
+        "what": { "$ref": "#/$defs/what" }
+      },
+      "required": ["ts", "kind", "what"],
+      "additionalProperties": false
+    },
+
+    "hypothesis": {
+      "type": "object",
+      "description": "A claim taken in to be tested -- needs a falsifier and a source. Matches the one hypothesis line in logbook.jsonl (line 19).",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "hypothesis" },
+        "what": { "$ref": "#/$defs/what" },
+        "falsifier": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "falsifier", "source"],
+      "additionalProperties": false
+    },
+
+    "decision": {
+      "type": "object",
+      "description": "Chose one path over others -- needs id, by, why and alternatives (alternatives is mandatory per this workspace's own doc-ecosystem discipline: a choice with no alternatives recorded was not a choice). `alternatives` may be an empty array (real example: line 34, D19) -- the field must be PRESENT, its contents may legitimately be empty when nothing else was on the table. `outcome` is an optional extra some decisions carry inline (real example: line 41, D22) instead of, or in addition to, a separate negative_result/positive_result line.",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "decision" },
+        "what": { "$ref": "#/$defs/what" },
+        "id": { "type": "string", "minLength": 1 },
+        "by": { "$ref": "#/$defs/by" },
+        "why": { "type": "string", "minLength": 1 },
+        "alternatives": { "type": "array", "items": { "type": "string" } },
+        "outcome": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "id", "by", "why", "alternatives"],
+      "additionalProperties": false
+    },
+
+    "negative_result": {
+      "type": "object",
+      "description": "It did not work -- needs outcome. `result_of` (pointing back at a decision id) is the normal case (9 of 10 real entries carry it) but is NOT required by the doc-ecosystem convention and one real entry (line 31, following D21's review) omits it -- this schema follows the real file and the real convention over the task brief that first proposed result_of as mandatory for this kind.",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "negative_result" },
+        "what": { "$ref": "#/$defs/what" },
+        "outcome": { "type": "string", "minLength": 1 },
+        "result_of": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "outcome"],
+      "additionalProperties": false
+    },
+
+    "positive_result": {
+      "type": "object",
+      "description": "It worked -- needs outcome. `result_of` is optional, same reasoning as negative_result. Not yet used in this repository's logbook.jsonl (0 entries as of 2026-09-20); kept because it is a known kind of the doc-ecosystem convention.",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "positive_result" },
+        "what": { "$ref": "#/$defs/what" },
+        "outcome": { "type": "string", "minLength": 1 },
+        "result_of": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "outcome"],
+      "additionalProperties": false
+    },
+
+    "correction": {
+      "type": "object",
+      "description": "An earlier entry was wrong -- needs corrects. Matches the one correction line in logbook.jsonl (line 23, correcting a commit message, not another logbook line -- `corrects` is free text here, not necessarily a logbook id).",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "correction" },
+        "what": { "$ref": "#/$defs/what" },
+        "corrects": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "corrects"],
+      "additionalProperties": false
+    },
+
+    "lesson": {
+      "type": "object",
+      "description": "Behaviour must change -- needs becomes_rule. Matches the one lesson line in logbook.jsonl (line 8).",
+      "properties": {
+        "ts": { "$ref": "#/$defs/ts" },
+        "kind": { "const": "lesson" },
+        "what": { "$ref": "#/$defs/what" },
+        "becomes_rule": { "type": "string", "minLength": 1 }
+      },
+      "required": ["ts", "kind", "what", "becomes_rule"],
+      "additionalProperties": false
+    }
+  }
+}

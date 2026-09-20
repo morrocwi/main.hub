@@ -743,6 +743,66 @@ def check_leaks(err):
     return n_local
 
 
+LOGBOOK = ROOT / "logbook.jsonl"
+LOGBOOK_SCHEMA = ROOT / "logbook.schema.json"
+TS_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def check_logbook(err):
+    """Validate every line of logbook.jsonl against logbook.schema.json (its `$defs`, one per `kind`,
+    are the single source of truth: required fields, allowed fields and the `ts` pattern all come
+    from that file, never duplicated here). No jsonschema dependency is added - `hub.py` stays at its
+    one stated dependency, PyYAML - so this reads the schema's own `required` / `properties` /
+    `enum` / `pattern` for each kind by hand, the same way the rest of this file hand-validates
+    graph/*.yaml against its own rules."""
+    if not LOGBOOK_SCHEMA.exists():
+        err("logbook.schema.json is missing")
+        return 0
+    schema = json.loads(LOGBOOK_SCHEMA.read_text(encoding="utf-8"))
+    defs = schema.get("$defs", {})
+    kinds = set(defs["kind"]["enum"])
+    ts_pattern = re.compile(defs["ts"]["pattern"])
+    by_enum = set(defs["by"]["enum"])
+    n = 0
+    if not LOGBOOK.exists():
+        err("logbook.jsonl is missing")
+        return 0
+    for i, raw in enumerate(LOGBOOK.read_text(encoding="utf-8").splitlines(), 1):
+        raw = raw.strip()
+        if not raw:
+            continue
+        n += 1
+        try:
+            obj = json.loads(raw)
+        except json.JSONDecodeError as e:
+            err(f"logbook.jsonl:{i}: not valid JSON ({e})")
+            continue
+        if not isinstance(obj, dict):
+            err(f"logbook.jsonl:{i}: must be a JSON object")
+            continue
+        kind = obj.get("kind")
+        if kind not in kinds:
+            err(f"logbook.jsonl:{i}: unknown kind {kind!r} - allowed: {sorted(kinds)}")
+            continue
+        spec = defs[kind]
+        required, allowed = spec["required"], set(spec["properties"])
+        missing = [f for f in required if f not in obj]
+        if missing:
+            err(f"logbook.jsonl:{i} ({kind}): missing required field(s) {missing}")
+        extra = sorted(set(obj) - allowed)
+        if extra:
+            err(f"logbook.jsonl:{i} ({kind}): field(s) not allowed for this kind: {extra}")
+        if not isinstance(obj.get("what"), str) or not obj["what"]:
+            err(f"logbook.jsonl:{i} ({kind}): \"what\" must be a non-empty string")
+        if "ts" in obj and (not isinstance(obj["ts"], str) or not ts_pattern.fullmatch(obj["ts"])):
+            err(f"logbook.jsonl:{i} ({kind}): \"ts\" must match {ts_pattern.pattern!r} (got {obj.get('ts')!r})")
+        if "by" in obj and obj["by"] not in by_enum:
+            err(f"logbook.jsonl:{i} ({kind}): \"by\" must be one of {sorted(by_enum)} (got {obj.get('by')!r})")
+        if "alternatives" in obj and not isinstance(obj["alternatives"], list):
+            err(f"logbook.jsonl:{i} ({kind}): \"alternatives\" must be a list (may be empty)")
+    return n
+
+
 def cmd_check(args):
     d, errors, warnings = load(), [], []
     if not d["lock"]:
@@ -756,6 +816,7 @@ def cmd_check(args):
     check_plugins(d, errors.append, args.workspace, args.remote)
     check_generated(d, errors.append)
     check_modes(errors.append)
+    n_log = check_logbook(errors.append)
     n_local = check_leaks(errors.append)
     if args.strict:
         errors += [f"(strict) {w}" for w in warnings]
@@ -766,6 +827,7 @@ def cmd_check(args):
     mode = "workspace" if args.workspace else "remote" if args.remote else "structure-only (pins NOT re-verified)"
     n_e = len(d["edges"]["edges"])
     print(f"check[{mode}]: {len(d['nodes']['repos'])} repositories, {n_e} edges, {len(d['routes']['routes'])} routes, "
+          f"{n_log} logbook entries, "
           f"{len(errors)} failures, {len(warnings)} warnings; leak scan used {n_local} organisation-specific patterns"
           + ("" if n_local else " (generic patterns only)"))
     sys.exit(1 if errors else 0)
