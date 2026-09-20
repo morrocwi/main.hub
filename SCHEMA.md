@@ -56,6 +56,123 @@ not a word that merely co-occurs. When `in` names a third repository the relatio
 neighbour, not by the repository itself; the node card shows where the evidence lives. Evidence shows the relation is *stated*; it cannot show the
 statement is *right*. That limit is permanent and is why independent review still matters.
 
+## Edge type decision rubric
+
+Which of `graph/edges.yaml`'s 16 declared types to use for a new edge - one line each: the type's own
+description (from `edges.yaml`), a real matching pair already in `graph/repos/*.yaml`, and one
+non-matching (would-be-wrong) case. Where a real past mistake in `logbook.jsonl` is on point for a
+type, it is used and named by its `result_of` decision id; every other non-matching example is
+**illustrative only** - a plausible mistake, not a recorded one - and is marked as such.
+
+- **`authority-for`** - a policy or map file names the repo as the source of record, or the primary
+  lens, for an axis. Matching: `toledo` -> `axis:mathematics`, evidence in `glosa`/`docs/ECOSYSTEM.md`
+  naming toledo the "Equation source of record". Non-matching (illustrative): a repository that merely
+  *uses* Toledo codes internally, with no map file anywhere naming it the source of record for an
+  axis - that repository is a consumer, not an authority, and gets no `authority-for` edge at all.
+
+- **`registers-into`** - repo carries its equations under Toledo codes. Matching:
+  `information-discrete-math` -> `toledo`, evidence in `docs/TOLEDO_CODES.md`: "was registered into
+  Toledo". Non-matching (illustrative): a repository whose README merely *mentions* Toledo in passing
+  ("see also Toledo") without stating that its own equations carry Toledo codes - that is a pointer,
+  not a registration, and would need a different type or no edge.
+
+- **`prescribes-registration-in`** - repo's method tells its users to register equations in the
+  target. Matching: `glosa` -> `toledo`, evidence in `methodology/P19_registration.md`'s registration
+  table naming Toledo. Non-matching (illustrative): a repository that itself registers equations into
+  Toledo (that is `registers-into`, the direction is reversed: the repo is the object being registered,
+  not the method telling others to register).
+
+- **`requires-gate`** - repo's agent file makes the named gate mandatory or names it as required
+  reading. Matching: `information-discrete-math` -> `gate:TG-RFG-01`, evidence in `AGENTS.md`: "##
+  Mandatory Toledo-Genesis reuse-first gate". Non-matching (illustrative): a repository whose README
+  merely explains what a gate is, in prose, without its own agent file making that gate mandatory for
+  work done in the repository - explaining a rule is not the same as being bound by it.
+
+- **`defers-status-to`** - repo does not decide theorem status or provenance itself; the target does.
+  Matching: `readout_genesis` -> `toledo`, evidence in `AGENTS.md`: "Toledo records status/provenance".
+  Non-matching (illustrative): a repository that both cites Toledo *and* independently labels its own
+  results "proven" or "theorem" in its own files - if a repo asserts status on its own authority
+  anywhere, it has not deferred that status to the target, whatever else it also says.
+
+- **`delegates-proof-to`** - repo states that generic finite kernels are proved in the target.
+  Matching: `readout_genesis` -> `information-discrete-math`, evidence in `AGENTS.md`: "IDM proves
+  generic finite kernels". Non-matching (illustrative): a repository that merely *reuses* a proved
+  kernel's conclusion without stating that the proof itself lives in the target - reuse of a result is
+  not the same claim as delegation of the proof obligation.
+
+- **`checks-ontology-against`** - repo checks ontology compatibility against the target. Matching:
+  `readout-problem-navier-stokes` -> `readout_genesis`, evidence in `AGENTS.md`: "is checked next for
+  ontology". Non-matching: this is exactly the mistake independent review caught in the reused
+  `dual-lane-epistemic-harness` -> `readout_universe` edge (`result_of: D21`, logbook line 39): the
+  target's own text called the borrowed material "a borrowed/analogue vocabulary", not an ontology
+  compatibility check, so `checks-ontology-against` (or `builds-on`) would have been the wrong type;
+  the edge was retyped to the type below instead.
+
+- **`imports-coq-from`** - target's Coq sources are imported with a provenance manifest. Matching:
+  `toledo` -> `readout_genesis`, evidence in `coq/readout_genesis/PROVENANCE.json`: "Files are imported
+  as public GitHub source". Non-matching (illustrative): a repository that cites another repository's
+  theorem in prose, with no `PROVENANCE.json`-style manifest and no Coq files actually copied in - a
+  citation is not an import, and this type is reserved for a real, checkable provenance record.
+
+- **`builds-on`** - a file states that the repo rests on the target's foundation or floor. Matching:
+  `readout_universe` -> `information-discrete-math`, evidence in `philosophy.md`: "The mandatory floor
+  for this". Non-matching: independent review dropped a `builds-on` edge from
+  `task-conditioned-6d-pose-stop` to `information-discrete-math` (`result_of: D20`, logbook line 37)
+  because the only evidence was "one thin, non-central parenthetical clause" - a passing mention is not
+  the same claim as resting on a foundation, and a thin clause does not carry the weight `builds-on`
+  asserts.
+
+- **`reads-shared-math-from`** - repo's agent file sends shared mathematics work to a document in the
+  target. Matching: `readout-problem-navier-stokes` -> `information-discrete-math`, evidence in
+  `AGENTS.md`: "If working on shared bridge mathematics, read". Non-matching (illustrative): a
+  repository whose agent file sends readers to the target for *ontology* questions, not shared
+  mathematics - that relation is `checks-ontology-against`, not this type; the target of the sentence
+  matters as much as the target repository.
+
+- **`declares-lineage-from`** - repo names the target at a pinned commit as the source lineage of a
+  component it ships; the component itself need not exist in the target. Matching: `birca` ->
+  `readout_genesis`, evidence in `compute/README.md`: "`morrocwi/readout_genesis`, pinned commit".
+  Non-matching (illustrative): a repository that imports the target's actual Coq files verbatim with a
+  provenance manifest - that stronger, file-for-file claim is `imports-coq-from`, not a lineage
+  declaration about a component that need not exist in the target.
+
+- **`holds-synced-copy-from`** - ONE named file in the repo is a synced copy of a document in the
+  target; the target holds the source of truth (says nothing about the rest of the repo). Matching:
+  `readout_universe` -> `readout_genesis`, evidence in
+  `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`: "if a mismatch is ever found, Appendix C
+  wins". Non-matching (illustrative): claiming this type for a whole repository because *one* file in
+  it is a synced mirror - the type is scoped to the one named file; nothing about the rest of the
+  repository follows from it.
+
+- **`companion-of`** - a file (possibly in a third repository) describes the repo as a companion of
+  the target. Matching: `zero-readout-certifies` -> `information-discrete-math`, evidence in
+  `glosa`/`docs/ECOSYSTEM.md`: "zero-readout-certifies (public)<br/>Coq companion to IDM". Non-matching
+  (illustrative): two repositories that merely cite each other's results without any file anywhere
+  describing them as companions - a mutual citation is not, by itself, a stated companion relation.
+
+- **`cites-proposal-from`** - repo names a Toledo proposals-lane entry as the derivation behind a
+  specific mechanism it runs; the proposal is not yet a Toledo theorem. Matching:
+  `task-conditioned-6d-pose-stop` -> `toledo`, evidence in `README.md`: "Toledo proposal
+  `PROP-DECAY-01`". Non-matching (illustrative): a repository that cites a Toledo entry which is
+  already a registered theorem (not a proposal) - that is ordinary equation reuse under the `equation`
+  route, not this type, which exists specifically for the proposals lane.
+
+- **`logged-diagnosis-in`** - repo records a diagnosis of one of its own findings as a project in the
+  target's case system. Matching: `task-conditioned-6d-pose-stop` -> `glosa`, evidence in `README.md`:
+  "A diagnosis recorded in glosa". Non-matching (illustrative): a repository whose README merely
+  recommends using glosa's methodology for future diagnoses, without a diagnosis of one of its own
+  findings actually existing there yet - a recommendation to use a case system is not a record filed in
+  it.
+
+- **`borrows-vocabulary-from`** - repo reuses a target's typed vocabulary by declared analogy, without
+  depending on the target's mechanism. Matching: `dual-lane-epistemic-harness` -> `readout_universe`,
+  evidence in `README.md`: "readout_universe`'s evidence-tier discipline" - this is the very edge
+  independent review retyped away from `builds-on` (`result_of: D21`, logbook line 39), because the
+  target's own text named the reuse a borrowed/analogue vocabulary rather than a structural dependency.
+  Non-matching: reusing this type for `readout_universe` -> `information-discrete-math`'s "mandatory
+  floor" language (logbook line 39's own point) would be wrong in the other direction - that edge
+  states a structural dependency, so it correctly stays `builds-on`.
+
 ## Pins
 
 `lock` pins the public default-branch state (`origin/<branch>`), never local work, so a pin is
